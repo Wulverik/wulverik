@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>The Promise You Broke — Chapter I of Wulverik</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+        :root {
+            --bg: #05060a;
+            --fg: #e4e4e4;
+            --accent: #c9a86b;
+            --accent-soft: rgba(201, 168, 107, 0.35);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            min-height: 100vh;
+            background: radial-gradient(circle at top, #151824 0, #05060a 55%, #020308 100%);
+            color: var(--fg);
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        }
+
+        .shell {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 32px 20px 56px;
+        }
+
+        /* Navigation */
+        .top-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 28px;
+        }
+
+        .brand a {
+            text-decoration: none;
+            font-size: 0.9rem;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--accent);
+            opacity: 0.9;
+        }
+
+        .brand a:hover {
+            opacity: 1;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 18px;
+            font-size: 0.85rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--fg);
+            opacity: 0.75;
+            transition: opacity 0.25s ease;
+        }
+
+        .nav-links a:hover {
+            opacity: 1;
+        }
+
+        a {
+            color: inherit;
+        }
+
+        h1 {
+            text-transform: uppercase;
+            letter-spacing: 0.14em;
+            color: var(--accent);
+            font-size: clamp(2rem, 4vw, 2.6rem);
+        }
+
+        .subtitle {
+            margin-top: 8px;
+            font-size: 1.02rem;
+            opacity: 0.85;
+        }
+
+        .divider {
+            margin: 26px 0 20px;
+            height: 1px;
+            background: linear-gradient(
+                to right,
+                transparent,
+                var(--accent-soft),
+                transparent
+            );
+        }
+
+        .section-title {
+            margin-top: 28px;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            font-size: 0.9rem;
+            color: var(--accent);
+        }
+
+        p {
+            line-height: 1.7;
+            font-size: 0.98rem;
+            opacity: 0.9;
+        }
+
+        .highlight {
+            margin-top: 14px;
+            padding: 10px 14px;
+            border-radius: 10px;
+            border: 1px solid rgba(255,255,255,0.06);
+            background: radial-gradient(circle at top left, rgba(255,255,255,0.05), rgba(0,0,0,0.75));
+            font-size: 0.9rem;
+        }
+
+        /* Video */
+        .video-wrapper {
+            margin: 22px 0 10px;
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 */
+            height: 0;
+        }
+
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 12px;
+            border: 1px solid rgba(255,255,255,0.08);
+        }
+
+        .yt-button {
+            display: inline-block;
+            margin-top: 6px;
+            padding: 9px 16px;
+            background: rgba(201, 168, 107, 0.2);
+            border: 1px solid var(--accent-soft);
+            border-radius: 8px;
+            text-decoration: none;
+            color: var(--fg);
+            font-size: 0.9rem;
+            transition: 0.25s ease;
+        }
+
+        .yt-button:hover {
+            background: rgba(201, 168, 107, 0.35);
+        }
+
+        /* Lyrics & breakdown */
+        .two-col {
+            display: grid;
+            grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.3fr);
+            gap: 24px;
+            margin-top: 12px;
+        }
+
+        @media (max-width: 780px) {
+            .two-col {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .lyrics-block p {
+            margin-bottom: 10px;
+            font-size: 0.96rem;
+        }
+
+        .lyrics-block strong {
+            display: block;
+            margin-bottom: 2px;
+        }
+
+        .breakdown-block p {
+            margin-bottom: 10px;
+            font-size: 0.95rem;
+        }
+
+        .breakdown-label {
+            font-weight: 600;
+            opacity: 0.95;
+        }
+
+        .footer-note {
+            margin-top: 32px;
+            font-size: 0.82rem;
+            opacity: 0.65;
+        }
+    </style>
+</head>
+<body>
+    <main class="shell">
+        <header class="top-nav">
+            <div class="brand">
+                <a href="/index.html">WULVERIK</a>
+            </div>
+            <nav class="nav-links">
+                <a href="/glitched-genius.html">Glitched Genius</a>
+                <a href="/wolfiepack.html">WolfiePack</a>
+                <a href="/lore-echoes.html">Lore &amp; Echoes</a>
+                <a href="/glitched-wolf.html">Glitched Wolf</a>
+                <a href="/about-wulverik.html">About Wulverik</a>
+            </nav>
+        </header>
+
+        <h1>The Promise You Broke</h1>
+        <p class="subtitle">
+            Chapter I of the Glitched Wolf’s journey — a song of fractured trust, truth, and becoming.
+        </p>
+
+        <div class="divider"></div>
+
+        <p>
+            This chapter was born from a broken bond — not to call anyone out, but to honor what it feels
+            like when loyalty is misread as “too much,” and truth is twisted into a lie. It is the moment
+            the Glitched Wolf realized that even the deepest hurt can become a spark.
+        </p>
+
+        <div class="video-wrapper">
+            <iframe 
+                src="https://www.youtube.com/embed/Ith5K8aDN2w"
+                title="The Promise You Broke - Glitched Genius (YouTube)"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen>
+            </iframe>
+        </div>
+
+        <p>
+            <a href="https://www.youtube.com/watch?v=Ith5K8aDN2w" target="_blank" class="yt-button">
+                ▶ Watch “The Promise You Broke” on YouTube
+            </a>
+        </p>
+
+        <p class="highlight">
+            You can listen, read along with the lyrics, or dive into the breakdown below to see how each
+            line ties into the Glitched Wolf’s story. Take what resonates. Leave what doesn’t. This realm
+            is here to make you feel less alone, not to tell you how to feel.
+        </p>
+
+        <h2 class="section-title">Lyrics</h2>
+
+        <section class="two-col">
+            <div class="lyrics-block">
+                <p>
+                    <strong>(Verse 1)</strong>
+                    You said you’d be my voice. When the world turned away.<br>
+                    I thought our friendship was something that would stay.<br>
+                    I trusted you with truth, gave light through the pain.<br>
+                    But you called my care obsession, like I was insane.
+                </p>
+
+                <p>
+                    <strong>(Pre-Chorus)</strong>
+                    You said I was wrong.<br>
+                    That my friendship was chained.<br>
+                    But what you called clingy was me fighting the pain.<br>
+                    We were going through.<br>
+                    I cared and checked in on you.
+                </p>
+
+                <p>
+                    <strong>(Chorus – with Drop)</strong>
+                    You said I was lying, but my heart stayed true.<br>
+                    You twisted my words till I barely knew.<br>
+                    You called it clingy, I called it loyal.<br>
+                    Now the ones who whispered the lies, are in the dark.<br><br>
+
+                    You sacrificed friendship.<br>
+                    Someone who was true.<br>
+                    Next time, you should get the full story through.<br>
+                    Ask me for proof before you choose your view.
+                </p>
+
+                <p>
+                    <strong>(Verse 2)</strong>
+                    I gave you my fears, but you let them drown.<br>
+                    You smiled through the cracks while tearing me down.<br>
+                    I held on tight through your stormy disguise.<br>
+                    But you cut the rope and left me to rise.
+                </p>
+
+                <p>
+                    <strong>(Bridge)</strong>
+                    You made me doubt my world, my voice, my spark.<br>
+                    But I’m still standing.<br>
+                    Rebuilding from dark.
+                </p>
+
+                <p>
+                    <strong>(Final Chorus)</strong>
+                    You said I was lying, but my truth remains.<br>
+                    I’m done with your story, your guilt, your chains.<br>
+                    You said you’d be my voice.<br>
+                    Now I sing alone.<br>
+                    Because of you, your mark is now my spark.
+                </p>
+
+                <p>
+                    <strong>(Outro – The Promise)</strong>
+                    I will keep my promise, though we’ve drifted apart.<br>
+                    I will leave the door open, it’s carved in my heart.<br>
+                    The pain still whispers, but I’ll bear the mark.<br>
+                    I am keeping my promise.<br>
+                    A candle lit in the dark.
+                </p>
+            </div>
+
+            <div class="breakdown-block">
+                <h2 class="section-title">Meaning &amp; Echoes</h2>
+
+                <p>
+                    <span class="breakdown-label">“You said you’d be my voice. When the world turned away.”</span><br>
+                    Someone once promised to stand beside the Wolf — to defend him, speak for him, and understand
+                    him when others did not. It felt like loyalty. It felt like safety.
+                </p>
+
+                <p>
+                    <span class="breakdown-label">“I thought our friendship was something that would stay.”</span><br>
+                    This is the hope that a rare connection will last — the belief that this bond is different.
+                </p>
+
+                <p>
+                    <span class="breakdown-label">“I trusted you with truth… But you called my care obsession.”</span><br>
+                    Vulnerability meets misinterpretation. Care is twisted into “clinginess,” loyalty into
+                    something unstable. The hurt begins here.
+                </p>
+
+                <p>
+                    <span class="breakdown-label">Pre-Chorus — “what you called clingy was me fighting the pain…”</span><br>
+                    The Wolf wasn’t clinging out of weakness, but out of empathy — trying to support someone
+                    they cared about through shared pain.
+                </p>
+
+                <p>
+                    <span class="breakdown-label">“You said I was lying, but my heart stayed true.”</span><br>
+                    False accusations cut deeper than distance. This line holds the ache of being called a liar
+                    when you know you’ve been honest.
+                </p>
+
+                <p>
+                    <span class="breakdown-label">“You twisted my words till I barely knew.”</span><br>
+                    This reflects gaslighting energy — when your reality gets twisted so much that you start to
+                    doubt your own perception.
+                </p>
+
+                <p>
+                    <span class="breakdown-label">“You called it clingy, I called it loyal.”</span><br>
+                    The core contrast of the song: two different interpretations of the same behavior. One sees
+                    burden. The other sees devotion.
+                </p>
+
+                <p>
+                    <span class="breakdown-label">“Now the ones who whispered the lies, are in the dark.”</span><br>
+                    Rumors and whispers feel powerful in the moment, but they don’t last. Truth doesn’t always
+                    shout, but it survives.
+                </p>
+
+                <p>
+                    <span class="breakdown-label">“You sacrificed friendship. Someone who was true.”</span><br>
+                    The pain of realizing that the other person chose one-sided stories over the relationship you
+                    were actually living.
+                </p>
+
+                <p>
+                    <span class="breakdown-label">“I gave you my fears, but you let them drown.”</span><br>
+                    Opening up about fears and trauma — and watching them sink because the other person couldn’t
+                    or wouldn’t hold them.
+                </p>
+
+                <p>
+                    <span class="breakdown-label">“You smiled through the cracks while tearing me down.”</span><br>
+                    A gentle mask hiding sharp edges. The disconnect between how someone presents and how their
+                    choices actually feel.
+                </p>
+
+                <p>
+                    <span class="breakdown-label">“But you cut the rope and left me to rise.”</span><br>
+                    The turning point. Being abandoned hurts — but it also forces growth. The Wolf learns to stand
+                    without their support.
+                </p>
+
+                <p>
+                    <span class="breakdown-label">Bridge — “You made me doubt my world, my voice, my spark.”</span><br>
+                    When someone you trust questions your reality, it can shake your sense of self. This line
+                    names that collapse.
+                </p>
+
+                <p>
+                    <span class="breakdown-label">“But I’m still standing. Rebuilding from dark.”</span><br>
+                    This is the rise — quiet, stubborn resilience. Not pretending it didn’t hurt, but choosing to
+                    rebuild anyway.
+                </p>
+
+                <p>
+                    <span class="breakdown-label">“Because of you, your mark is now my spark.”</span><br>
+                    The alchemy of pain. The wound becomes fuel. The mark they left becomes the fire that drives
+                    the Wolf forward.
+                </p>
+
+                <p>
+                    <span class="breakdown-label">Outro — “I will keep my promise… A candle lit in the dark.”</span><br>
+                    The Wolf remains loyal to who he is, even if the other person is gone. The door is open, but
+                    he won’t knock. The candle symbolizes a promise kept without expectation — a quiet act of
+                    love, and a refusal to let hate win.
+                </p>
+            </div>
+        </section>
+
+        <p class="footer-note">
+            “The Promise You Broke” is not about revenge — it’s about recognition. If you’ve ever been painted as
+            “too much,” “too clingy,” or “the villain” for caring deeply, this chapter is for you. Your loyalty
+            was never the problem. The wrong story was.
+        </p>
+    </main>
+</body>
+</html>
