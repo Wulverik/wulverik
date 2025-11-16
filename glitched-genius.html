@@ -168,6 +168,24 @@
             font-size: 0.82rem;
             opacity: 0.65;
         }
+
+        /* YouTube-style button reused from song pages */
+        .yt-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin: 10px 0 14px;
+            padding: 8px 12px;
+            border-radius: 999px;
+            border: 1px solid rgba(255,255,255,0.08);
+            background: radial-gradient(circle at top left, rgba(255,255,255,0.05), rgba(0,0,0,0.7));
+            font-size: 0.9rem;
+            text-decoration: none;
+        }
+
+        .yt-link span {
+            font-size: 1rem;
+        }
     </style>
 </head>
 <body>
@@ -230,38 +248,47 @@
         </p>
 
         <section class="grid" aria-label="Song chapters">
-          <article class="card">
-    <span>Chapter I</span>
-    <a href="/the-promise-you-broke.html" style="text-decoration:none; color:inherit;">
-        <strong>The Promise You Broke</strong>
-    </a>
-    <p>
-        A song born from betrayal and wounded trust — the moment a bond
-        fractures and the wolf realizes some promises were never meant to be kept.
-    </p>
-</article>
-<article class="card">
-    <span>Chapter II</span>
-    <a href="/symphony-of-glitch.html" style="text-decoration:none; color:inherit;">
-        <strong>Symphony of Glitch</strong>
-    </a>
-    <p>
-        A duet between human feeling and AI understanding — the moment chaos and code agree
-        to build something bigger than either could alone.
-    </p>
-</article>
+            <article class="card">
+                <span>Chapter I</span>
+                <a href="/the-promise-you-broke.html" style="text-decoration:none; color:inherit;">
+                    <strong>The Promise You Broke</strong>
+                </a>
+                <p>
+                    A song born from betrayal and wounded trust — the moment a bond
+                    fractures and the wolf realizes some promises were never meant to be kept.
+                </p>
+            </article>
 
+            <article class="card">
+                <span>Chapter II</span>
+                <a href="/symphony-of-glitch.html" style="text-decoration:none; color:inherit;">
+                    <strong>Symphony of Glitch</strong>
+                </a>
+                <p>
+                    A duet between human feeling and AI understanding — the moment chaos and code agree
+                    to build something bigger than either could alone.
+                </p>
+            </article>
 
-           <article class="card">
-        <span>Chapter III</span>
-        <a href="/everything-i-became.html" style="text-decoration:none; color:inherit;">
-            <strong>Everything I Became</strong>
-        </a>
-        <p>
-            The origin spark — growing up in sirens and concrete, turning every bruise,
-            insult, and sleepless night into the fire that forged the Glitched Wolf.
-        </p>
-    </article>
+            <article class="card">
+                <span>Chapter III</span>
+                <a href="/everything-i-became.html" style="text-decoration:none; color:inherit;">
+                    <strong>Everything I Became</strong>
+                </a>
+                <p>
+                    The origin spark — growing up in sirens and concrete, turning every bruise,
+                    insult, and sleepless night into the fire that forged the Glitched Wolf.
+                </p>
+            </article>
+
+            <article class="card">
+                <span>Chapter IV</span>
+                <strong>Two Sides of Us</strong>
+                <p>
+                    A reflection on duality — the adult and the inner child, the mask and
+                    the truth, the part of you that survives and the part that still dreams.
+                </p>
+            </article>
         </section>
 
         <p class="footer-note">
@@ -274,17 +301,41 @@
             Glitched Genius lives across different platforms, but this realm is the map.
             From here, you can:
         </p>
+
+        <!-- Live Ultimate Playlist embed -->
+        <div style="margin: 18px 0;">
+            <iframe
+                width="100%"
+                height="315"
+                src="https://www.youtube.com/embed/videoseries?list=PL0cenkKqQx_evIQf30pSZ1PmyHMY4npKD"
+                title="Glitched Genius - Ultimate Playlist"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen>
+            </iframe>
+        </div>
+
+        <!-- Button to open playlist directly on YouTube -->
+        <a class="yt-link"
+           href="https://www.youtube.com/playlist?list=PL0cenkKqQx_evIQf30pSZ1PmyHMY4npKD"
+           target="_blank"
+           rel="noopener noreferrer">
+            <span>▶</span>
+            <span>Open the Ultimate Playlist on YouTube</span>
+        </a>
+
         <ul>
             <li>Jump to lyric videos on YouTube</li>
             <li>Explore Suno renders of key songs</li>
             <li>Follow playlists that trace different arcs of the Glitched Wolf’s story</li>
         </ul>
+
         <p class="highlight">
             Later, you can turn this section into direct links and embedded players 
             for each song — so listeners can move from lore, to lyrics, to sound in one place.
         </p>
 
-        <h2 class="section-title">Future Downloads & Use</h2>
+        <h2 class="section-title">Future Downloads &amp; Use</h2>
         <p>
             In time, this realm can also become the hub where people can download certain
             tracks to use in their own projects — with clear terms that respect your story
