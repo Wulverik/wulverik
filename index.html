@@ -6,7 +6,45 @@
     <title>Wulverik — The Evolving Realm of the Glitched Wolf</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <style>
-        :root {
+        :root {/* Navigation */
+.top-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 28px;
+}
+
+.brand a {
+    text-decoration: none;
+    font-size: 0.9rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    opacity: 0.9;
+}
+
+.brand a:hover {
+    opacity: 1;
+}
+
+.nav-links {
+    display: flex;
+    gap: 18px;
+    font-size: 0.85rem;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--fg);
+    opacity: 0.75;
+    transition: opacity 0.25s ease;
+}
+
+.nav-links a:hover {
+    opacity: 1;
+}
+
             --bg: #05060a;
             --fg: #e4e4e4;
             --accent: #c9a86b;
