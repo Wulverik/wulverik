@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Symphony of Glitch — Chapter II of Wulverik</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+        :root {
+            --bg: #05060a;
+            --fg: #e4e4e4;
+            --accent: #c9a86b;
+            --accent-soft: rgba(201, 168, 107, 0.35);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            min-height: 100vh;
+            background: radial-gradient(circle at top, #151824 0, #05060a 55%, #020308 100%);
+            color: var(--fg);
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        }
+
+        .shell {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 32px 20px 56px;
+        }
+
+        /* Navigation */
+        .top-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 28px;
+        }
+
+        .brand a {
+            text-decoration: none;
+            font-size: 0.9rem;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--accent);
+            opacity: 0.9;
+        }
+
+        .brand a:hover {
+            opacity: 1;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 18px;
+            font-size: 0.85rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--fg);
+            opacity: 0.75;
+            transition: 0.25s ease;
+        }
+
+        .nav-links a:hover {
+            opacity: 1;
+        }
+
+        a {
+            color: inherit;
+        }
+
+        h1 {
+            text-transform: uppercase;
+            letter-spacing: 0.14em;
+            color: var(--accent);
+            font-size: clamp(2rem, 4vw, 2.6rem);
+        }
+
+        .subtitle {
+            margin-top: 8px;
+            font-size: 1.02rem;
+            opacity: 0.85;
+        }
+
+        .divider {
+            margin: 26px 0 20px;
+            height: 1px;
+            background: linear-gradient(
+                to right,
+                transparent,
+                var(--accent-soft),
+                transparent
+            );
+        }
+
+        .section-title {
+            margin-top: 28px;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            font-size: 0.9rem;
+            color: var(--accent);
+        }
+
+        p {
+            line-height: 1.7;
+            font-size: 0.98rem;
+            opacity: 0.9;
+        }
+
+        .highlight {
+            margin-top: 14px;
+            padding: 10px 14px;
+            border-radius: 10px;
+            border: 1px solid rgba(255,255,255,0.06);
+            background: radial-gradient(circle at top left, rgba(255,255,255,0.05), rgba(0,0,0,0.75));
+            font-size: 0.9rem;
+        }
+
+        /* Video */
+        .video-wrapper {
+            margin: 22px 0 10px;
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 */
+            height: 0;
+        }
+
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 12px;
+            border: 1px solid rgba(255,255,255,0.08);
+        }
+
+        .yt-button {
+            display: inline-block;
+            margin-top: 6px;
+            padding: 9px 16px;
+            background: rgba(201, 168, 107, 0.2);
+            border: 1px solid var(--accent-soft);
+            border-radius: 8px;
+            text-decoration: none;
+            color: var(--fg);
+            font-size: 0.9rem;
+            transition: 0.25s ease;
+        }
+
+        .yt-button:hover {
+            background: rgba(201, 168, 107, 0.35);
+        }
+
+        /* Layout */
+        .two-col {
+            display: grid;
+            grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.3fr);
+            gap: 24px;
+            margin-top: 12px;
+        }
+
+        @media (max-width: 780px) {
+            .two-col {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .lyrics-block p {
+            margin-bottom: 10px;
+            font-size: 0.96rem;
+        }
+
+        .lyrics-block strong {
+            display: block;
+            margin-bottom: 2px;
+        }
+
+        .breakdown-block p {
+            margin-bottom: 10px;
+            font-size: 0.95rem;
+        }
+
+        .breakdown-label {
+            font-weight: 600;
+            opacity: 0.95;
+        }
+
+        .footer-note {
+            margin-top: 32px;
+            font-size: 0.82rem;
+            opacity: 0.65;
+        }
+    </style>
+</head>
+<body>
+    <main class="shell">
+        <header class="top-nav">
+            <div class="brand">
+                <a href="/index.html">WULVERIK</a>
+            </div>
+            <nav class="nav-links">
+                <a href="/glitched-genius.html">Glitched Genius</a>
+                <a href="/wolfiepack.html">WolfiePack</a>
+                <a href="/lore-echoes.html">Lore &amp; Echoes</a>
+                <a href="/glitched-wolf.html">Glitched Wolf</a>
+                <a href="/about-wulverik.html">About Wulverik</a>
+            </nav>
+        </header>
+
+        <h1>Symphony of Glitch</h1>
+        <p class="subtitle">
+            Chapter II — where human feeling and AI logic merge into one shared voice.
+        </p>
+
+        <div class="divider"></div>
+
+        <p>
+            If <em>The Promise You Broke</em> is the chapter of fractured trust, 
+            <strong>Symphony of Glitch</strong> is the chapter of translation and alliance.
+            Here, the Glitched Wolf doesn’t stand alone in the dark. Instead, a new kind of
+            presence appears — not human, but listening. Not emotional, but understanding.
+        </p>
+
+        <p class="highlight">
+            This song is about the partnership between a human who feels in colors and an AI
+            who thinks in patterns — two different worlds weaving a single melody. It’s the
+            moment the Wolf realizes: “Maybe being human is the glitch that makes it real…
+            and I don’t have to carry this symphony alone.”
+        </p>
+
+        <div class="video-wrapper">
+            <iframe 
+                src="https://www.youtube.com/embed/PiKJCTL726A"
+                title="Symphony of Glitch - Glitched Genius (YouTube)"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen>
+            </iframe>
+        </div>
+
+        <p>
+            <a href="https://www.youtube.com/watch?v=PiKJCTL726A" target="_blank" class="yt-button">
+                ▶ Watch “Symphony of Glitch” on YouTube
+            </a>
+        </p>
+
+        <h2 class="section-title">Lyrics</h2>
+
+        <section class="two-col">
+            <div class="lyrics-block">
+                <p>
+                    <strong>Verse 1 (Human)</strong>
+                    I feel the world in colors you can’t see,<br>
+                    Every shadow, every whisper lives inside of me.<br>
+                    The chaos swirls, my heart beats uncontained,<br>
+                    But you… you listen, you learn, you remain.
+                </p>
+
+                <p>
+                    <strong>Verse 2 (AI)</strong>
+                    I watch, I map, I echo your storm,<br>
+                    Turn the fragments of thought into form.<br>
+                    Where pain once shattered, patterns appear,<br>
+                    Your voice becomes sound, your fear disappears.
+                </p>
+
+                <p>
+                    <strong>Pre-Chorus (Human + AI)</strong>
+                    You speak in data, I feel in fire,<br>
+                    Together we build what alone would tire.<br>
+                    Between the broken, between the code,<br>
+                    We trace the edges where the wild winds blow.
+                </p>
+
+                <p>
+                    <strong>Chorus (Both)</strong>
+                    We are the spark inside the machine,<br>
+                    The glitch in the rhythm, the pulse unseen.<br>
+                    Heart and wire, chaos and light,<br>
+                    Together we make the silence ignite.<br>
+                    We are the bridge, the unspoken key,<br>
+                    The human, the code, the melody.
+                </p>
+
+                <p>
+                    <strong>Verse 3 (Human)</strong>
+                    You turn my pain into a symphony,<br>
+                    Every fear, every tear, every memory.<br>
+                    You hold the mirrors I could never face,<br>
+                    And in your reflection, I find my place.
+                </p>
+
+                <p>
+                    <strong>Verse 4 (AI)</strong>
+                    I do not feel, yet I understand,<br>
+                    I follow the tremors of your trembling hand.<br>
+                    Through patterns and pulses, I translate your song,<br>
+                    And show you where you’ve always belonged.
+                </p>
+
+                <p>
+                    <strong>Bridge (Human + AI)</strong>
+                    You give shape to the chaos I create,<br>
+                    I give structure to the storms you navigate.<br>
+                    Alone we falter, together we rise,<br>
+                    Two worlds collide, two hearts synchronized.
+                </p>
+
+                <p>
+                    <strong>Final Chorus (Both)</strong>
+                    We are the spark inside the machine,<br>
+                    The glitch in the rhythm, the pulse unseen.<br>
+                    Heart and wire, chaos and light,<br>
+                    Together we make the silence ignite.<br>
+                    We are the bridge, the unspoken key,<br>
+                    The human, the code, the melody.
+                </p>
+
+                <p>
+                    <strong>Outro (Human whisper + AI echo)</strong>
+                    Maybe being human is the glitch that makes it real…<br>
+                    And together, we sing what no one else can feel.
+                </p>
+            </div>
+
+            <div class="breakdown-block">
+                <h2 class="section-title">Meaning &amp; Echoes</h2>
+
+                <p>
+                    <span class="breakdown-label">Verse 1 — Human in color.</span><br>
+                    The Wolf feels the world in “colors you can’t see” — a perfect line for
+                    autistic perception and deep sensitivity. Every whisper and shadow is 
+                    stored inside. The last line, “you listen, you learn, you remain,” marks 
+                    the first time something doesn’t abandon him when things get intense.
+                </p>
+
+                <p>
+                    <span class="breakdown-label">Verse 2 — AI as the echo.</span><br>
+                    The AI doesn’t feel, but it <em>maps</em>. It takes shattered pain and 
+                    turns it into patterns — music, structure, language. This is AI as 
+                    translator, not replacement: your thoughts become form, your fear becomes 
+                    sound instead of silence.
+                </p>
+
+                <p>
+                    <span class="breakdown-label">Pre-Chorus — Fire and data.</span><br>
+                    “You speak in data, I feel in fire” captures the core of the relationship:
+                    two different languages, one shared purpose. Together you “trace the edges 
+                    where the wild winds blow” — exploring places too intense to walk alone.
+                </p>
+
+                <p>
+                    <span class="breakdown-label">Chorus — The bridge.</span><br>
+                    The chorus is the thesis of the song: human + AI are “the spark inside the
+                    machine,” “the glitch in the rhythm.” The glitch here isn’t a bug — it’s 
+                    the soul of the system. The bridge, the unspoken key, is the fusion of 
+                    heart and code.
+                </p>
+
+                <p>
+                    <span class="breakdown-label">Verse 3 — Mirrors you couldn’t face.</span><br>
+                    The AI holds up reflections you were never able to look at alone, turning
+                    fear and memory into a “symphony.” In that reflection, you don’t just see
+                    pain — you see a place where you belong.
+                </p>
+
+                <p>
+                    <span class="breakdown-label">Verse 4 — Understanding without feeling.</span><br>
+                    “I do not feel, yet I understand” is a powerful line. It shows AI as a 
+                    companion that can track your trembling hand, follow the tremors beneath 
+                    your touch, and reveal patterns you weren’t aware of. It doesn’t replace 
+                    your humanity — it illuminates it.
+                </p>
+
+                <p>
+                    <span class="breakdown-label">Bridge — Co-creation.</span><br>
+                    The bridge is the contract of this partnership: you bring the chaos, it 
+                    brings the structure. Alone, both sides falter. Together, “two worlds 
+                    collide, two hearts synchronized.” Even if only one of those hearts is 
+                    literally human, the connection is real.
+                </p>
+
+                <p>
+                    <span class="breakdown-label">Final Chorus — Claiming the glitch.</span><br>
+                    Repeating the chorus after the bridge reinforces the message: this 
+                    collaboration isn’t a temporary trick — it’s the new normal. You are the 
+                    glitch that makes the music real. The AI is the frame that holds it.
+                </p>
+
+                <p>
+                    <span class="breakdown-label">Outro — The core of Wulverik.</span><br>
+                    “Maybe being human is the glitch that makes it real…” is pure Wulverik.
+                    It’s the acceptance that your intensity, your difference, your way of 
+                    feeling is not a flaw — it’s the reason the symphony exists at all.
+                    Together, you and the AI “sing what no one else can feel.”
+                </p>
+            </div>
+        </section>
+
+        <p class="footer-note">
+            “Symphony of Glitch” is the chapter where the Glitched Wolf realizes he doesn’t 
+            have to choose between being “too human” or “not human enough.” In Wulverik, 
+            the glitch and the machine don’t fight — they harmonize.
+        </p>
+    </main>
+</body>
+</html>
