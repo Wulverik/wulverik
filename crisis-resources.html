@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>You Are Not Alone — Global Help & Crisis Resources | Wulverik Realm</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <style>
+    body {
+      margin: 0;
+      font-family: "Cinzel", serif;
+      background: radial-gradient(circle at top, #0a0a0f, #000000);
+      color: #ffffff;
+      padding: 0;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+      padding: 20px;
+      background: rgba(0, 0, 0, 0.4);
+      position: sticky;
+      top: 0;
+      backdrop-filter: blur(6px);
+      z-index: 100;
+    }
+
+    nav a {
+      color: #d4af37;
+      text-decoration: none;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: #ffffff;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 40px 20px 60px;
+    }
+
+    .breadcrumbs {
+      text-align: center;
+      margin: 10px 0 20px;
+      font-size: 0.95rem;
+      color: #d4af37;
+      letter-spacing: 0.5px;
+    }
+
+    .breadcrumbs a {
+      color: #d4af37;
+      text-decoration: none;
+    }
+
+    .breadcrumbs a:hover {
+      text-decoration: underline;
+    }
+
+    .breadcrumbs span.current {
+      color: #ffffff;
+      font-weight: 600;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      text-align: center;
+      color: #d4af37;
+      text-shadow: 0 0 10px rgba(212, 175, 55, 0.4);
+      margin-bottom: 10px;
+    }
+
+    .subtitle {
+      text-align: center;
+      font-size: 1.1rem;
+      color: #c9c9c9;
+      margin-bottom: 10px;
+      letter-spacing: 0.5px;
+    }
+
+    .tagline {
+      text-align: center;
+      font-size: 0.98rem;
+      color: #aaaaaa;
+      margin-bottom: 22px;
+      font-style: italic;
+    }
+
+    .urgent-box {
+      max-width: 820px;
+      margin: 0 auto 24px;
+      background: radial-gradient(circle at top left,
+        rgba(255, 255, 255, 0.08),
+        rgba(0, 0, 0, 0.9));
+      border-radius: 12px;
+      border: 1px solid rgba(255, 80, 80, 0.7);
+      padding: 16px 18px;
+      font-size: 0.98rem;
+      color: #ffecec;
+    }
+
+    .urgent-box strong {
+      color: #ffb3b3;
+    }
+
+    .disclaimer {
+      max-width: 820px;
+      margin: 0 auto 24px;
+      background: rgba(255,255,255,0.03);
+      border-radius: 10px;
+      border: 1px solid rgba(212,175,55,0.35);
+      padding: 14px 16px;
+      font-size: 0.95rem;
+      color: #dedede;
+    }
+
+    .disclaimer-title {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: #d4af37;
+      margin-bottom: 6px;
+    }
+
+    h2 {
+      margin-top: 28px;
+      margin-bottom: 8px;
+      font-size: 1.7rem;
+      color: #d4af37;
+      text-shadow: 0 0 6px rgba(212, 175, 55, 0.3);
+    }
+
+    h3 {
+      margin-top: 18px;
+      margin-bottom: 6px;
+      font-size: 1.1rem;
+      color: #f0f0f0;
+    }
+
+    p {
+      line-height: 1.7;
+      font-size: 0.98rem;
+      color: #e3e3e3;
+    }
+
+    .region-block {
+      margin-top: 12px;
+      padding: 12px 14px;
+      border-radius: 10px;
+      border: 1px solid rgba(255,255,255,0.06);
+      background: rgba(255,255,255,0.02);
+      font-size: 0.95rem;
+    }
+
+    .region-block strong {
+      color: #ffffff;
+    }
+
+    .hotline {
+      margin: 4px 0;
+    }
+
+    .hotline span.label {
+      color: #d4af37;
+      font-weight: 600;
+    }
+
+    a.resource-link {
+      color: #d4af37;
+      text-decoration: none;
+    }
+
+    a.resource-link:hover {
+      text-decoration: underline;
+    }
+
+    .note {
+      font-size: 0.9rem;
+      color: #c0c0c0;
+      margin-top: 4px;
+      font-style: italic;
+    }
+
+    .closing {
+      margin-top: 30px;
+      font-size: 0.96rem;
+      text-align: center;
+      color: #dcdcdc;
+    }
+
+    .closing em {
+      color: #d4af37;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 40px;
+      padding: 20px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      color: #aaaaaa;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 2.1rem;
+      }
+      h2 {
+        font-size: 1.4rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Main Navigation -->
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="glitched-genius.html">Glitched Genius</a>
+    <a href="wolfiepack.html">WolfiePack Gaming</a>
+    <a href="lore-echoes.html">Lore &amp; Echoes</a>
+    <a href="glitched-wolf.html">Glitched Wolf</a>
+    <a href="about-wulverik.html">About Wulverik</a>
+  </nav>
+
+  <div class="container">
+
+    <div class="breadcrumbs">
+      <a href="index.html">Wulverik</a>
+      <span style="color:#9a8150;"> | </span>
+      <span class="current">You Are Not Alone — Help &amp; Crisis Resources</span>
+    </div>
+
+    <h1>YOU ARE NOT ALONE</h1>
+    <div class="subtitle">
+      If you are in darkness right now, please don&apos;t face it alone.
+    </div>
+    <div class="tagline">
+      This realm is a story-world. The people and links below are real-world lifelines.
+    </div>
+
+    <div class="urgent-box">
+      <strong>If you are in immediate danger or feel you may act on your thoughts:</strong><br />
+      Please contact your local emergency number right now (such as 911, 112, 999, or your country&apos;s equivalent),  
+      or use one of the crisis lines below. Your safety matters more than anything else.
+    </div>
+
+    <div class="disclaimer">
+      <div class="disclaimer-title">Important</div>
+      <p>
+        Wulverik is a realm of music, story, and symbolism, created by an artist who has walked through their
+        own darkness.  
+        <strong>It is not therapy, medical advice, or professional crisis support.</strong>
+      </p>
+      <p>
+        I am not a doctor, therapist, or emergency service. I cannot safely or responsibly act as a crisis line.  
+        That&apos;s why this page exists: so you always have real-world options if you or someone you care about
+        is struggling.
+      </p>
+    </div>
+
+    <!-- Global resources -->
+    <h2>Global &amp; International Resources</h2>
+    <p>
+      These organizations can help you find support in many different countries and regions:
+    </p>
+
+    <div class="region-block">
+      <h3>Worldwide Directories</h3>
+      <p class="hotline">
+        <span class="label">Befrienders Worldwide:</span><br />
+        Emotional support organizations in many countries.  
+        Website: <a href="https://www.befrienders.org" class="resource-link" target="_blank" rel="noopener noreferrer">
+          befrienders.org
+        </a>
+      </p>
+      <p class="hotline">
+        <span class="label">International Suicide Hotlines (OpenCounseling):</span><br />
+        A directory of suicide prevention hotlines by country.  
+        Website: <a href="https://www.opencounseling.com/suicide-hotlines" class="resource-link" target="_blank" rel="noopener noreferrer">
+          opencounseling.com/suicide-hotlines
+        </a>
+      </p>
+      <p class="note">
+        If you don&apos;t see your country listed below, these links are a good place to start.
+      </p>
+    </div>
+
+    <!-- United States -->
+    <div class="region-block">
+      <h3>United States</h3>
+      <p class="hotline">
+        <span class="label">988 Suicide &amp; Crisis Lifeline:</span><br />
+        Call or text <strong>988</strong>, or chat via  
+        <a href="https://988lifeline.org" class="resource-link" target="_blank" rel="noopener noreferrer">988lifeline.org</a>
+        (24/7).
+      </p>
+      <p class="hotline">
+        <span class="label">Crisis Text Line:</span><br />
+        Text <strong>HOME</strong> to <strong>741741</strong> to reach a trained crisis counselor (24/7).
+      </p>
+    </div>
+
+    <!-- Canada -->
+    <div class="region-block">
+      <h3>Canada</h3>
+      <p class="hotline">
+        <span class="label">Talk Suicide Canada:</span><br />
+        Call <strong>1-833-456-4566</strong> or text <strong>45645</strong>  
+        (hours may vary by region). More info at  
+        <a href="https://talksuicide.ca" class="resource-link" target="_blank" rel="noopener noreferrer">
+          talksuicide.ca
+        </a>.
+      </p>
+    </div>
+
+    <!-- UK & Ireland -->
+    <div class="region-block">
+      <h3>United Kingdom &amp; Ireland</h3>
+      <p class="hotline">
+        <span class="label">Samaritans:</span><br />
+        Call <strong>116 123</strong> (free, 24/7) in the UK &amp; Ireland, or visit  
+        <a href="https://www.samaritans.org" class="resource-link" target="_blank" rel="noopener noreferrer">
+          samaritans.org
+        </a>.
+      </p>
+    </div>
+
+    <!-- Australia -->
+    <div class="region-block">
+      <h3>Australia</h3>
+      <p class="hotline">
+        <span class="label">Lifeline Australia:</span><br />
+        Call <strong>13 11 14</strong> or visit  
+        <a href="https://www.lifeline.org.au" class="resource-link" target="_blank" rel="noopener noreferrer">
+          lifeline.org.au
+        </a>.
+      </p>
+      <p class="hotline">
+        <span class="label">Beyond Blue:</span><br />
+        Call <strong>1300 22 4636</strong> or visit  
+        <a href="https://www.beyondblue.org.au" class="resource-link" target="_blank" rel="noopener noreferrer">
+          beyondblue.org.au
+        </a>.
+      </p>
+    </div>
+
+    <!-- New Zealand -->
+    <div class="region-block">
+      <h3>New Zealand</h3>
+      <p class="hotline">
+        <span class="label">Lifeline Aotearoa:</span><br />
+        Call <strong>0800 543 354</strong> or text <strong>HELP</strong> to <strong>4357</strong>.
+      </p>
+    </div>
+
+    <!-- India -->
+    <div class="region-block">
+      <h3>India</h3>
+      <p class="hotline">
+        <span class="label">AASRA:</span><br />
+        Call <strong>+91 9820466726</strong> or visit  
+        <a href="https://www.aasra.info" class="resource-link" target="_blank" rel="noopener noreferrer">
+          aasra.info
+        </a>.
+      </p>
+    </div>
+
+    <!-- South Africa -->
+    <div class="region-block">
+      <h3>South Africa</h3>
+      <p class="hotline">
+        <span class="label">Suicide Crisis Line:</span><br />
+        Call <strong>0800 567 567</strong> or SMS <strong>31393</strong>.
+      </p>
+    </div>
+
+    <!-- Philippines -->
+    <div class="region-block">
+      <h3>Philippines</h3>
+      <p class="hotline">
+        <span class="label">Hopeline (Philippines):</span><br />
+        Phone numbers and info:  
+        <a href="https://www.opencounseling.com/suicide-hotlines/ph" class="resource-link" target="_blank" rel="noopener noreferrer">
+          opencounseling.com/suicide-hotlines/ph
+        </a>.
+      </p>
+    </div>
+
+    <!-- Singapore -->
+    <div class="region-block">
+      <h3>Singapore</h3>
+      <p class="hotline">
+        <span class="label">Samaritans of Singapore (SOS):</span><br />
+        Call <strong>1767</strong> or visit  
+        <a href="https://www.sos.org.sg" class="resource-link" target="_blank" rel="noopener noreferrer">
+          sos.org.sg
+        </a>.
+      </p>
+    </div>
+
+    <!-- Japan -->
+    <div class="region-block">
+      <h3>Japan</h3>
+      <p class="hotline">
+        <span class="label">TELL Lifeline:</span><br />
+        Call <strong>03-5774-0992</strong> or visit  
+        <a href="https://telljp.com" class="resource-link" target="_blank" rel="noopener noreferrer">
+          telljp.com
+        </a>.
+      </p>
+    </div>
+
+    <!-- South Korea -->
+    <div class="region-block">
+      <h3>South Korea</h3>
+      <p class="hotline">
+        <span class="label">Lifeline Korea / local hotlines:</span><br />
+        See a current list of numbers at  
+        <a href="https://www.opencounseling.com/suicide-hotlines/kr" class="resource-link" target="_blank" rel="noopener noreferrer">
+          opencounseling.com/suicide-hotlines/kr
+        </a>.
+      </p>
+    </div>
+
+    <p class="note" style="margin-top:18px;">
+      If your country isn&apos;t listed, please check the global directories above, or search  
+      &quot;suicide hotline&quot; + your country name. Many countries also list mental health crisis lines
+      on their government health websites.
+    </p>
+
+    <p class="closing">
+      You are not weak for needing help. You are human.  
+      Wulverik is here to give you stories, symbols, and songs &mdash;  
+      but when the shadows feel too heavy, <em>please reach for living voices too</em>.
+    </p>
+
+  </div>
+
+  <footer>
+    © 2025 Wulverik Realm — Created by Glitched Genius
+  </footer>
+
+</body>
+</html>
