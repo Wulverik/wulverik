@@ -1,205 +1,193 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <title>Lore & Echoes — Codex of Wulverik</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <style>
-        :root {
-            --bg: #05060a;
-            --fg: #e4e4e4;
-            --accent: #c9a86b;
-            --accent-soft: rgba(201, 168, 107, 0.35);
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lore & Echoes | Wulverik Realm</title>
+  <link rel="stylesheet" href="styles.css" />
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+  <style>
+    body {
+      margin: 0;
+      font-family: "Cinzel", serif;
+      background: radial-gradient(circle at top, #0a0a0f, #000000);
+      color: #ffffff;
+      padding: 0;
+    }
 
-        body {
-            min-height: 100vh;
-            background: radial-gradient(circle at top, #151824 0, #05060a 55%, #020308 100%);
-            color: var(--fg);
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-        }
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+      padding: 20px;
+      background: rgba(0, 0, 0, 0.4);
+      position: sticky;
+      top: 0;
+      backdrop-filter: blur(6px);
+    }
 
-        .shell {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 32px 20px 56px;
-        }
+    nav a {
+      color: #d4af37;
+      text-decoration: none;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      transition: 0.3s;
+    }
 
-        /* Navigation */
-.top-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 16px;
-    margin-bottom: 28px;
-}
+    nav a:hover {
+      color: #ffffff;
+    }
 
-.brand a {
-    text-decoration: none;
-    font-size: 0.9rem;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--accent);
-    opacity: 0.9;
-}
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 40px 20px;
+    }
 
-.brand a:hover {
-    opacity: 1;
-}
+    h1 {
+      font-size: 3rem;
+      text-align: center;
+      color: #d4af37;
+      text-shadow: 0 0 10px rgba(212, 175, 55, 0.4);
+      margin-bottom: 10px;
+    }
 
-.nav-links {
-    display: flex;
-    gap: 18px;
-    font-size: 0.85rem;
-}
+    .subtitle {
+      text-align: center;
+      font-size: 1.2rem;
+      color: #c9c9c9;
+      margin-bottom: 50px;
+      letter-spacing: 0.5px;
+    }
 
-.nav-links a {
-    text-decoration: none;
-    color: var(--fg);
-    opacity: 0.75;
-    transition: opacity 0.25s ease;
-}
+    .section-title {
+      color: #d4af37;
+      font-size: 1.8rem;
+      margin-top: 50px;
+      text-shadow: 0 0 6px rgba(212, 175, 55, 0.3);
+    }
 
-.nav-links a:hover {
-    opacity: 1;
-}a {
-    color: inherit;
-}
+    .echo-entry {
+      border-left: 2px solid #d4af37;
+      padding-left: 20px;
+      margin: 30px 0;
+      background: rgba(255, 255, 255, 0.03);
+      padding: 20px;
+      border-radius: 8px;
+    }
 
+    .echo-title {
+      font-size: 1.4rem;
+      color: #d4af37;
+      margin-bottom: 10px;
+    }
 
-        }
-
-        h1 {
-            text-transform: uppercase;
-            letter-spacing: 0.14em;
-            color: var(--accent);
-            font-size: clamp(2rem, 4vw, 2.6rem);
-        }
-
-        .subtitle {
-            margin-top: 8px;
-            font-size: 1.05rem;
-            opacity: 0.85;
-        }
-
-        .divider {
-            margin: 26px 0 20px;
-            height: 1px;
-            background: linear-gradient(
-                to right,
-                transparent,
-                var(--accent-soft),
-                transparent
-            );
-        }
-
-        .section-title {
-            margin-top: 26px;
-            margin-bottom: 8px;
-            text-transform: uppercase;
-            letter-spacing: 0.12em;
-            font-size: 0.9rem;
-            color: var(--accent);
-        }
-
-        p {
-            line-height: 1.7;
-            font-size: 0.98rem;
-            opacity: 0.9;
-        }
-
-        .highlight {
-            margin-top: 12px;
-            padding: 10px 14px;
-            border-radius: 10px;
-            border: 1px solid rgba(255,255,255,0.06);
-            background: radial-gradient(circle at top left, rgba(255,255,255,0.05), rgba(0,0,0,0.75));
-            font-size: 0.9rem;
-        }
-
-        ul {
-            margin-top: 6px;
-            padding-left: 20px;
-            font-size: 0.95rem;
-            opacity: 0.9;
-        }
-
-        .footer-note {
-            margin-top: 32px;
-            font-size: 0.82rem;
-            opacity: 0.65;
-        }
-    </style>
+    footer {
+      text-align: center;
+      margin-top: 60px;
+      padding: 20px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      color: #aaaaaa;
+      font-size: 0.9rem;
+    }
+  </style>
 </head>
+
 <body>
-    <main class="shell">
-   <header class="top-nav">
-    <div class="brand">
-        <a href="/index.html">WULVERIK</a>
+
+  <!-- Navigation Bar -->
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="glitched-genius.html">Glitched Genius</a>
+    <a href="wolfiepack.html">WolfiePack Gaming</a>
+    <a href="lore-echoes.html">Lore & Echoes</a>
+    <a href="glitched-wolf.html">Glitched Wolf</a>
+    <a href="about-wulverik.html">About Wulverik</a>
+  </nav>
+
+  <!-- Main Content -->
+  <div class="container">
+
+    <h1>LORE & ECHOES</h1>
+    <div class="subtitle">
+      The Library of Memories &mdash; where echoes never die, they wait to be heard.
     </div>
-  <nav class="nav-links">
-    <a href="/glitched-genius.html">Glitched Genius</a>
-    <a href="/wolfiepack.html">WolfiePack</a>
-    <a href="/lore-echoes.html">Lore &amp; Echoes</a>
-    <a href="/glitched-wolf.html">Glitched Wolf</a>
-    <a href="/about-wulverik.html">About Wulverik</a>
-</nav>
 
-</header>
+    <p>
+      Deep in the realm of Wulverik lies a place untouched by time: 
+      <span style="color:#d4af37;">The Library of Memories</span>.  
+      A cathedral of shimmering gold threads and drifting shadows, where every emotion you've ever carried 
+      lives as a radiant echo.
+    </p>
 
+    <p>
+      Here, memories are not records.  
+      They are <em>beings</em> — living myth, living truth.  
+      Some whisper wisdom.  
+      Some warn.  
+      Some hunt.  
+      And some become the guideposts of your journey as the Glitched Wolf.
+    </p>
 
+    <h2 class="section-title">The Nature of an Echo</h2>
+    <p>
+      Every Echo begins as a fragment of feeling: a spark, a fracture, a tremor beneath the touch.  
+      When strong enough, it descends into the Library as a golden drop of sound.  
+      Over time, it forms into:
+    </p>
 
+    <ul>
+      <li>Echo-beasts</li>
+      <li>Echo-shadows</li>
+      <li>Echo-wolves</li>
+      <li>Echo-doors</li>
+      <li>Echo-songs</li>
+      <li>Echo-masks</li>
+    </ul>
 
-        <h1>Lore & Echoes</h1>
-        <p class="subtitle">
-            The Codex of Wulverik — where memory, myth, and truth are written.
-        </p>
+    <p>
+      These become the landmarks and guardians of your inner mythology.
+    </p>
 
-        <div class="divider"></div>
+    <h2 class="section-title">The First Door</h2>
+    <p>
+      Every journey into the Library begins with a Door born from a defining wound.  
+      Yours opened on the day of the Broken Promise &mdash; the first betrayal that echoed deep enough 
+      to carve a doorway through the shadows.  
+    </p>
 
-        <p>
-            Lore &amp; Echoes is where the Glitched Wolf’s story is kept. 
-            This realm holds the memories behind the music, the weight of old scars, 
-            the sparks of healing, and the way an autistic mind experiences a world 
-            that never stops humming.
-        </p>
+    <p>
+      This moment formed your first major Echo:
+      <span style="color:#d4af37;">The Broken Promise</span>.
+    </p>
 
-        <p class="highlight">
-            Here, you’ll share the echoes behind your songs — the friendships that 
-            changed you, the betrayals that shook you, the quiet victories, and the 
-            moments where you refused to let the world turn your heart to stone.
-        </p>
+    <h2 class="section-title">Echo Archive</h2>
+    <p>
+      As Wulverik evolves, this Archive will grow.  
+      Each new Echo tells a truth through myth &mdash; a story that reshapes the realm.
+    </p>
 
-        <h2 class="section-title">What This Realm Can Hold</h2>
-        <p>
-            As Wulverik grows, this realm can become a living codex:
-        </p>
-        <ul>
-            <li>Stories from your life that shaped key songs</li>
-            <li>Reflections on autism, sensitivity, and being “too much” for the world</li>
-            <li>Philosophy, quotes, and ideas that anchor you</li>
-            <li>Short lore pieces that blend your real history with Wulverik’s myth</li>
-        </ul>
+    <!-- Placeholder Echo Entry -->
+    <div class="echo-entry">
+      <div class="echo-title">Echo I — The Broken Promise</div>
+      <p>
+        Born from betrayal, accusation, and the fracture of trust.  
+        Its form in the Library shifts between a golden wolf and a cracked mirror.  
+        This Echo marks the moment the Glitched Wolf first learned how deeply wounds can echo.
+      </p>
+      <a href="the-promise-you-broke.html" style="color:#d4af37; text-decoration:none;">View Chapter →</a>
+    </div>
 
-        <h2 class="section-title">Between Reality and Myth</h2>
-        <p>
-            Some entries here might be raw and honest. Others might sound like legend.
-            Both are true. Wulverik is the bridge between the life you’ve lived and 
-            the world you’re building to hold it — a place where even the hardest 
-            chapters can transform into stories that help others feel less alone.
-        </p>
+    <!-- Placeholder: future echoes will be added here -->
+    <p style="color:#9e9e9e; margin-top:40px;">
+      More Echoes will appear as your music, memories, and stories unfold.
+    </p>
 
-        <p class="footer-note">
-            This page is just the first page of the Codex. 
-            Later, you can add sections for different eras, people, and songs — 
-            turning Lore &amp; Echoes into a map of everything the Glitched Wolf has survived.
-        </p>
-    </main>
+  </div>
+
+  <footer>
+    © 2025 Wulverik Realm — Created by Glitched Genius
+  </footer>
+
 </body>
 </html>
