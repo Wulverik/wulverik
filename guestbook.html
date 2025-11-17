@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>The Howling Wall — Guestbook of Wulverik</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <style>
+    body {
+      margin: 0;
+      font-family: "Cinzel", serif;
+      background: radial-gradient(circle at top, #0a0a0f, #000000);
+      color: #ffffff;
+      padding: 0;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+      padding: 20px;
+      background: rgba(0, 0, 0, 0.4);
+      position: sticky;
+      top: 0;
+      backdrop-filter: blur(6px);
+      z-index: 100;
+    }
+
+    nav a {
+      color: #d4af37;
+      text-decoration: none;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: #ffffff;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 40px 20px 60px;
+    }
+
+    .page-label {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: #d4af37;
+      text-align: center;
+      margin-bottom: 8px;
+    }
+
+    h1 {
+      font-size: 2.6rem;
+      text-align: center;
+      color: #d4af37;
+      text-shadow: 0 0 12px rgba(212, 175, 55, 0.5);
+      margin-bottom: 6px;
+    }
+
+    .subtitle {
+      text-align: center;
+      font-size: 1.05rem;
+      color: #c9c9c9;
+      margin-bottom: 10px;
+    }
+
+    .tagline {
+      text-align: center;
+      font-size: 0.98rem;
+      color: #aaaaaa;
+      margin-bottom: 24px;
+      font-style: italic;
+    }
+
+    .section-title {
+      color: #d4af37;
+      font-size: 1.6rem;
+      margin-top: 26px;
+      margin-bottom: 8px;
+      text-shadow: 0 0 6px rgba(212, 175, 55, 0.3);
+    }
+
+    p {
+      font-size: 0.95rem;
+      color: #e0e0e0;
+      line-height: 1.7;
+      margin: 8px 0;
+    }
+
+    .highlight-block {
+      margin-top: 6px;
+      padding: 10px 14px;
+      border-radius: 10px;
+      border: 1px solid rgba(255,255,255,0.06);
+      background: radial-gradient(circle at top left, rgba(255,255,255,0.05), rgba(0,0,0,0.85));
+      font-size: 0.9rem;
+      color: #f0f0f0;
+    }
+
+    .guestbook-frame {
+      margin-top: 20px;
+      padding: 14px 0;
+      border-radius: 10px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(0,0,0,0.4);
+    }
+
+    .nav-links-bottom {
+      margin-top: 30px;
+      font-size: 0.9rem;
+      text-align: center;
+      color: #cfcfcf;
+    }
+
+    .nav-links-bottom a {
+      color: #d4af37;
+      text-decoration: none;
+    }
+
+    .nav-links-bottom a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Navigation Bar -->
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="glitched-genius.html">Glitched Genius</a>
+    <a href="wolfiepack.html">WolfiePack Gaming</a>
+    <a href="lore-echoes.html">Lore &amp; Echoes</a>
+    <a href="glitched-wolf.html">Glitched Wolf</a>
+    <a href="about-wulverik.html">About Wulverik</a>
+    <a href="guestbook.html">Guestbook</a>
+  </nav>
+
+  <div class="container">
+
+    <div class="page-label">Community Echo — Visitor Realm</div>
+    <h1>THE HOWLING WALL</h1>
+    <div class="subtitle">
+      A living guestbook where travelers of Wulverik can leave their echo.
+    </div>
+    <div class="tagline">
+      Share a thought, a feeling, a blessing for the Pack — and let your words live in the realm.
+    </div>
+
+    <h2 class="section-title">What This Space Is</h2>
+    <p>
+      In the old days of the net, realms had guestbooks — quiet corners where people could say,
+      “I was here, and this meant something to me.”  
+      This page is Wulverik’s version of that: a modern guestbook where your voice can sit beside
+      the Glitched Wolf’s story.
+    </p>
+
+    <div class="highlight-block">
+      You can use this space to:
+      <ul>
+        <li>Say hi to the Wolfie Pack or Glitched Genius</li>
+        <li>Share how a song, lyric, or chapter made you feel</li>
+        <li>Leave encouragement for others walking through their own chaos</li>
+      </ul>
+      Be kind. Be real. Your echo might be the line someone else needed to read today.
+    </div>
+
+    <h2 class="section-title">Leave Your Echo</h2>
+    <p>
+      Sign in, type your message, and it will be inscribed as part of Wulverik’s living history.
+    </p>
+
+    <div class="guestbook-frame">
+      <!-- ⭐ GISCUS COMMENTS WIDGET GOES HERE ⭐
+           1. Go to https://giscus.app
+           2. Configure it with your GitHub repo
+           3. Copy the <script> snippet it gives you
+           4. Paste it right below this comment -->
+      <!-- Example (DO NOT USE AS-IS — replace with your real snippet from giscus.app):
+      <script src="https://giscus.app/client.js"
+              data-repo="YOUR-NAME/YOUR-REPO"
+              data-repo-id="..."
+              data-category="Announcements"
+              data-category-id="..."
+              data-mapping="pathname"
+              data-reactions-enabled="1"
+              data-emit-metadata="0"
+              data-input-position="bottom"
+              data-theme="dark"
+              data-lang="en"
+              crossorigin="anonymous"
+              async>
+      </script>
+      <noscript>Enable JavaScript to view the comments.</noscript>
+      -->
+    </div>
+
+    <div class="nav-links-bottom">
+      Return to <a href="index.html">the Wulverik Gateway</a> ·  
+      Visit <a href="wolfiepack.html">The Wolfie Pack</a> ·  
+      Explore <a href="glitched-genius.html">Glitched Genius</a>
+    </div>
+
+  </div>
+
+</body>
+</html>
