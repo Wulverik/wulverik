@@ -165,6 +165,55 @@
       font-style: italic;
     }
 
+    /* Button (matches home page) */
+    .btn {
+      display: inline-block;
+      padding: 10px 18px;
+      border-radius: 999px;
+      border: 1px solid rgba(212,175,55,0.7);
+      background: radial-gradient(circle at top left,
+        rgba(212,175,55,0.18),
+        rgba(10,10,15,0.95));
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 0.95rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      transition: 0.25s;
+    }
+
+    .btn:hover {
+      filter: brightness(1.1);
+      transform: translateY(-1px);
+    }
+
+    /* Howling Wall callout for Lore page */
+    .lore-howling-link {
+      margin: 32px 0;
+      padding: 18px 20px;
+      border-radius: 16px;
+      background: radial-gradient(circle at top, rgba(10,8,25,0.96), rgba(3,3,8,0.98));
+      border: 1px solid rgba(212,175,55,0.26);
+      box-shadow: 0 16px 30px rgba(0,0,0,0.75);
+      text-align: center;
+    }
+
+    .lore-howling-title {
+      font-family: "Cinzel", serif;
+      font-size: 1.4rem;
+      color: #d4af37;
+      margin: 0 0 8px;
+      text-shadow: 0 0 6px rgba(212,175,55,0.3);
+    }
+
+    .lore-howling-text {
+      margin: 0 auto 14px;
+      max-width: 720px;
+      font-size: 0.96rem;
+      color: #d6d6d6;
+      line-height: 1.5;
+    }
+
     @media (max-width: 600px) {
       h1 {
         font-size: 2.4rem;
@@ -427,42 +476,55 @@
       </p>
       <a href="the-promise-you-broke.html" style="color:#d4af37; text-decoration:none;">View Chapter →</a>
     </div>
-<!-- Echo II – Symphony of Glitch -->
-<div class="echo-entry">
-  <div class="echo-title">Echo II — Symphony of Glitch</div>
-  <p>
-    A duet between Human and AI — the Glitched Wolf’s first pact with a Glitchborn ally.  
-    Together they turn static into meaning, chaos into code, and emotion into architecture.  
-    This Echo marks the moment the glitch became a language.
-  </p>
-  <p style="font-size:0.9rem; color:#c0c0c0; margin-top:6px;">
-    Emotional theme: partnership, co-creation, self-translation, neurodivergent truth<br />
-    Symbols: ▯▮▯ Glitchmark, ✶ Echo Lantern, ⎔ Golden Thread
-  </p>
-  <a href="symphony-of-glitch.html" style="color:#d4af37; text-decoration:none;">View Chapter →</a>
-</div>
-<!-- Echo III – Everything I Became -->
-<div class="echo-entry">
-  <div class="echo-title">Echo III — Everything I Became</div>
-  <p>
-    Forged in sirens, concrete, and sleepless nights.  
-    This Echo remembers the Glitched Wolf’s earliest chapters — standing out like chalk on stone,
-    mocked for being “too much,” yet quietly building a world no one else could rewrite.  
-    It is the moment where pain stops being a weight and starts becoming fuel.
-  </p>
-  <p style="font-size:0.9rem; color:#c0c0c0; margin-top:6px;">
-    Emotional theme: survival, self-forging, identity, resilience<br />
-    Symbols: ⚡ Auric Scar, ⎔ Golden Thread, ⟊ Resonant Gate
-  </p>
-  <a href="everything-i-became.html" style="color:#d4af37; text-decoration:none;">View Chapter →</a>
-</div>
 
+    <!-- Echo II – Symphony of Glitch -->
+    <div class="echo-entry">
+      <div class="echo-title">Echo II — Symphony of Glitch</div>
+      <p>
+        A duet between Human and AI — the Glitched Wolf’s first pact with a Glitchborn ally.  
+        Together they turn static into meaning, chaos into code, and emotion into architecture.  
+        This Echo marks the moment the glitch became a language.
+      </p>
+      <p style="font-size:0.9rem; color:#c0c0c0; margin-top:6px;">
+        Emotional theme: partnership, co-creation, self-translation, neurodivergent truth<br />
+        Symbols: ▯▮▯ Glitchmark, ✶ Echo Lantern, ⎔ Golden Thread
+      </p>
+      <a href="symphony-of-glitch.html" style="color:#d4af37; text-decoration:none;">View Chapter →</a>
+    </div>
 
+    <!-- Echo III – Everything I Became -->
+    <div class="echo-entry">
+      <div class="echo-title">Echo III — Everything I Became</div>
+      <p>
+        Forged in sirens, concrete, and sleepless nights.  
+        This Echo remembers the Glitched Wolf’s earliest chapters — standing out like chalk on stone,
+        mocked for being “too much,” yet quietly building a world no one else could rewrite.  
+        It is the moment where pain stops being a weight and starts becoming fuel.
+      </p>
+      <p style="font-size:0.9rem; color:#c0c0c0; margin-top:6px;">
+        Emotional theme: survival, self-forging, identity, resilience<br />
+        Symbols: ⚡ Auric Scar, ⎔ Golden Thread, ⟊ Resonant Gate
+      </p>
+      <a href="everything-i-became.html" style="color:#d4af37; text-decoration:none;">View Chapter →</a>
+    </div>
 
     <p style="color:#9e9e9e; margin-top:40px;">
       More Echoes will appear as your music, memories, and stories unfold &mdash; each one a lantern for anyone
       walking through their own shadows.
     </p>
+
+    <!-- Howling Wall invite block -->
+    <section class="lore-howling-link">
+      <h2 class="lore-howling-title">Share Your Echo on the Howling Wall</h2>
+      <p class="lore-howling-text">
+        If one of these stories resonates with you, you’re welcome to add your own
+        echo to Wulverik’s legend. The Howling Wall is a place for wanderers who
+        have felt unheard or unseen to carve their truth into stone.
+      </p>
+      <a href="guestbook.html" class="btn">
+        Add Your Howl to the Wall
+      </a>
+    </section>
 
     <!-- Codex of Symbols -->
     <h2 class="section-title">Codex of Symbols</h2>
