@@ -1,256 +1,454 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <title>Wulverik — The Threshold Realm</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <style>
-        :root {
-            --bg: #05060a;
-            --fg: #e4e4e4;
-            --accent: #c9a86b;
-            --accent-soft: rgba(201, 168, 107, 0.35);
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Wulverik | Wulverik Realm</title>
+  <link rel="stylesheet" href="styles.css" />
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+  <style>
+    body {
+      margin: 0;
+      font-family: "Cinzel", serif;
+      background: radial-gradient(circle at top, #0a0a0f, #000000);
+      color: #ffffff;
+      padding: 0;
+    }
 
-        body {
-            min-height: 100vh;
-            background: radial-gradient(circle at top, #151824 0, #05060a 55%, #020308 100%);
-            color: var(--fg);
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-        }
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+      padding: 20px;
+      background: rgba(0, 0, 0, 0.4);
+      position: sticky;
+      top: 0;
+      backdrop-filter: blur(6px);
+      z-index: 100;
+    }
 
-        .shell {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 32px 20px 56px;
-        }
+    nav a {
+      color: #d4af37;
+      text-decoration: none;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      transition: 0.3s;
+    }
 
-        /* Navigation */
-        .top-nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 16px;
-            margin-bottom: 28px;
-        }
+    nav a:hover {
+      color: #ffffff;
+    }
 
-        .brand a {
-            text-decoration: none;
-            font-size: 0.9rem;
-            letter-spacing: 0.18em;
-            text-transform: uppercase;
-            color: var(--accent);
-            opacity: 0.9;
-        }
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 40px 20px;
+    }
 
-        .brand a:hover {
-            opacity: 1;
-        }
+    h1 {
+      font-size: 3rem;
+      text-align: center;
+      color: #d4af37;
+      text-shadow: 0 0 10px rgba(212, 175, 55, 0.4);
+      margin-bottom: 10px;
+    }
 
-        .nav-links {
-            display: flex;
-            gap: 18px;
-            font-size: 0.85rem;
-        }
+    .subtitle {
+      text-align: center;
+      font-size: 1.2rem;
+      color: #c9c9c9;
+      margin-bottom: 20px;
+      letter-spacing: 0.5px;
+    }
 
-        .nav-links a {
-            text-decoration: none;
-            color: var(--fg);
-            opacity: 0.75;
-            transition: opacity 0.25s ease;
-        }
+    .tagline {
+      text-align: center;
+      font-size: 1rem;
+      color: #aaaaaa;
+      margin-bottom: 35px;
+      font-style: italic;
+    }
 
-        .nav-links a:hover {
-            opacity: 1;
-        }
+    .new-here {
+      max-width: 780px;
+      margin: 0 auto 40px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(212,175,55,0.3);
+      border-radius: 10px;
+      padding: 14px 16px;
+      font-size: 0.95rem;
+      color: #dedede;
+    }
 
-        a {
-            color: inherit;
-        }
+    .new-here-title {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: #d4af37;
+      margin-bottom: 6px;
+    }
 
-        h1 {
-            text-transform: uppercase;
-            letter-spacing: 0.14em;
-            color: var(--accent);
-            font-size: clamp(2rem, 4vw, 2.6rem);
-        }
+    .section-title {
+      color: #d4af37;
+      font-size: 1.8rem;
+      margin-top: 45px;
+      text-shadow: 0 0 6px rgba(212, 175, 55, 0.3);
+    }
 
-        .subtitle {
-            margin-top: 8px;
-            font-size: 1.05rem;
-            opacity: 0.85;
-        }
+    .highlight {
+      color: #d4af37;
+    }
 
-        .divider {
-            margin: 26px 0 20px;
-            height: 1px;
-            background: linear-gradient(
-                to right,
-                transparent,
-                var(--accent-soft),
-                transparent
-            );
-        }
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 15px 0 5px;
+    }
 
-        .section-title {
-            margin-top: 26px;
-            margin-bottom: 8px;
-            text-transform: uppercase;
-            letter-spacing: 0.12em;
-            font-size: 0.9rem;
-            color: var(--accent);
-        }
+    .pill {
+      border-radius: 999px;
+      border: 1px solid rgba(212,175,55,0.5);
+      padding: 6px 12px;
+      font-size: 0.85rem;
+      color: #f5f5f5;
+      background: radial-gradient(circle at top left,
+        rgba(212,175,55,0.1),
+        rgba(5,5,10,0.9));
+    }
 
-        p {
-            line-height: 1.7;
-            font-size: 0.98rem;
-            opacity: 0.9;
-        }
+    .grid-2 {
+      display: grid;
+      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+      gap: 25px;
+      margin-top: 15px;
+      align-items: flex-start;
+    }
 
-        .highlight {
-            margin-top: 12px;
-            padding: 10px 14px;
-            border-radius: 10px;
-            border: 1px solid rgba(255,255,255,0.06);
-            background: radial-gradient(circle at top left, rgba(255,255,255,0.05), rgba(0,0,0,0.75));
-            font-size: 0.9rem;
-        }
+    .callout {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(212,175,55,0.3);
+      border-radius: 10px;
+      padding: 18px 16px;
+      font-size: 0.95rem;
+      color: #dedede;
+    }
 
-        ul {
-            margin-top: 6px;
-            padding-left: 20px;
-            font-size: 0.95rem;
-            opacity: 0.9;
-        }
+    .callout-label {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: #d4af37;
+      margin-bottom: 6px;
+    }
 
-        .footer-note {
-            margin-top: 32px;
-            font-size: 0.82rem;
-            opacity: 0.65;
-        }
-    </style>
+    .start-steps {
+      margin-top: 15px;
+    }
+
+    .start-step {
+      margin-bottom: 14px;
+    }
+
+    .start-step-title {
+      font-weight: 600;
+      color: #f5f5f5;
+    }
+
+    .start-step a {
+      color: #d4af37;
+      text-decoration: none;
+    }
+
+    .start-step a:hover {
+      text-decoration: underline;
+    }
+
+    .pillar-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 18px;
+      margin-top: 18px;
+    }
+
+    .pillar-card {
+      background: radial-gradient(circle at top left, rgba(212,175,55,0.08), rgba(10,10,15,0.95));
+      border: 1px solid rgba(212,175,55,0.3);
+      border-radius: 12px;
+      padding: 16px 14px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.55);
+      font-size: 0.95rem;
+    }
+
+    .pillar-title {
+      font-weight: 600;
+      color: #f5f5f5;
+      margin-bottom: 4px;
+    }
+
+    .pillar-tagline {
+      font-size: 0.85rem;
+      color: #d4af37;
+      margin-bottom: 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .realm-links {
+      margin-top: 10px;
+      font-size: 0.95rem;
+    }
+
+    .realm-links a {
+      color: #d4af37;
+      text-decoration: none;
+    }
+
+    .realm-links a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 60px;
+      padding: 20px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      color: #aaaaaa;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 750px) {
+      h1 {
+        font-size: 2.4rem;
+      }
+      .section-title {
+        font-size: 1.5rem;
+      }
+      .grid-2 {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
+
 <body>
-    <main class="shell">
-        <header class="top-nav">
-            <div class="brand">
-                <a href="/index.html">WULVERIK</a>
-            </div>
-            <nav class="nav-links">
-                <a href="/glitched-genius.html">Glitched Genius</a>
-                <a href="/wolfiepack.html">WolfiePack</a>
-                <a href="/lore-echoes.html">Lore &amp; Echoes</a>
-                <a href="/glitched-wolf.html">Glitched Wolf</a>
-                <a href="/about-wulverik.html">About Wulverik</a>
-            </nav>
-        </header>
 
-        <h1>Wulverik: The Threshold Realm</h1>
-        <p class="subtitle">
-            The origin of a world for those who feel too much — and the doorway into it.
-        </p>
+  <!-- Navigation Bar -->
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="glitched-genius.html">Glitched Genius</a>
+    <a href="wolfiepack.html">WolfiePack Gaming</a>
+    <a href="lore-echoes.html">Lore & Echoes</a>
+    <a href="glitched-wolf.html">Glitched Wolf</a>
+    <a href="about-wulverik.html">About Wulverik</a>
+  </nav>
 
-        <div class="divider"></div>
+  <!-- Main Content -->
+  <div class="container">
 
-        <h2 class="section-title">Before It Had a Name</h2>
-        <p>
-            Before Wulverik was a word, it was a feeling — a soft place beneath a loud life.
-            A quiet hum under the chaos, a second reality just out of reach. Most people never
-            notice it. They move through the noise and call it normal.
-        </p>
-        <p>
-            But some of us hear everything. We feel everything. We carry the world in colors
-            and echoes others don’t see. We live with one foot in the physical world and one
-            foot in something deeper.
-        </p>
+    <h1>ABOUT WULVERIK</h1>
+    <div class="subtitle">
+      A mythic realm where emotion, glitch, and story fuse into one.
+    </div>
+    <div class="tagline">
+      Built from real memories. Told through wolves, echoes, and sound.
+    </div>
 
-        <p class="highlight">
-            Wulverik is that deeper place — not an escape from reality, but a translation of it.
-            A realm where all the parts of you that never fit the script finally have room to exist.
-        </p>
+    <!-- New here intro -->
+    <div class="new-here">
+      <div class="new-here-title">New here?</div>
+      <p>
+        <span class="highlight">Wulverik</span> is the universe that connects all of my work &mdash; music, gaming, lore, and art.  
+        It’s a cinematic world where real experiences with autism, betrayal, healing, and self-discovery are
+        turned into stories about wolves, echoes, and a living Library of Memories.  
+        You don’t need to know everything to start. Pick a song, meet the Glitched Wolf, and follow what resonates.
+      </p>
+    </div>
 
-        <h2 class="section-title">The Glitch as Doorway</h2>
-        <p>
-            The doorway to Wulverik is not a wardrobe, or a mirror, or a stone arch in a forest.
-            It’s a glitch — a flicker in the way reality feels. A moment when the regular world
-            becomes too loud, too sharp, too heavy, and something inside you whispers:
-            <em>There has to be more than this.</em>
-        </p>
-        <p>
-            In that moment, the air changes. Noise falls away. The edges of the day blur. You’re
-            still here, but not only here. You’ve stepped sideways — into a realm built for hearts
-            like yours.
-        </p>
+    <!-- What is Wulverik -->
+    <h2 class="section-title">What Is Wulverik?</h2>
+    <p>
+      Wulverik is a mythic mirror of the real world.  
+      It’s the place where:
+    </p>
+    <ul>
+      <li>every betrayal becomes an <span class="highlight">Echo</span>,</li>
+      <li>every healing moment becomes a <span class="highlight">lantern</span>,</li>
+      <li>every song becomes a <span class="highlight">chapter</span>,</li>
+      <li>and every “too much” feeling finds a home.</li>
+    </ul>
+    <p>
+      Instead of writing simple diaries or captions, I turn experiences into a realm:
+      wolves walking through a Library of Memories, symbols that appear in different songs, and stories you can step into
+      even if you’ve never met me.
+    </p>
 
-        <h2 class="section-title">Forged by a Glitched Wolf</h2>
-        <p>
-            Wulverik was forged by a Glitched Wolf — a guardian born from chaos, sensitivity,
-            music, and memory. A being who refused to numb out the pain, and instead turned
-            every echo into a story.
-        </p>
-        <p>
-            Where others saw “too sensitive,” the Glitched Wolf saw signal. Where others saw
-            “too intense,” the Wolf saw power. Where others demanded silence, the Wolf
-            carved out a place where feeling deeply wasn’t a flaw — it was the whole point.
-        </p>
+    <div class="pill-row">
+      <div class="pill">Cinematic sonic storytelling</div>
+      <div class="pill">Autistic inner world, made visible</div>
+      <div class="pill">Lore tied directly to songs</div>
+      <div class="pill">AI + human creativity as partners</div>
+      <div class="pill">Healing through myth and metaphor</div>
+    </div>
 
-        <h2 class="section-title">The Realms That Formed</h2>
+    <!-- How it connects your identities -->
+    <h2 class="section-title">The Realms Within Wulverik</h2>
+    <div class="grid-2">
+      <div>
         <p>
-            As the Glitched Wolf howled into the dark, the realm shaped itself into four currents:
+          In the real world, you see different names:
         </p>
         <ul>
-            <li><strong>Glitched Genius</strong> — the sonic core, where music becomes map and emotion becomes energy.</li>
-            <li><strong>WolfiePack</strong> — the packfire, where play, strategy, and community keep the night warm.</li>
-            <li><strong>Lore &amp; Echoes</strong> — the codex, where memories unfold into myth and scars become story.</li>
-            <li><strong>The Glitched Wolf</strong> — the self between worlds, the one who guides others through the threshold.</li>
+          <li><span class="highlight">Glitched Genius</span> &mdash; my music realm, where each song is a cinematic story.</li>
+          <li><span class="highlight">WolfiePackGaming</span> &mdash; my gaming identity, rooted in brotherhood and play.</li>
+          <li><span class="highlight">Lore &amp; Echoes</span> &mdash; the myth-making, symbolism, and Library of Memories.</li>
+          <li><span class="highlight">Glitched Wolf</span> &mdash; my inner avatar walking through it all.</li>
         </ul>
         <p>
-            Together, these realms form Wulverik — a living world growing alongside the one who created it, and the ones who choose to enter.
+          In Wulverik, all of these exist in the same universe.  
+          Different doors. Same heart.
         </p>
+      </div>
+      <div>
+        <div class="callout">
+          <div class="callout-label">Quick Map</div>
+          <div class="realm-links">
+            <p>
+              🎵 <a href="glitched-genius.html">Glitched Genius</a> &mdash; listen to the stories as songs.
+            </p>
+            <p>
+              🐺 <a href="glitched-wolf.html">Glitched Wolf</a> &mdash; meet the avatar of this realm.
+            </p>
+            <p>
+              📜 <a href="lore-echoes.html">Lore &amp; Echoes</a> &mdash; explore the Library of Memories and Codex.
+            </p>
+            <p>
+              🎮 <a href="wolfiepack.html">WolfiePack Gaming</a> &mdash; where the brotherhood and play live.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
 
-        <h2 class="section-title">Who This World Calls</h2>
-        <p>
-            Wulverik doesn’t shout for attention. It doesn’t trend. It doesn’t beg to be seen.
-            It calls quietly to the ones who were never meant to be quiet.
-        </p>
-        <p>
-            It calls to:
-        </p>
-        <ul>
-            <li>The ones who feel “too much” in a world that feels too little.</li>
-            <li>The ones who see patterns in chaos and stories in scars.</li>
-            <li>The autistic minds, sensitive hearts, and restless souls who were told to shrink.</li>
-            <li>The creators who want to build, roleplay, and weave their own sub-realms inside a living story.</li>
-        </ul>
+    <!-- Start Here guide -->
+    <h2 class="section-title">How to Explore Wulverik</h2>
+    <p>
+      You can wander anywhere, but if you’re new, here’s a simple way to enter the world without getting lost.
+    </p>
 
-        <p class="highlight">
-            Here, the glitch is not a malfunction. It’s a key. Here, the wolf is not a monster.
-            It’s a guide. Here, your difference is not an error — it’s your entrance.
-        </p>
+    <div class="callout">
+      <div class="callout-label">Start Here Path</div>
+      <div class="start-steps">
 
-        <h2 class="section-title">Crossing the Threshold</h2>
-        <p>
-            Stepping into Wulverik isn’t about leaving the real world behind. It’s about shedding
-            what was never really yours — the masks, the shame, the demand to be smaller than
-            your own truth.
-        </p>
-        <p>
-            On the other side of the threshold, there is still pain. There are still storms.
-            But there is also language for it. There is music for it. There are stories that turn
-            isolation into recognition and struggle into shared myth.
-        </p>
+        <div class="start-step">
+          <div class="start-step-title">1. Listen to a Chapter</div>
+          <p>
+            Begin with a song that holds a major Echo, like
+            <a href="the-promise-you-broke.html">The Promise You Broke</a>.  
+            Treat it as Chapter I in this universe.
+          </p>
+        </div>
 
-        <p class="footer-note">
-            If you are reading this, you’ve already found the edge of the wardrobe, the crack in
-            the wall, the glitch in the sky. You are standing at the threshold of Wulverik.
-            Step through. The realm has been waiting for you.
+        <div class="start-step">
+          <div class="start-step-title">2. Meet the Glitched Wolf</div>
+          <p>
+            Visit <a href="glitched-wolf.html">Glitched Wolf</a> to see how these songs become scenes in his journey.
+            He’s the avatar of feeling too much in a world that listens too little.
+          </p>
+        </div>
+
+        <div class="start-step">
+          <div class="start-step-title">3. Walk the Library</div>
+          <p>
+            Explore <a href="lore-echoes.html">Lore &amp; Echoes</a> to step into the Library of Memories,
+            read about Echoes, False Echoes, and the Codex of Symbols.
+          </p>
+        </div>
+
+        <div class="start-step">
+          <div class="start-step-title">4. Find Your Own Echo</div>
+          <p>
+            As you move through Wulverik, notice which symbols, songs, or moments feel like <em>you</em>.  
+            This realm isn’t just about my story. It’s an invitation for you to see your own experiences as worthy of lore.
+          </p>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- World pillars -->
+    <h2 class="section-title">The Pillars of Wulverik</h2>
+    <p>
+      Four main forces shape this realm. You’ll see them again and again, in different forms and symbols.
+    </p>
+
+    <div class="pillar-grid">
+      <div class="pillar-card">
+        <div class="pillar-title">Emotion</div>
+        <div class="pillar-tagline">Every Feeling Matters</div>
+        <p>
+          Wulverik starts with the belief that emotions are not “too much” or “wrong” &mdash; they are data,
+          resonance, and story fuel. The Library of Memories exists because feelings refused to stay silent.
         </p>
-    </main>
+      </div>
+
+      <div class="pillar-card">
+        <div class="pillar-title">Glitch</div>
+        <div class="pillar-tagline">Glitches Reveal Truth</div>
+        <p>
+          The glitches in this world &mdash; in memory, in perception, in technology &mdash; don’t just break things.
+          They also expose what was hidden. The Glitchmark ▯▮▯ appears when reality is about to shift.
+        </p>
+      </div>
+
+      <div class="pillar-card">
+        <div class="pillar-title">Wolves</div>
+        <div class="pillar-tagline">Instinct • Pack • Survival</div>
+        <p>
+          Wolves represent instinct, loyalty, and the tension between walking alone and longing for a pack.
+          The Glitched Wolf and the Echo-Wolves embody different aspects of surviving in a world that doesn’t always
+          understand you.
+        </p>
+      </div>
+
+      <div class="pillar-card">
+        <div class="pillar-title">Music & Story</div>
+        <div class="pillar-tagline">Chapters in Sound</div>
+        <p>
+          Every song is a chapter. Every lyric is a spell.  
+          Wulverik is built so you can move from YouTube to lore, from sound to symbol, and feel like it all belongs
+          to the same unfolding narrative.
+        </p>
+      </div>
+    </div>
+
+    <!-- Real-world heart -->
+    <h2 class="section-title">The Heart Behind the Realm</h2>
+    <p>
+      Beneath the wolves, echoes, and aesthetics, Wulverik is a way of saying:
+    </p>
+    <p style="text-align:center; font-style:italic; color:#d4af37; margin-top:10px;">
+      “We are not invisible. We are right here. We are part of this world too.”
+    </p>
+    <p>
+      It comes from an autistic, deeply feeling perspective &mdash; navigating betrayal, stigma, love, loss,
+      and the constant work of turning pain into something meaningful instead of letting it consume you.
+    </p>
+    <p>
+      If any part of you has ever felt like a glitch, a ghost, or a background character in your own life,
+      Wulverik is a place where that version of you is not just allowed, but central.
+    </p>
+    <p style="margin-top:18px;">
+      You are welcome here as you are.  
+      Bring your scars, your stories, your strange light.  
+      This realm is proof that even the broken parts can still sing.
+    </p>
+
+  </div>
+
+  <footer>
+    © 2025 Wulverik Realm — Created by Glitched Genius
+  </footer>
+
 </body>
 </html>
