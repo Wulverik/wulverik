@@ -1,204 +1,474 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <title>WolfiePack — Realm of the Pack</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <style>
-        :root {
-            --bg: #05060a;
-            --fg: #e4e4e4;
-            --accent: #c9a86b;
-            --accent-soft: rgba(201, 168, 107, 0.35);
-        }
+  <meta charset="UTF-8" />
+  <title>The Wolfie Pack — WolfiePackGaming | Wulverik Realm</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+  <style>
+    body {
+      margin: 0;
+      font-family: "Cinzel", serif;
+      background: radial-gradient(circle at top, #0a0a0f, #000000);
+      color: #ffffff;
+      padding: 0;
+    }
 
-        body {
-            min-height: 100vh;
-            background: radial-gradient(circle at top, #151824 0, #05060a 55%, #020308 100%);
-            color: var(--fg);
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-        }
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+      padding: 20px;
+      background: rgba(0, 0, 0, 0.4);
+      position: sticky;
+      top: 0;
+      backdrop-filter: blur(6px);
+      z-index: 100;
+    }
 
-        .shell {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 32px 20px 56px;
-        }
+    nav a {
+      color: #d4af37;
+      text-decoration: none;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      transition: 0.3s;
+    }
 
-        /* Navigation */
-.top-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 16px;
-    margin-bottom: 28px;
-}
+    nav a:hover {
+      color: #ffffff;
+    }
 
-.brand a {
-    text-decoration: none;
-    font-size: 0.9rem;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--accent);
-    opacity: 0.9;
-}
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 40px 20px 60px;
+    }
 
-.brand a:hover {
-    opacity: 1;
-}
+    .page-label {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: #d4af37;
+      text-align: center;
+      margin-bottom: 8px;
+    }
 
-.nav-links {
-    display: flex;
-    gap: 18px;
-    font-size: 0.85rem;
-}
+    h1 {
+      font-size: 2.7rem;
+      text-align: center;
+      color: #d4af37;
+      text-shadow: 0 0 12px rgba(212, 175, 55, 0.5);
+      margin-bottom: 6px;
+    }
 
-.nav-links a {
-    text-decoration: none;
-    color: var(--fg);
-    opacity: 0.75;
-    transition: opacity 0.25s ease;
-}
+    .subtitle {
+      text-align: center;
+      font-size: 1.1rem;
+      color: #c9c9c9;
+      margin-bottom: 10px;
+    }
 
-.nav-links a:hover {
-    opacity: 1;
-}a {
-    color: inherit;
-}
+    .tagline {
+      text-align: center;
+      font-size: 0.98rem;
+      color: #aaaaaa;
+      margin-bottom: 24px;
+      font-style: italic;
+    }
 
+    .meta-strip {
+      text-align: center;
+      font-size: 0.9rem;
+      color: #d0d0d0;
+      margin-bottom: 24px;
+    }
 
-        }
+    .meta-strip span {
+      display: inline-block;
+      margin: 0 10px;
+    }
 
-        h1 {
-            text-transform: uppercase;
-            letter-spacing: 0.14em;
-            color: var(--accent);
-            font-size: clamp(2rem, 4vw, 2.6rem);
-        }
+    .meta-strip .label {
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      font-size: 0.78rem;
+      color: #d4af37;
+      display: block;
+      margin-bottom: 2px;
+    }
 
-        .subtitle {
-            margin-top: 8px;
-            font-size: 1.05rem;
-            opacity: 0.85;
-        }
+    .section-title {
+      color: #d4af37;
+      font-size: 1.7rem;
+      margin-top: 32px;
+      margin-bottom: 8px;
+      text-shadow: 0 0 6px rgba(212, 175, 55, 0.3);
+    }
 
-        .divider {
-            margin: 26px 0 20px;
-            height: 1px;
-            background: linear-gradient(
-                to right,
-                transparent,
-                var(--accent-soft),
-                transparent
-            );
-        }
+    .section-sub {
+      font-size: 0.95rem;
+      color: #d0d0d0;
+      margin-bottom: 12px;
+    }
 
-        .section-title {
-            margin-top: 26px;
-            margin-bottom: 8px;
-            text-transform: uppercase;
-            letter-spacing: 0.12em;
-            font-size: 0.9rem;
-            color: var(--accent);
-        }
+    p {
+      font-size: 0.95rem;
+      color: #e0e0e0;
+      line-height: 1.7;
+      margin: 8px 0;
+    }
 
-        p {
-            line-height: 1.7;
-            font-size: 0.98rem;
-            opacity: 0.9;
-        }
+    .highlight-block {
+      margin-top: 6px;
+      padding: 10px 14px;
+      border-radius: 10px;
+      border: 1px solid rgba(255,255,255,0.06);
+      background: radial-gradient(circle at top left, rgba(255,255,255,0.05), rgba(0,0,0,0.85));
+      font-size: 0.9rem;
+      color: #f0f0f0;
+    }
 
-        ul {
-            margin-top: 6px;
-            padding-left: 20px;
-            font-size: 0.95rem;
-            opacity: 0.9;
-        }
+    .split {
+      margin-top: 18px;
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+      gap: 22px;
+      align-items: flex-start;
+    }
 
-        .highlight {
-            margin-top: 12px;
-            padding: 10px 14px;
-            border-radius: 10px;
-            border: 1px solid rgba(255,255,255,0.06);
-            background: radial-gradient(circle at top left, rgba(255,255,255,0.05), rgba(0,0,0,0.75));
-            font-size: 0.9rem;
-        }
+    .card {
+      background: rgba(255,255,255,0.02);
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.09);
+      padding: 16px 14px;
+      font-size: 0.93rem;
+    }
 
-        .footer-note {
-            margin-top: 32px;
-            font-size: 0.82rem;
-            opacity: 0.65;
-        }
-    </style>
+    .card-title {
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: #d4af37;
+      margin-bottom: 6px;
+    }
+
+    .pill-row {
+      margin-top: 8px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .pill {
+      font-size: 0.8rem;
+      padding: 4px 9px;
+      border-radius: 999px;
+      border: 1px solid rgba(212,175,55,0.4);
+      color: #f5f5f5;
+      background: radial-gradient(circle at top left, rgba(212,175,55,0.16), rgba(5,5,8,0.95));
+      white-space: nowrap;
+    }
+
+    .arena-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .arena-card {
+      background: radial-gradient(circle at top left, rgba(212,175,55,0.08), rgba(10,10,15,0.95));
+      border-radius: 10px;
+      border: 1px solid rgba(212,175,55,0.35);
+      padding: 10px 11px;
+      font-size: 0.9rem;
+      box-shadow: 0 0 12px rgba(0,0,0,0.55);
+    }
+
+    .arena-name {
+      font-weight: 600;
+      color: #f5f5f5;
+      margin-bottom: 2px;
+    }
+
+    .arena-tag {
+      font-size: 0.8rem;
+      color: #d4af37;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 4px;
+    }
+
+    ul {
+      margin: 8px 0 8px 18px;
+      padding: 0;
+      font-size: 0.93rem;
+      color: #e0e0e0;
+      line-height: 1.6;
+    }
+
+    .callout {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(212,175,55,0.3);
+      border-radius: 10px;
+      padding: 14px 14px;
+      font-size: 0.92rem;
+      color: #dedede;
+      margin-top: 16px;
+    }
+
+    .callout-label {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: #d4af37;
+      margin-bottom: 4px;
+    }
+
+    .link-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 10px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.1);
+      background: radial-gradient(circle at top left, rgba(255,255,255,0.06), rgba(0,0,0,0.9));
+      font-size: 0.9rem;
+      color: #f5f5f5;
+      text-decoration: none;
+    }
+
+    .link-button span:first-child {
+      font-size: 1rem;
+    }
+
+    .nav-links-bottom {
+      margin-top: 30px;
+      font-size: 0.9rem;
+      text-align: center;
+      color: #cfcfcf;
+    }
+
+    .nav-links-bottom a {
+      color: #d4af37;
+      text-decoration: none;
+    }
+
+    .nav-links-bottom a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 768px) {
+      .split {
+        grid-template-columns: 1fr;
+      }
+      h1 {
+        font-size: 2.3rem;
+      }
+      .section-title {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
 </head>
+
 <body>
-    <main class="shell">
- <header class="top-nav">
-    <div class="brand">
-        <a href="/index.html">WULVERIK</a>
+
+  <!-- Navigation Bar -->
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="glitched-genius.html">Glitched Genius</a>
+    <a href="wolfiepack.html">WolfiePack Gaming</a>
+    <a href="lore-echoes.html">Lore & Echoes</a>
+    <a href="glitched-wolf.html">Glitched Wolf</a>
+    <a href="about-wulverik.html">About Wulverik</a>
+  </nav>
+
+  <div class="container">
+
+    <div class="page-label">Order of the Realm — Community Aspect</div>
+    <h1>THE WOLFIE PACK</h1>
+    <div class="subtitle">
+      The Clan of Many Howls — the heartbeat of WolfiePackGaming inside Wulverik.
     </div>
-   <nav class="nav-links">
-    <a href="/glitched-genius.html">Glitched Genius</a>
-    <a href="/wolfiepack.html">WolfiePack</a>
-    <a href="/lore-echoes.html">Lore &amp; Echoes</a>
-    <a href="/glitched-wolf.html">Glitched Wolf</a>
-    <a href="/about-wulverik.html">About Wulverik</a>
-</nav>
+    <div class="tagline">
+      Where games become trials, laughter becomes armor, and no wolf runs the arenas alone.
+    </div>
 
-</header>
+    <div class="meta-strip">
+      <span>
+        <span class="label">Role in Wulverik</span>
+        Community, joy, brotherhood, co-op resilience
+      </span>
+      <span>
+        <span class="label">Real-World Anchor</span>
+        WolfiePackGaming — your gaming identity and crew
+      </span>
+    </div>
 
+    <!-- Who the Wolfie Pack Are -->
+    <h2 class="section-title">Who the Wolfie Pack Are</h2>
+    <p class="section-sub">
+      In the myth of Wulverik, the Wolfie Pack is the clan that gathers around glowing screens and shared
+      challenges, turning late-night matches into something sacred. They are not just “viewers” or “teammates.”
+      They are the ones who show up, run with you into the chaos, and laugh in the face of the respawn screen.
+    </p>
 
+    <p>
+      Where the Glitched Wolf represents your inner world — the scars, the echoes, the transformations — the
+      Wolfie Pack represents the outer circle that forms around that fire. They are the reminder that you
+      weren’t meant to fight every boss alone. Some battles are solo. Others are meant to be shouted through,
+      side by side, over voice chat and shared victory screens.
+    </p>
 
+    <div class="highlight-block">
+      In Wulverik, <strong>WolfiePackGaming</strong> becomes the Pack that teaches the Glitched Wolf that strength
+      isn’t forged only in pain — it’s also forged in play, cooperation, and the kind of laughter that keeps
+      you alive when everything else feels heavy.
+    </div>
 
-        <h1>WolfiePack</h1>
-        <p class="subtitle">
-            Realm of the Pack — where games, stories, and strategy run with the wolves.
-        </p>
+    <!-- Split: Pack Identity & Symbols / Pack Values -->
+    <div class="split">
 
-        <div class="divider"></div>
-
+      <!-- Left: Identity & Symbols -->
+      <section class="card">
+        <div class="card-title">Pack Sigil & Identity</div>
         <p>
-            WolfiePack is the gathering ground of Wulverik — the place where you don’t
-            wander alone. This realm holds your gaming identity, your community energy,
-            and the stories born from late-night calls, co-op chaos, and shared victories.
-        </p>
-
-        <p class="highlight">
-            Here, the Glitched Wolf isn’t just a lone wanderer. The pack is real —
-            friends, viewers, and fellow players who laugh, mess up, try again, and 
-            build memories together in digital worlds.
-        </p>
-
-        <h2 class="section-title">What Lives in This Realm</h2>
-        <p>
-            As Wulverik grows, this realm can hold:
+          The Wolfie Pack carries a simple but powerful sigil:
         </p>
         <ul>
-            <li>Info about your WolfiePackGaming identity</li>
-            <li>Links to your gaming channels and VODs</li>
-            <li>Clips or highlight reels from streams</li>
-            <li>Stories from your favorite sessions with the pack</li>
+          <li><strong>⟊ Pack Sigil — The Circle of Claws:</strong> four interlocked claw marks forming a ring, symbolizing
+              different voices, skills, and roles all locked into one shared bond.</li>
+          <li><strong>✶ Fire of the Lobby:</strong> the shared space where everyone gathers before a match — the calm before
+              the coordinated chaos.</li>
+          <li><strong>▮▮ Howl Channel:</strong> the unseen voice link that keeps the Pack connected even when their physical
+              worlds are far apart.</li>
         </ul>
-
-        <h2 class="section-title">Why the Pack Matters</h2>
         <p>
-            For the Glitched Wolf, the pack is more than “viewers” or “team mates.”
-            It’s connection, safety, and shared joy in a world that often feels loud,
-            confusing, or isolating. WolfiePack is the place where being different
-            still feels like belonging.
+          To outsiders, it looks like “just gaming.” Inside the mythology of Wulverik, these are
+          <em>training grounds of trust</em> — places where reflexes, patience, teamwork, and empathy are practiced in
+          real time.
         </p>
 
-        <p class="footer-note">
-            Over time, this realm can evolve into a hub for your community — 
-            a place where new members of the pack can learn who you are,
-            how you play, and how to run with the wolves.
+        <div class="pill-row">
+          <div class="pill">Co-op Trials</div>
+          <div class="pill">Shared Fire</div>
+          <div class="pill">Voice-linked Howls</div>
+          <div class="pill">Found Family</div>
+        </div>
+      </section>
+
+      <!-- Right: Pack Values -->
+      <section class="card">
+        <div class="card-title">What the Pack Protects</div>
+        <p>
+          The Wolfie Pack stands for a few simple, sacred things — in games and in life:
         </p>
-    </main>
+        <ul>
+          <li><strong>No wolf left behind:</strong> whether it’s a bad day, a bad match, or a bad mental health night,
+              someone is there in the party list, ready to queue again.</li>
+          <li><strong>Laughter as armor:</strong> jokes, memes, and dumb moments aren’t distractions — they’re shields
+              that make the chaos survivable.</li>
+          <li><strong>Practice without pressure:</strong> you’re allowed to learn, mess up, improve. The arena is a
+              place to grow, not a courtroom.</li>
+          <li><strong>Real bonds in digital spaces:</strong> the Pack honors that some of the deepest connections
+              are born through headsets and glowing screens.</li>
+        </ul>
+        <p>
+          These values echo across Wulverik. When the Glitched Wolf enters any trial that requires trust,
+          synchronization, or shared strategy, the presence of the Wolfie Pack is never far behind.
+        </p>
+      </section>
+
+    </div>
+
+    <!-- Portal Arenas -->
+    <h2 class="section-title">Portal Arenas of the Wolfie Pack</h2>
+    <p class="section-sub">
+      Every game you play with your Pack becomes an “arena” inside Wulverik — a place where skill and instinct
+      merge with story. These arenas don’t name specific titles or franchises. Instead, they describe the
+      <em>feeling</em> of the matches you’ve lived through.
+    </p>
+
+    <div class="arena-grid">
+      <div class="arena-card">
+        <div class="arena-name">The Shadow Gauntlet</div>
+        <div class="arena-tag">Stealth · Strategy · Quiet Coordination</div>
+        <p>
+          An arena of dim corridors and overlapping sightlines, where the Pack moves in near-silence. Here the
+          Glitched Wolf learns to trust whispered callouts, timing, and the awareness that someone is watching
+          the angles he can’t see.
+        </p>
+      </div>
+
+      <div class="arena-card">
+        <div class="arena-name">Rift of Reflex</div>
+        <div class="arena-tag">Speed · Adaptation · Split-Second Trust</div>
+        <p>
+          A fracture in reality where everything moves fast — projectiles, enemies, objectives. Reaction time
+          matters, but so does faith: knowing the Pack will cover the flank, pick up the fallen, and rotate when
+          you call it.
+        </p>
+      </div>
+
+      <div class="arena-card">
+        <div class="arena-name">The Echo Hunt</div>
+        <div class="arena-tag">Tracking · Pattern Reading · Shared Focus</div>
+        <p>
+          A wild region where opponents, puzzles, or bosses must be read and tracked. The Pack calls out
+          patterns, shares discoveries, and celebrates tiny progress. Here, autistic pattern-recognition
+          becomes a celebrated gift, not a burden.
+        </p>
+      </div>
+
+      <div class="arena-card">
+        <div class="arena-name">Trial of Embers</div>
+        <div class="arena-tag">Endurance · Tilt Control · Emotional Resets</div>
+        <p>
+          A long-form trial — multi-round, exhausting, and sometimes demoralizing. The Pack’s true strength
+          appears here: knowing when to take a breath, crack a joke, or queue “one last run” that somehow
+          leads to the most beautiful win of the night.
+        </p>
+      </div>
+    </div>
+
+    <!-- Real-world Connection / Join the Pack -->
+    <h2 class="section-title">WolfiePackGaming in the Real World</h2>
+    <p class="section-sub">
+      This realm is more than metaphor. <strong>WolfiePackGaming</strong> is the real-world face of the Pack —
+      the channel, the tag, the identity you use when you go live or drop into queues with friends.
+    </p>
+
+    <p>
+      On this page, you can eventually embed live streams, VODs, or highlight reels that represent your favorite
+      moments with the Pack: clutch plays, ridiculous fails, and the kind of laughter that leaves everyone wheezing
+      on comms. Each clip becomes a shard of Wulverik — proof that community is as mythic as any monster.
+    </p>
+
+    <!-- Replace # with your actual channel link(s) when you're ready -->
+    <a class="link-button" href="#" target="_blank" rel="noopener noreferrer">
+      <span>▶</span>
+      <span>Visit WolfiePackGaming</span>
+    </a>
+
+    <div class="callout">
+      <div class="callout-label">Echo in the Library</div>
+      In the Library of Memories, the Wolfie Pack appears as a wide, circular chamber lit by screens instead of
+      candles. Dozens of ghostly controllers and headsets hang in the air like constellations. In the center,
+      a shared fire crackles — not of flame, but of voice chat, laughter, and overlapping howls.  
+      Any time the Glitched Wolf feels alone in the dark, he can step through this doorway and remember:
+      there is a Pack that knows his name.
+    </div>
+
+    <!-- Bottom navigation -->
+    <div class="nav-links-bottom">
+      Return to <a href="index.html">the Wulverik Gateway</a> ·  
+      Explore <a href="glitched-genius.html">Glitched Genius</a> ·  
+      Read the <a href="lore-echoes.html">Lore &amp; Echoes</a>
+    </div>
+
+  </div>
+
 </body>
 </html>
