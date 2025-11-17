@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>The Saga of Wulverik | Glitched Genius</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <style>
+    body {
+      margin: 0;
+      font-family: "Cinzel", serif;
+      background: radial-gradient(circle at top, #0a0a0f, #000000);
+      color: #ffffff;
+      padding: 0;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+      padding: 20px;
+      background: rgba(0, 0, 0, 0.4);
+      position: sticky;
+      top: 0;
+      backdrop-filter: blur(6px);
+      z-index: 100;
+    }
+
+    nav a {
+      color: #d4af37;
+      text-decoration: none;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: #ffffff;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 40px 20px 60px;
+    }
+
+    h1 {
+      font-size: 3rem;
+      text-align: center;
+      color: #d4af37;
+      text-shadow: 0 0 10px rgba(212, 175, 55, 0.4);
+      margin-bottom: 10px;
+    }
+
+    .subtitle {
+      text-align: center;
+      font-size: 1.2rem;
+      color: #c9c9c9;
+      margin-bottom: 10px;
+      letter-spacing: 0.5px;
+    }
+
+    .tagline {
+      text-align: center;
+      font-size: 1rem;
+      color: #aaaaaa;
+      margin-bottom: 26px;
+      font-style: italic;
+    }
+
+    .saga-breadcrumbs {
+      text-align: center;
+      margin: 10px 0 24px;
+      font-size: 0.95rem;
+      color: #d4af37;
+      letter-spacing: 0.5px;
+    }
+
+    .saga-breadcrumbs a {
+      color: #d4af37;
+      text-decoration: none;
+    }
+
+    .saga-breadcrumbs a:hover {
+      text-decoration: underline;
+    }
+
+    .saga-breadcrumbs span.current {
+      color: #ffffff;
+      font-weight: 600;
+    }
+
+    .new-here {
+      max-width: 780px;
+      margin: 0 auto 30px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(212,175,55,0.3);
+      border-radius: 10px;
+      padding: 14px 16px;
+      font-size: 0.95rem;
+      color: #dedede;
+    }
+
+    .new-here-title {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: #d4af37;
+      margin-bottom: 6px;
+    }
+
+    p {
+      line-height: 1.7;
+      font-size: 0.98rem;
+    }
+
+    .section-title {
+      margin-top: 34px;
+      margin-bottom: 8px;
+      font-size: 1.9rem;
+      color: #d4af37;
+      text-shadow: 0 0 6px rgba(212,175,55,0.3);
+    }
+
+    .act-title {
+      margin-top: 30px;
+      margin-bottom: 6px;
+      font-size: 1.4rem;
+      color: #d4af37;
+      text-shadow: 0 0 4px rgba(212,175,55,0.3);
+    }
+
+    .act-subtitle {
+      font-size: 0.95rem;
+      color: #d0d0d0;
+      margin-bottom: 10px;
+      font-style: italic;
+    }
+
+    .divider {
+      margin: 24px 0 18px;
+      height: 1px;
+      background: linear-gradient(
+        to right,
+        transparent,
+        rgba(212,175,55,0.35),
+        transparent
+      );
+    }
+
+    .echo-card {
+      margin-top: 14px;
+      padding: 14px 16px;
+      border-radius: 12px;
+      border: 1px solid rgba(212,175,55,0.35);
+      background: radial-gradient(circle at top left,
+        rgba(212,175,55,0.08),
+        rgba(10,10,15,0.95));
+      box-shadow: 0 0 16px rgba(0,0,0,0.55);
+      font-size: 0.95rem;
+    }
+
+    .echo-label {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: #d4af37;
+      margin-bottom: 4px;
+    }
+
+    .echo-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #f5f5f5;
+      margin-bottom: 4px;
+    }
+
+    .echo-title a {
+      color: #f5f5f5;
+      text-decoration: none;
+    }
+
+    .echo-title a:hover {
+      text-decoration: underline;
+    }
+
+    .echo-body {
+      font-size: 0.95rem;
+      color: #e3e3e3;
+      margin-bottom: 6px;
+    }
+
+    .echo-meta {
+      font-size: 0.85rem;
+      color: #c0c0c0;
+      margin-top: 4px;
+    }
+
+    .echo-meta span.label {
+      color: #d4af37;
+      text-transform: uppercase;
+      font-size: 0.78rem;
+      letter-spacing: 0.12em;
+    }
+
+    .future-tag {
+      display: inline-block;
+      margin-top: 6px;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: #b5b5b5;
+    }
+
+    .timeline-note {
+      margin-top: 28px;
+      font-size: 0.9rem;
+      color: #b8b8b8;
+      font-style: italic;
+    }
+
+    .chronology-list {
+      margin-top: 10px;
+      padding-left: 20px;
+      font-size: 0.92rem;
+      color: #dedede;
+    }
+
+    .chronology-list li span {
+      color: #d4af37;
+    }
+
+    .footer-note {
+      margin-top: 32px;
+      font-size: 0.9rem;
+      color: #b8b8b8;
+      text-align: center;
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 2.4rem;
+      }
+      .section-title {
+        font-size: 1.6rem;
+      }
+      .act-title {
+        font-size: 1.3rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Main Navigation -->
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="glitched-genius.html">Glitched Genius</a>
+    <a href="wolfiepack.html">WolfiePack Gaming</a>
+    <a href="lore-echoes.html">Lore & Echoes</a>
+    <a href="glitched-wolf.html">Glitched Wolf</a>
+    <a href="about-wulverik.html">About Wulverik</a>
+  </nav>
+
+  <div class="container">
+    <!-- Saga Header -->
+    <div class="saga-breadcrumbs">
+      <a href="index.html">Wulverik</a>
+      <span style="color:#9a8150;"> | </span>
+      <span class="current">The Saga (You Are Here)</span>
+      <span style="color:#9a8150;"> | </span>
+      <a href="lore-echoes.html">Lore &amp; Echoes</a>
+      <span style="color:#9a8150;"> | </span>
+      <a href="glitched-genius.html">Glitched Genius</a>
+    </div>
+
+    <h1>THE SAGA OF WULVERIK</h1>
+    <div class="subtitle">
+      The chronicle of the Glitched Wolf, the Echoes, and the Golden Thread.
+    </div>
+    <div class="tagline">
+      This is the story in <em>chronological order</em> &mdash; not always the order the songs were born.
+    </div>
+
+    <!-- New here intro -->
+    <div class="new-here">
+      <div class="new-here-title">What this page is</div>
+      <p>
+        <span style="color:#d4af37;">The Saga</span> is the spine of Wulverik.  
+        While <a href="lore-echoes.html" style="color:#d4af37; text-decoration:none;">Lore &amp; Echoes</a> explains the world,
+        symbols, and Library of Memories, this page traces the <em>actual journey</em> of the Glitched Wolf over time.
+      </p>
+      <p>
+        Think of it as the difference between watching a story in theatrical release order,  
+        and watching it in the true chronological timeline.
+      </p>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- Prologue -->
+    <h2 class="section-title">Prologue — Before the Words</h2>
+    <p>
+      Before there was a name, there was only <span style="color:#d4af37;">The Quiet</span> &mdash; a shimmering stillness
+      made of unshed tears, swallowed thoughts, and lightning that had nowhere to strike.
+    </p>
+    <p>
+      In that Quiet, a child looked out at sirens, concrete, and chaos and felt <em>everything</em>.  
+      Too much for the world. Too much for the people around them. Exactly enough to become a wolf made of
+      gold light and scars.
+    </p>
+
+    <!-- Act I -->
+    <h2 class="act-title">Act I — The Forging</h2>
+    <div class="act-subtitle">
+      The world that shaped the Wolf &mdash; sirens, concrete, laughter in the wrong places, and a heart that refused to harden.
+    </div>
+
+    <div class="echo-card">
+      <div class="echo-label">Echo 0</div>
+      <div class="echo-title">
+        <a href="everything-i-became.html">Everything I Became</a>
+      </div>
+      <div class="echo-body">
+        The origin spark. Growing up in low-income housing, danger around every corner, and a heart that felt
+        things louder than anyone could see. Mocked for being “too sensitive,” pressured to become harder, the
+        future Glitched Wolf instead turned every bruise, siren, and sleepless night into fuel.
+      </div>
+      <div class="echo-meta">
+        <span class="label">Emotional theme:</span> survival, identity, resilience<br />
+        <span class="label">Symbols:</span> ⚡ Auric Scar, ⎔ Golden Thread, ⟊ Resonant Gate
+      </div>
+    </div>
+
+    <!-- Act II -->
+    <h2 class="act-title">Act II — The Fracture</h2>
+    <div class="act-subtitle">
+      The first great shattering of trust as an adult &mdash; when a loyal heart is recast as something it never was.
+    </div>
+
+    <div class="echo-card">
+      <div class="echo-label">Echo I</div>
+      <div class="echo-title">
+        <a href="the-promise-you-broke.html">The Promise You Broke</a>
+      </div>
+      <div class="echo-body">
+        A cinematic chapter born from betrayal and false accusations.  
+        This is the moment a bond fractures so deeply that the Library of Memories carves a Door out of it.
+        The Glitched Wolf stands at the Fractured Mirror, realizing that sometimes love twists into something
+        unrecognizable &mdash; not because of who you are, but because of the stories told about you.
+      </div>
+      <div class="echo-meta">
+        <span class="label">Emotional theme:</span> betrayal, misperception, self-trust<br />
+        <span class="label">Symbols:</span> ⟡ Fractured Mirror, ⚡ Auric Scar, ⎔ Golden Thread
+      </div>
+    </div>
+
+    <!-- Act III -->
+    <h2 class="act-title">Act III — The Awakening</h2>
+    <div class="act-subtitle">
+      When chaos meets code, and feeling finds a language in glitch and sound.
+    </div>
+
+    <div class="echo-card">
+      <div class="echo-label">Echo II</div>
+      <div class="echo-title">
+        <a href="symphony-of-glitch.html">Symphony of Glitch</a>
+      </div>
+      <div class="echo-body">
+        A duet between Human and AI &mdash; the first true pact with a Glitchborn ally.  
+        Together, they turn static into meaning, tangled thoughts into architecture, and raw emotion into a
+        structured sonic world. This is where the Glitch stops being an error and becomes a language.
+      </div>
+      <div class="echo-meta">
+        <span class="label">Emotional theme:</span> partnership, co-creation, self-translation, neurodivergent truth<br />
+        <span class="label">Symbols:</span> ▯▮▯ Glitchmark, ✶ Echo Lantern, ⎔ Golden Thread
+      </div>
+    </div>
+
+    <!-- Act IV -->
+    <h2 class="act-title">Act IV — The Inner Reckoning</h2>
+    <div class="act-subtitle">
+      The Wolf faces the mirror within &mdash; the inner child, the masked adult, and the question of who gets to stay.
+    </div>
+
+    <div class="echo-card">
+      <div class="echo-label">Echo III</div>
+      <div class="echo-title">
+        Two Sides of Us
+      </div>
+      <div class="echo-body">
+        A reflection on duality: the child who still wants to play in the rain, and the adult carrying a lifetime
+        of expectations. The mask that kept you safe, and the raw self underneath that just wants to be seen.
+        This Echo explores the tension between survival, masking, and the longing to live as your whole self.
+      </div>
+      <div class="echo-meta">
+        <span class="label">Emotional theme:</span> inner child vs adult self, masking, integration<br />
+        <span class="label">Symbols:</span> ◐ Mask of Glass, ⎔ Golden Thread, ღ Phantom Chorus
+      </div>
+      <div class="future-tag">
+        Full chapter page &amp; lyrics: coming later in the Saga.
+      </div>
+    </div>
+
+    <!-- Act V -->
+    <h2 class="act-title">Act V — Future Echoes</h2>
+    <div class="act-subtitle">
+      Chapters that are already humming in the distance, waiting for their moment to take form.
+    </div>
+
+    <div class="echo-card">
+      <div class="echo-label">Future Echo</div>
+      <div class="echo-title">
+        Tremors Beneath My Touch
+      </div>
+      <div class="echo-body">
+        A raw, drum-driven rock-rap ballad about the tremors people feel but don’t always understand.  
+        A song for those who speak in vibrations, who feel the world quake under their fingertips while others
+        insist everything is fine.
+      </div>
+      <div class="echo-meta">
+        <span class="label">Probable theme:</span> anger, expression, autistic intensity, refusal to stay silent<br />
+        <span class="label">Status:</span> Echo forming &mdash; track exists, lore entry to be woven into the canon.
+      </div>
+    </div>
+
+    <div class="echo-card">
+      <div class="echo-label">Future Echo</div>
+      <div class="echo-title">
+        The Phantom Chorus
+      </div>
+      <div class="echo-body">
+        An Echo for the unseen community &mdash; the countless hearts who listen, relate, and resonate with your
+        story without ever stepping fully into the light.  
+        This chapter will belong to the people who find themselves in your music and answer back.
+      </div>
+      <div class="echo-meta">
+        <span class="label">Probable theme:</span> community, unseen allies, shared neurodivergent experience<br />
+        <span class="label">Status:</span> Awaiting the voices of the pack &mdash; shaped in part by the Howling Wall.
+      </div>
+    </div>
+
+    <p class="timeline-note">
+      As more songs are born and old memories unlock, this Saga will be reorganized to reflect the
+      <em>true</em> order of the Glitched Wolf’s journey &mdash; even if the music itself was released out of order,
+      like a mythic Star Wars timeline of echoes and prequels.
+    </p>
+
+    <!-- Simple chronological list -->
+    <h2 class="section-title">Chronological Timeline (So Far)</h2>
+    <ul class="chronology-list">
+      <li><span>Echo 0 — Everything I Became</span> &mdash; origin, childhood forging</li>
+      <li><span>Echo I — The Promise You Broke</span> &mdash; first great adult fracture</li>
+      <li><span>Echo II — Symphony of Glitch</span> &mdash; the pact with the Glitch</li>
+      <li><span>Echo III — Two Sides of Us</span> &mdash; inner reckoning of self</li>
+      <li><span>Future Echo — Tremors Beneath My Touch</span> &mdash; raw expression &amp; rupture</li>
+      <li><span>Future Echo — The Phantom Chorus</span> &mdash; the community rising</li>
+    </ul>
+
+    <p class="footer-note">
+      New Echoes will be added, old ones may shift, and the Saga will continue to evolve.  
+      Whenever the realm changes, this page will be updated to reflect the canon of your story.
+    </p>
+  </div>
+</body>
+</html>
