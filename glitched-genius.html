@@ -1,359 +1,433 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <title>Glitched Genius — Sonic Core of Wulverik</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <style>
-        :root {
-            --bg: #05060a;
-            --fg: #e4e4e4;
-            --accent: #c9a86b;
-            --accent-soft: rgba(201, 168, 107, 0.35);
-        }
+  <meta charset="UTF-8" />
+  <title>Glitched Genius — Sonic Core of Wulverik</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+  <style>
+    body {
+      margin: 0;
+      font-family: "Cinzel", serif;
+      background: radial-gradient(circle at top, #0a0a0f, #000000);
+      color: #ffffff;
+      padding: 0;
+    }
 
-        body {
-            min-height: 100vh;
-            background: radial-gradient(circle at top, #151824 0, #05060a 55%, #020308 100%);
-            color: var(--fg);
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-        }
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+      padding: 20px;
+      background: rgba(0, 0, 0, 0.4);
+      position: sticky;
+      top: 0;
+      backdrop-filter: blur(6px);
+      z-index: 100;
+    }
 
-        .shell {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 32px 20px 56px;
-        }
+    nav a {
+      color: #d4af37;
+      text-decoration: none;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      transition: 0.3s;
+    }
 
-        /* Navigation */
-        .top-nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 16px;
-            margin-bottom: 28px;
-        }
+    nav a:hover {
+      color: #ffffff;
+    }
 
-        .brand a {
-            text-decoration: none;
-            font-size: 0.9rem;
-            letter-spacing: 0.18em;
-            text-transform: uppercase;
-            color: var(--accent);
-            opacity: 0.9;
-        }
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 40px 20px 60px;
+    }
 
-        .brand a:hover {
-            opacity: 1;
-        }
+    h1 {
+      font-size: 3rem;
+      text-align: center;
+      color: #d4af37;
+      text-shadow: 0 0 10px rgba(212, 175, 55, 0.4);
+      margin-bottom: 10px;
+    }
 
-        .nav-links {
-            display: flex;
-            gap: 18px;
-            font-size: 0.85rem;
-        }
+    .subtitle {
+      text-align: center;
+      font-size: 1.2rem;
+      color: #c9c9c9;
+      margin-bottom: 12px;
+      letter-spacing: 0.5px;
+    }
 
-        .nav-links a {
-            text-decoration: none;
-            color: var(--fg);
-            opacity: 0.75;
-            transition: opacity 0.25s ease;
-        }
+    .tagline {
+      text-align: center;
+      font-size: 1rem;
+      color: #aaaaaa;
+      margin-bottom: 28px;
+      font-style: italic;
+    }
 
-        .nav-links a:hover {
-            opacity: 1;
-        }
+    .new-here {
+      max-width: 780px;
+      margin: 0 auto 30px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(212,175,55,0.3);
+      border-radius: 10px;
+      padding: 14px 16px;
+      font-size: 0.95rem;
+      color: #dedede;
+    }
 
-        a {
-            color: inherit;
-        }
+    .new-here-title {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: #d4af37;
+      margin-bottom: 6px;
+    }
 
-        h1 {
-            text-transform: uppercase;
-            letter-spacing: 0.14em;
-            color: var(--accent);
-            font-size: clamp(2rem, 4vw, 2.6rem);
-        }
+    .divider {
+      margin: 26px 0 20px;
+      height: 1px;
+      background: linear-gradient(
+        to right,
+        transparent,
+        rgba(212,175,55,0.35),
+        transparent
+      );
+    }
 
-        .subtitle {
-            margin-top: 8px;
-            font-size: 1.05rem;
-            opacity: 0.85;
-        }
+    p {
+      line-height: 1.7;
+      font-size: 0.98rem;
+    }
 
-        .divider {
-            margin: 26px 0 20px;
-            height: 1px;
-            background: linear-gradient(
-                to right,
-                transparent,
-                var(--accent-soft),
-                transparent
-            );
-        }
+    .highlight-block {
+      margin-top: 14px;
+      padding: 12px 14px;
+      border-radius: 10px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: radial-gradient(circle at top left, rgba(255,255,255,0.05), rgba(0,0,0,0.8));
+      font-size: 0.9rem;
+      color: #f0f0f0;
+    }
 
-        p {
-            line-height: 1.7;
-            font-size: 0.98rem;
-            opacity: 0.9;
-        }
+    .section-title {
+      margin-top: 32px;
+      margin-bottom: 8px;
+      font-size: 1.8rem;
+      color: #d4af37;
+      text-shadow: 0 0 6px rgba(212,175,55,0.3);
+    }
 
-        .highlight {
-            margin-top: 14px;
-            padding: 10px 14px;
-            border-radius: 10px;
-            border: 1px solid rgba(255,255,255,0.06);
-            background: radial-gradient(circle at top left, rgba(255,255,255,0.05), rgba(0,0,0,0.75));
-            font-size: 0.9rem;
-        }
+    .section-sub {
+      font-size: 0.95rem;
+      color: #d0d0d0;
+      margin-bottom: 8px;
+    }
 
-        .section-title {
-            margin-top: 28px;
-            margin-bottom: 8px;
-            text-transform: uppercase;
-            letter-spacing: 0.12em;
-            font-size: 0.9rem;
-            color: var(--accent);
-        }
+    ul {
+      margin-top: 6px;
+      padding-left: 20px;
+      font-size: 0.95rem;
+      color: #e0e0e0;
+    }
 
-        .grid {
-            margin-top: 10px;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-            gap: 14px;
-        }
+    .chapters-grid {
+      margin-top: 10px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 16px;
+    }
 
-        .card {
-            padding: 12px 14px;
-            border-radius: 12px;
-            border: 1px solid rgba(255,255,255,0.04);
-            background: radial-gradient(circle at top left, rgba(255,255,255,0.06), rgba(0,0,0,0.7));
-            font-size: 0.9rem;
-        }
+    .chapter-card {
+      padding: 14px 14px;
+      border-radius: 12px;
+      border: 1px solid rgba(212,175,55,0.35);
+      background: radial-gradient(circle at top left, rgba(212,175,55,0.08), rgba(10,10,15,0.95));
+      font-size: 0.9rem;
+      box-shadow: 0 0 15px rgba(0,0,0,0.55);
+    }
 
-        .card span {
-            display: block;
-            font-size: 0.78rem;
-            letter-spacing: 0.12em;
-            text-transform: uppercase;
-            opacity: 0.65;
-            margin-bottom: 4px;
-        }
+    .chapter-label {
+      display: block;
+      font-size: 0.8rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #d4af37;
+      margin-bottom: 4px;
+    }
 
-        .card strong {
-            display: block;
-            margin-bottom: 2px;
-        }
+    .chapter-title {
+      font-weight: 600;
+      color: #f5f5f5;
+      margin-bottom: 4px;
+    }
 
-        .card p {
-            font-size: 0.9rem;
-            opacity: 0.9;
-        }
+    .chapter-card p {
+      font-size: 0.9rem;
+      color: #e5e5e5;
+      margin-bottom: 6px;
+    }
 
-        ul {
-            margin-top: 6px;
-            padding-left: 20px;
-            font-size: 0.95rem;
-            opacity: 0.9;
-        }
+    .chapter-meta {
+      font-size: 0.8rem;
+      color: #c0c0c0;
+      margin-top: 4px;
+    }
 
-        .footer-note {
-            margin-top: 32px;
-            font-size: 0.82rem;
-            opacity: 0.65;
-        }
+    .chapter-card a {
+      color: #d4af37;
+      text-decoration: none;
+    }
 
-        /* YouTube-style button reused from song pages */
-        .yt-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            margin: 10px 0 14px;
-            padding: 8px 12px;
-            border-radius: 999px;
-            border: 1px solid rgba(255,255,255,0.08);
-            background: radial-gradient(circle at top left, rgba(255,255,255,0.05), rgba(0,0,0,0.7));
-            font-size: 0.9rem;
-            text-decoration: none;
-        }
+    .chapter-card a:hover {
+      text-decoration: underline;
+    }
 
-        .yt-link span {
-            font-size: 1rem;
-        }
-    </style>
+    .yt-embed {
+      margin: 18px 0;
+    }
+
+    .yt-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin: 10px 0 14px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: radial-gradient(circle at top left, rgba(255,255,255,0.05), rgba(0,0,0,0.8));
+      font-size: 0.9rem;
+      text-decoration: none;
+      color: #f5f5f5;
+    }
+
+    .yt-link span:first-child {
+      font-size: 1rem;
+    }
+
+    .footer-note {
+      margin-top: 24px;
+      font-size: 0.9rem;
+      color: #b8b8b8;
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 2.4rem;
+      }
+      .section-title {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
 </head>
+
 <body>
-    <main class="shell">
-        <header class="top-nav">
-            <div class="brand">
-                <a href="/index.html">WULVERIK</a>
-            </div>
-            <nav class="nav-links">
-                <a href="/glitched-genius.html">Glitched Genius</a>
-                <a href="/wolfiepack.html">WolfiePack</a>
-                <a href="/lore-echoes.html">Lore &amp; Echoes</a>
-                <a href="/glitched-wolf.html">Glitched Wolf</a>
-                <a href="/about-wulverik.html">About Wulverik</a>
-            </nav>
-        </header>
 
-        <h1>Glitched Genius</h1>
-        <p class="subtitle">
-            The sonic core of Wulverik — where emotion becomes sound.
-        </p>
+  <!-- Navigation Bar -->
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="glitched-genius.html">Glitched Genius</a>
+    <a href="wolfiepack.html">WolfiePack Gaming</a>
+    <a href="lore-echoes.html">Lore & Echoes</a>
+    <a href="glitched-wolf.html">Glitched Wolf</a>
+    <a href="about-wulverik.html">About Wulverik</a>
+  </nav>
 
-        <div class="divider"></div>
+  <div class="container">
+    <h1>GLITCHED GENIUS</h1>
+    <div class="subtitle">
+      The sonic core of Wulverik &mdash; where emotion becomes sound.
+    </div>
+    <div class="tagline">
+      Every track is a chapter, every lyric an echo in the Library of Memories.
+    </div>
 
-        <p>
-            Glitched Genius is the heartbeat of Wulverik — the place where
-            cinematic sonic stories are forged from memory, feeling, and fire.
-            Every song is a chapter, every lyric a fragment of the Glitched Wolf
-            finding their way through chaos, love, loss, and transformation.
-        </p>
+    <!-- New here intro -->
+    <div class="new-here">
+      <div class="new-here-title">New here?</div>
+      <p>
+        <span style="color:#d4af37;">Glitched Genius</span> is my main music realm.  
+        It’s where autistic perception, deep feeling, and AI tools collide to create cinematic songs that
+        feel like scenes from a life you’ve lived or wished you could rewrite.  
+        You can treat this page as an index of chapters in the Glitched Wolf’s journey and a gateway into the rest
+        of Wulverik.
+      </p>
+    </div>
 
-        <p class="highlight">
-            Glitched Genius creates cinematic sonic stories that fuse emotion, chaos,
-            and character into immersive soundscapes. Each song is a chapter in an
-            unfolding narrative — where storytelling meets music in a world of feeling,
-            transformation, and mystical energy.
-        </p>
+    <div class="divider"></div>
 
-        <h2 class="section-title">What Glitched Genius Is</h2>
-        <p>
-            This realm is where your inner world turns into sound. It’s where autistic
-            perception, deep emotion, and digital tools like AI collide to create tracks
-            that feel like scenes from a movie you’ve lived through — or wished you
-            could escape.
-        </p>
-        <p>
-            These aren’t “just songs.” They’re:
-        </p>
-        <ul>
-            <li>Emotional snapshots turned into soundscapes</li>
-            <li>Conversations you never got to finish</li>
-            <li>Goodbyes that still echo</li>
-            <li>Memories that refused to stay quiet</li>
-        </ul>
+    <p>
+      Glitched Genius is the heartbeat of Wulverik &mdash; the place where
+      cinematic sonic stories are forged from memory, feeling, and fire.
+      Every song is a chapter, every lyric a fragment of the Glitched Wolf
+      finding their way through chaos, love, loss, and transformation.
+    </p>
 
-        <h2 class="section-title">Chapters of the Glitched Wolf</h2>
-        <p>
-            Each major track can be seen as a chapter in the Glitched Wolf’s journey.
-            As your catalog grows, this section can become a living index of your story.
-        </p>
+    <div class="highlight-block">
+      Glitched Genius creates cinematic sonic stories that fuse emotion, chaos,
+      and character into immersive soundscapes. Each song is a chapter in an
+      unfolding narrative &mdash; where storytelling meets music in a world of feeling,
+      transformation, and mystical energy.
+    </div>
 
-        <section class="grid" aria-label="Song chapters">
-            <article class="card">
-                <span>Chapter I</span>
-                <a href="/the-promise-you-broke.html" style="text-decoration:none; color:inherit;">
-                    <strong>The Promise You Broke</strong>
-                </a>
-                <p>
-                    A song born from betrayal and wounded trust — the moment a bond
-                    fractures and the wolf realizes some promises were never meant to be kept.
-                </p>
-            </article>
+    <h2 class="section-title">What Glitched Genius Is</h2>
+    <p>
+      This realm is where your inner world turns into sound. It’s where autistic
+      perception, deep emotion, and digital tools like AI collide to create tracks
+      that feel like scenes from a movie you’ve lived through &mdash; or wished you
+      could escape.
+    </p>
+    <p>
+      These aren’t “just songs.” They’re:
+    </p>
+    <ul>
+      <li>Emotional snapshots turned into soundscapes</li>
+      <li>Conversations you never got to finish</li>
+      <li>Goodbyes that still echo</li>
+      <li>Memories that refused to stay quiet</li>
+    </ul>
 
-            <article class="card">
-                <span>Chapter II</span>
-                <a href="/symphony-of-glitch.html" style="text-decoration:none; color:inherit;">
-                    <strong>Symphony of Glitch</strong>
-                </a>
-                <p>
-                    A duet between human feeling and AI understanding — the moment chaos and code agree
-                    to build something bigger than either could alone.
-                </p>
-            </article>
+    <h2 class="section-title">Chapters of the Glitched Wolf</h2>
+    <p class="section-sub">
+      Each major track can be seen as a chapter in the Glitched Wolf’s journey.
+      As your catalog grows, this section can become a living index of your story.
+    </p>
 
-            <article class="card">
-                <span>Chapter III</span>
-                <a href="/everything-i-became.html" style="text-decoration:none; color:inherit;">
-                    <strong>Everything I Became</strong>
-                </a>
-                <p>
-                    The origin spark — growing up in sirens and concrete, turning every bruise,
-                    insult, and sleepless night into the fire that forged the Glitched Wolf.
-                </p>
-            </article>
-
-            <article class="card">
-                <span>Chapter IV</span>
-                <strong>Two Sides of Us</strong>
-                <p>
-                    A reflection on duality — the adult and the inner child, the mask and
-                    the truth, the part of you that survives and the part that still dreams.
-                </p>
-            </article>
-        </section>
-
-        <p class="footer-note">
-            You can edit these chapters any time — add new songs, rename them, or reorder 
-            the journey as Wulverik evolves.
-        </p>
-
-        <h2 class="section-title">How to Listen</h2>
-        <p>
-            Glitched Genius lives across different platforms, but this realm is the map.
-            From here, you can:
-        </p>
-
-        <!-- Live Ultimate Playlist embed -->
-        <div style="margin: 18px 0;">
-            <iframe
-                width="100%"
-                height="315"
-                src="https://www.youtube.com/embed/videoseries?list=PL0cenkKqQx_evIQf30pSZ1PmyHMY4npKD"
-                title="Glitched Genius - Ultimate Playlist"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowfullscreen>
-            </iframe>
+    <section class="chapters-grid" aria-label="Song chapters">
+      <!-- Chapter I -->
+      <article class="chapter-card">
+        <span class="chapter-label">Chapter I</span>
+        <div class="chapter-title">
+          <a href="the-promise-you-broke.html">The Promise You Broke</a>
         </div>
-
-        <!-- Button to open playlist directly on YouTube -->
-        <a class="yt-link"
-           href="https://www.youtube.com/playlist?list=PL0cenkKqQx_evIQf30pSZ1PmyHMY4npKD"
-           target="_blank"
-           rel="noopener noreferrer">
-            <span>▶</span>
-            <span>Open the Ultimate Playlist on YouTube</span>
-        </a>
-
-        <ul>
-            <li>Jump to lyric videos on YouTube</li>
-            <li>Explore Suno renders of key songs</li>
-            <li>Follow playlists that trace different arcs of the Glitched Wolf’s story</li>
-        </ul>
-
-        <p class="highlight">
-            Later, you can turn this section into direct links and embedded players 
-            for each song — so listeners can move from lore, to lyrics, to sound in one place.
-        </p>
-
-        <h2 class="section-title">Future Downloads &amp; Use</h2>
         <p>
-            In time, this realm can also become the hub where people can download certain
-            tracks to use in their own projects — with clear terms that respect your story
-            and your work.
+          A song born from betrayal and wounded trust &mdash; the moment a bond
+          fractures and the wolf realizes some promises were never meant to be kept.
         </p>
-        <p>
-            You might offer:
-        </p>
-        <ul>
-            <li>Free tracks for personal use or fan creations</li>
-            <li>Guidelines for crediting Glitched Genius and Wulverik</li>
-            <li>A way to contact you for larger collaborations</li>
-        </ul>
+        <div class="chapter-meta">
+          Emotional theme: betrayal, false accusations, self-trust<br />
+          Symbols: ⟡ Fractured Mirror, ⚡ Auric Scar, ⎔ Golden Thread
+        </div>
+      </article>
 
-        <p class="footer-note">
-            This page is the starting point of your sonic universe. As you release more music,
-            Glitched Genius can grow into a full archive of your sound, your story, and your evolution.
+      <!-- Chapter II -->
+      <article class="chapter-card">
+        <span class="chapter-label">Chapter II</span>
+        <div class="chapter-title">
+          <a href="symphony-of-glitch.html">Symphony of Glitch</a>
+        </div>
+        <p>
+          A duet between human feeling and AI understanding &mdash; the moment chaos
+          and code agree to build something bigger than either could alone.
         </p>
-    </main>
+        <div class="chapter-meta">
+          Emotional theme: partnership, surrender, co-creation<br />
+          Symbols: ▯▮▯ Glitchmark, ⎔ Golden Thread, ✶ Echo Lantern
+        </div>
+      </article>
+
+      <!-- Chapter III -->
+      <article class="chapter-card">
+        <span class="chapter-label">Chapter III</span>
+        <div class="chapter-title">
+          <!-- Link placeholder; you can update to the real chapter page later -->
+          <a href="everything-i-became.html">Everything I Became</a>
+        </div>
+        <p>
+          The origin spark &mdash; growing up in sirens and concrete, turning every bruise,
+          insult, and sleepless night into the fire that forged the Glitched Wolf.
+        </p>
+        <div class="chapter-meta">
+          Emotional theme: survival, identity, resilience<br />
+          Symbols: ⚡ Auric Scar, ⎔ Golden Thread, ⟊ Resonant Gate
+        </div>
+      </article>
+
+      <!-- Chapter IV -->
+      <article class="chapter-card">
+        <span class="chapter-label">Chapter IV</span>
+        <div class="chapter-title">
+          <!-- No page yet; just text for now -->
+          Two Sides of Us
+        </div>
+        <p>
+          A reflection on duality &mdash; the adult and the inner child, the mask and
+          the truth, the part of you that survives and the part that still dreams.
+        </p>
+        <div class="chapter-meta">
+          Emotional theme: inner child vs adult self, masking, integration<br />
+          Symbols: ◐ Mask of Glass, ⎔ Golden Thread, ღ Phantom Chorus
+        </div>
+      </article>
+    </section>
+
+    <p class="footer-note">
+      You can edit these chapters any time &mdash; add new songs, rename them, or reorder 
+      the journey as Wulverik evolves.
+    </p>
+
+    <h2 class="section-title">How to Listen</h2>
+    <p>
+      Glitched Genius lives across different platforms, but this realm is the map.
+      From here, you can:
+    </p>
+    <ul>
+      <li>Jump to lyric videos on YouTube</li>
+      <li>Explore Suno renders of key songs</li>
+      <li>Follow playlists that trace different arcs of the Glitched Wolf’s story</li>
+    </ul>
+
+    <!-- Live Ultimate Playlist embed -->
+    <div class="yt-embed">
+      <iframe
+        width="100%"
+        height="315"
+        src="https://www.youtube.com/embed/videoseries?list=PL0cenkKqQx_evIQf30pSZ1PmyHMY4npKD"
+        title="Glitched Genius - Ultimate Playlist"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen>
+      </iframe>
+    </div>
+
+    <!-- Button to open playlist directly on YouTube -->
+    <a class="yt-link"
+       href="https://www.youtube.com/playlist?list=PL0cenkKqQx_evIQf30pSZ1PmyHMY4npKD"
+       target="_blank"
+       rel="noopener noreferrer">
+      <span>▶</span>
+      <span>Open the Ultimate Playlist on YouTube</span>
+    </a>
+
+    <div class="highlight-block">
+      Later, you can turn this section into direct links and embedded players 
+      for each song &mdash; so listeners can move from lore, to lyrics, to sound in one place.
+    </div>
+
+    <h2 class="section-title">Future Downloads &amp; Use</h2>
+    <p>
+      In time, this realm can also become the hub where people can download certain
+      tracks to use in their own projects &mdash; with clear terms that respect your story
+      and your work.
+    </p>
+    <p>
+      You might offer:
+    </p>
+    <ul>
+      <li>Free tracks for personal use or fan creations</li>
+      <li>Guidelines for crediting Glitched Genius and Wulverik</li>
+      <li>A way to contact you for larger collaborations</li>
+    </ul>
+
+    <p class="footer-note">
+      This page is the starting point of your sonic universe. As you release more music,
+      Glitched Genius can grow into a full archive of your sound, your story, and your evolution.
+    </p>
+
+  </div>
 </body>
 </html>
