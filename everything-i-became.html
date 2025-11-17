@@ -146,12 +146,12 @@
     .split {
       margin-top: 20px;
       display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr);
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
       gap: 24px;
       align-items: flex-start;
     }
 
-    .lyrics-wrapper, .meaning-wrapper {
+    .lyrics-wrapper {
       background: rgba(255,255,255,0.02);
       border-radius: 12px;
       border: 1px solid rgba(255,255,255,0.09);
@@ -177,19 +177,66 @@
       margin-bottom: 14px;
     }
 
-    .meaning-quote {
-      font-weight: 600;
-      font-style: italic;
-      margin-top: 10px;
-      margin-bottom: 4px;
-      font-size: 0.93rem;
-      color: #f8f8f8;
+    /* Mythic Breakdown cards (gold boxes) */
+
+    .breakdown-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      gap: 10px;
+      margin-top: 4px;
     }
 
-    .meaning-text {
-      font-size: 0.92rem;
-      color: #dddddd;
+    .breakdown-card {
+      background: radial-gradient(circle at top left, rgba(212,175,55,0.08), rgba(10,10,15,0.95));
+      border-radius: 10px;
+      border: 1px solid rgba(212,175,55,0.35);
+      padding: 12px 12px;
+      font-size: 0.9rem;
+      box-shadow: 0 0 12px rgba(0,0,0,0.55);
+    }
+
+    .breakdown-title {
+      font-weight: 600;
+      color: #f5f5f5;
+      margin-bottom: 2px;
+    }
+
+    .breakdown-tag {
+      font-size: 0.8rem;
+      color: #d4af37;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 6px;
+    }
+
+    .breakdown-text {
+      font-size: 0.9rem;
+      color: #e2e2e2;
       line-height: 1.7;
+    }
+
+    .symbol-line {
+      font-size: 0.85rem;
+      color: #c8c8c8;
+      margin-top: 6px;
+    }
+
+    .callout {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(212,175,55,0.3);
+      border-radius: 10px;
+      padding: 14px 14px;
+      font-size: 0.92rem;
+      color: #dedede;
+      margin-top: 12px;
+    }
+
+    .callout-label {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: #d4af37;
+      margin-bottom: 4px;
     }
 
     .footer-note {
@@ -291,13 +338,13 @@
     </a>
 
     <div class="highlight-block">
-      You can listen, read along with the lyrics, or dive into the breakdown below to see how each line ties into
+      You can listen, read along with the lyrics, or dive into the breakdown below to see how each facet ties into
       the Glitched Wolf’s story. Take what resonates. Leave what doesn’t.  
       This realm exists to make you feel less alone, not to tell you how to feel.
     </div>
 
-    <!-- Lyrics & Meaning split -->
-    <h2 class="section-title">Lyrics &amp; Meaning</h2>
+    <!-- Lyrics & Mythic Breakdown split -->
+    <h2 class="section-title">Lyrics &amp; Mythic Echoes</h2>
 
     <div class="split">
       <!-- LEFT: Lyrics -->
@@ -382,153 +429,99 @@ I call it the start of everything I became.
         </div>
       </section>
 
-      <!-- RIGHT: Meaning & Echoes -->
-      <section class="meaning-wrapper">
-        <div class="block-label">Meaning &amp; Echoes</div>
+      <!-- RIGHT: Gold Mythic Breakdown cards + Echo callout -->
+      <section>
+        <div class="block-label">Mythic Breakdown</div>
 
-        <p class="meaning-quote">
-          “Grew up where sirens sing. Concrete dreams and broken swings.”
-        </p>
-        <p class="meaning-text">
-          The Glitched Wolf’s story begins in a loud, unstable place — sirens instead of lullabies,
-          cracked playgrounds instead of safe havens. Childhood isn’t soft here, but it still dares to dream.
-        </p>
+        <div class="breakdown-grid">
 
-        <p class="meaning-quote">
-          “No silence, no peace. Just sleepless nights. Learning to heal under street lights.”
-        </p>
-        <p class="meaning-text">
-          There was never real calm. Anxiety, fear, and noise were constant companions. The Wolf learns to
-          self-heal in harsh spaces, finding his own way under the glow of street lights instead of safety.
-        </p>
+          <div class="breakdown-card">
+            <div class="breakdown-title">Sirens & Concrete</div>
+            <div class="breakdown-tag">Origin in the Noise</div>
+            <p class="breakdown-text">
+              The opening lines place the Glitched Wolf in a world where danger, sirens, and cracked playgrounds
+              replace safety and softness. Childhood is loud and unstable, but still stubbornly dreaming — concrete
+              dreams on broken swings.
+            </p>
+            <p class="symbol-line">
+              Symbols: ⚡ Auric Scar (early wounds), ⟊ Resonant Gate (a future way out)
+            </p>
+          </div>
 
-        <p class="meaning-quote">
-          “I stood out like chalk on stone. Didn’t blend in. Just stood alone.”
-        </p>
-        <p class="meaning-text">
-          From the beginning, he is visibly different — emotionally, neurologically, spiritually. That difference
-          doesn’t lead to connection; it leads to being singled out and left on the outside.
-        </p>
+          <div class="breakdown-card">
+            <div class="breakdown-title">Chalk on Stone</div>
+            <div class="breakdown-tag">Visible Difference</div>
+            <p class="breakdown-text">
+              “I stood out like chalk on stone” names the Wolf’s neurodivergence and sensitivity. He is
+              visibly different in a world that punishes difference. Mockery and labels like “strange” try
+              to erase him, so he builds an inner realm no one else can edit.
+            </p>
+            <p class="symbol-line">
+              Symbols: ⎔ Golden Thread (true identity), ◐ Mask of Glass (how others see him)
+            </p>
+          </div>
 
-        <p class="meaning-quote">
-          “They laughed at my voice. Called me strange. But I built a world they couldn’t change.”
-        </p>
-        <p class="meaning-text">
-          The world mocks the way he speaks, feels, and expresses himself. “Strange” becomes a weaponized label.
-          In response, the Wolf creates an inner universe no one else can rewrite — through imagination, art,
-          and sound.
-        </p>
+          <div class="breakdown-card">
+            <div class="breakdown-title">Diamonds & Amplifiers</div>
+            <div class="breakdown-tag">Pressure into Power</div>
+            <p class="breakdown-text">
+              The pre-chorus and first chorus turn insults, bruises, and attempts to drown him into fuel.
+              The Wolf learns how “diamonds are made” and lights the wire himself. Every scar becomes a
+              live amplifier, turning harm into volume instead of silence.
+            </p>
+            <p class="symbol-line">
+              Symbols: ⚡ Auric Scar, ✶ Echo Lantern (carrying the sound forward)
+            </p>
+          </div>
 
-        <p class="meaning-quote">
-          Pre-Chorus — “Every insult carved a line. Every bruise became a sign.”
-        </p>
-        <p class="meaning-text">
-          He doesn’t ignore the damage. Insults and bruises leave marks, and those marks become signposts of
-          survival — reminders of how far he has come.
-        </p>
+          <div class="breakdown-card">
+            <div class="breakdown-title">Northern Star</div>
+            <div class="breakdown-tag">The One Who Stayed</div>
+            <p class="breakdown-text">
+              Verse 2 honors the partner who held his hand through every scar. Where others saw failure,
+              she saw gold. Her belief doesn’t erase the past, but it alchemizes it — pain becomes soul,
+              fear becomes warmth, and “too much” becomes exactly enough for love.
+            </p>
+            <p class="symbol-line">
+              Symbols: ⎔ Golden Thread (shared), ✶ Echo Lantern (guiding light)
+            </p>
+          </div>
 
-        <p class="meaning-quote">
-          “They said I’d fall, they said I’d fade. But I learned how diamonds are made.”
-        </p>
-        <p class="meaning-text">
-          People predicted collapse and disappearance. Instead, the Wolf recognizes that pressure and pain can
-          crystallize into something strong. If he cannot escape the pressure, he can transform inside it.
-        </p>
+          <div class="breakdown-card">
+            <div class="breakdown-title">Rain & Refrain</div>
+            <div class="breakdown-tag">Forgiveness Without Forgetting</div>
+            <p class="breakdown-text">
+              The bridge refuses to let hate take root. Those who made him bleed “watered the roots of what
+              he’d be” — their harm unintentionally nourishing his growth. Every echo of cruelty is reshaped
+              into a structured refrain inside his music.
+            </p>
+            <p class="symbol-line">
+              Symbols: ⚡ Auric Scar, ⟊ Resonant Gate (turning echoes into songs)
+            </p>
+          </div>
 
-        <p class="meaning-quote">
-          “The dark never broke me. It made me louder.”
-        </p>
-        <p class="meaning-text">
-          Darkness becomes fuel rather than failure. The more life tried to mute him, the stronger and clearer
-          his voice became.
-        </p>
+          <div class="breakdown-card">
+            <div class="breakdown-title">The Flame That’s Mine</div>
+            <div class="breakdown-tag">Mastery of Chaos</div>
+            <p class="breakdown-text">
+              The final chorus and outro shift from surviving the fire to wielding it. Chaos didn’t break him —
+              he burned through it and learned how to use it. Others call it pain; the Wolf names it the start
+              of “everything I became,” claiming authorship over his own origin story.
+            </p>
+            <p class="symbol-line">
+              Symbols: ⟊ Resonant Gate (self-forging), ⎔ Golden Thread (fully claimed)
+            </p>
+          </div>
 
-        <p class="meaning-quote">
-          “It tried to drown me. I built a tower.”
-        </p>
-        <p class="meaning-text">
-          When life, trauma, and chaos tried to pull him under, he chose to build upward — creating structure,
-          boundaries, and a vantage point he could rise from.
-        </p>
+        </div>
 
-        <p class="meaning-quote">
-          “They said I’d fail. But I lit the wire. Now every scar’s a live amplifier.”
-        </p>
-        <p class="meaning-text">
-          Lighting the wire represents choosing ignition — choosing action. Each scar now amplifies his truth,
-          transforming wounds into sound.
-        </p>
-
-        <p class="meaning-quote">
-          “Lost some dreams along the way. But I still rise at the break of day.”
-        </p>
-        <p class="meaning-text">
-          Some dreams didn’t survive, and the grief is real. Yet he continues to rise every day — choosing
-          persistence over surrender.
-        </p>
-
-        <p class="meaning-quote">
-          “Body was shaken. But my soul stayed true. Turning old pain into something new.”
-        </p>
-        <p class="meaning-text">
-          Trauma shook the body, but the inner self remained aligned. Old pain is repurposed into creativity,
-          expression, and connection.
-        </p>
-
-        <p class="meaning-quote">
-          “She held my hand through every scar. My northern star.”
-        </p>
-        <p class="meaning-text">
-          Here, he honors the one who stayed — the partner who brought stability during chaos. She becomes
-          his guiding light in the darkest moments.
-        </p>
-
-        <p class="meaning-quote">
-          “They said I’d lose. But she saw gold. And that belief turned pain to soul.”
-        </p>
-        <p class="meaning-text">
-          Where others predicted loss, she saw worth. Her belief transforms his suffering into something
-          soulful and meaningful.
-        </p>
-
-        <p class="meaning-quote">
-          “I don’t hate the ones who made me bleed.”
-        </p>
-        <p class="meaning-text">
-          The Wolf refuses to let hatred consume him. He acknowledges the harm without letting it harden his heart.
-        </p>
-
-        <p class="meaning-quote">
-          “They watered the roots of what I’d be. Now I rise from the rain. Turned every echo into refrain.”
-        </p>
-        <p class="meaning-text">
-          Those who hurt him unintentionally nourished his growth. Their echoes are reshaped into refrains —
-          structured art instead of uncontrolled pain.
-        </p>
-
-        <p class="meaning-quote">
-          “The chaos never broke me. I burned right through it. Built my strength in the fire. Learned how to use it.”
-        </p>
-        <p class="meaning-text">
-          The final chorus shifts from survival to mastery. Strength wasn’t inherited — it was forged through fire,
-          and now he knows how to wield it.
-        </p>
-
-        <p class="meaning-quote">
-          “Every scar lit fire. Every tear defined. I turned the dark into a flame that’s mine.”
-        </p>
-        <p class="meaning-text">
-          Scars become fuel. Tears define identity. Darkness becomes a controlled flame — the Wolf’s own
-          source of power and purpose.
-        </p>
-
-        <p class="meaning-quote">
-          Outro — “You can call it pain… I call it the start of everything I became.”
-        </p>
-        <p class="meaning-text">
-          Others may see only damage. The Glitched Wolf sees origin. The darkest moments form the
-          spark that ignited his entire becoming — the genesis of Glitched Genius.
-        </p>
+        <div class="callout">
+          <div class="callout-label">Echo in the Library</div>
+          In the Library of Memories, <em>Everything I Became</em> appears as a stairwell spiraling upward
+          through ruined concrete, each step lit by faint golden lines. Sirens hum softly in the distance,
+          but every rotation up the staircase makes them quieter. At the top burns a single, steady flame —
+          the Wolf’s own.
+        </div>
       </section>
     </div>
 
