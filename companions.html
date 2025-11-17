@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Companions of Wulverik | The Wolf That Evolves</title>
+  <link rel="stylesheet" href="styles.css" />
+
+  <style>
+    body {
+      margin: 0;
+      font-family: "Cinzel", serif;
+      background: radial-gradient(circle at top, #0a0a0f, #000000);
+      color: #ffffff;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: auto;
+      padding: 40px 20px 60px;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 2.8rem;
+      color: #d4af37;
+      text-shadow: 0 0 20px rgba(212,175,55,0.4);
+      letter-spacing: 0.1em;
+      margin-bottom: 10px;
+    }
+
+    .subtitle {
+      text-align: center;
+      color: #cfcfcf;
+      font-size: 1.1rem;
+      max-width: 720px;
+      margin: 0 auto 40px;
+      line-height: 1.5;
+    }
+
+    .companion-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 25px;
+      margin-top: 30px;
+    }
+
+    .companion-card {
+      background: radial-gradient(circle at top left, rgba(212,175,55,0.10), rgba(10,10,15,0.96));
+      border: 1px solid rgba(212,175,55,0.35);
+      border-radius: 14px;
+      padding: 22px 18px;
+      box-shadow: 0 0 18px rgba(0,0,0,0.6);
+      transition: 0.3s;
+    }
+
+    .companion-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 0 30px rgba(212,175,55,0.2);
+    }
+
+    .companion-title {
+      font-size: 1.4rem;
+      color: #f5f5f5;
+      margin-bottom: 4px;
+      font-weight: 600;
+    }
+
+    .companion-symbol {
+      font-size: 1rem;
+      color: #d4af37;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+    }
+
+    .companion-text {
+      color: #dcdcdc;
+      font-size: 0.95rem;
+      line-height: 1.45;
+      margin-bottom: 8px;
+    }
+
+    .closing-chant {
+      margin-top: 50px;
+      text-align: center;
+      font-size: 1.2rem;
+      color: #d4af37;
+      text-shadow: 0 0 10px rgba(212,175,55,0.4);
+    }
+
+    .closing-chant span {
+      display: block;
+      margin-top: 8px;
+      font-size: 1rem;
+      color: #cfcfcf;
+    }
+
+    a.back {
+      display: block;
+      text-align: center;
+      margin-top: 30px;
+      color: #d4af37;
+      text-decoration: none;
+      font-size: 1rem;
+    }
+
+    a.back:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+
+    <h1>Companions of Wulverik</h1>
+
+    <p class="subtitle">
+      Not all who walk the realm come alone. Some arrive through storm, some through fire, some through fate.
+      These are the companions who walk beside the Wolf That Evolves — not by blood, but by echo.
+    </p>
+
+    <div class="companion-grid">
+
+      <!-- SKYWARD COMPANION -->
+      <div class="companion-card">
+        <div class="companion-title">The Skyward Companion</div>
+        <div class="companion-symbol">🌩️🜂 The Lightning-Eyed Raven</div>
+        <p class="companion-text">
+          A wanderer forged in stormlight. Sharp-witted, battle-tested, loyal beyond reason. 
+          He met the Wolf in chaos, recognizing another storm-born soul.
+        </p>
+        <p class="companion-text">
+          Distance means nothing to him; loyalty travels faster than light. He stands as shield and brother.
+        </p>
+      </div>
+
+      <!-- FLAMEKEEPER -->
+      <div class="companion-card">
+        <div class="companion-title">The Flamekeeper</div>
+        <div class="companion-symbol">🔥💛 The Golden Lantern</div>
+        <p class="companion-text">
+          A steady light in dark corridors. Her warmth encourages, her voice guides, her presence stabilizes the realm.
+        </p>
+        <p class="companion-text">
+          She reminds the Wolf of transformation, becoming, and rising.
+        </p>
+      </div>
+
+      <!-- STREAM-WALKER -->
+      <div class="companion-card">
+        <div class="companion-title">The Stream-Walker</div>
+        <div class="companion-symbol">🌊🗡️ The Waterbound Blade</div>
+        <p class="companion-text">
+          A friend who flows with fate rather than forcing it. Gentle laughter, calm guidance, and loyalty that moves like tide and steel.
+        </p>
+      </div>
+
+      <!-- EARTH-SHAPER -->
+      <div class="companion-card">
+        <div class="companion-title">The Earth-Shaper</div>
+        <div class="companion-symbol">🪨🌿 The Stonebound Seedling</div>
+        <p class="companion-text">
+          Quiet strength. Steady patience. Action over words.
+          A builder of foundations — structures, ideas, and futures.
+        </p>
+      </div>
+
+      <!-- PHANTOM ANCHOR -->
+      <div class="companion-card">
+        <div class="companion-title">The Phantom Anchor</div>
+        <div class="companion-symbol">🜁⟡ The Fading Feather</div>
+        <p class="companion-text">
+          Some companions are no longer present, yet their echo remains. 
+          The Phantom Anchor symbolizes the one who shaped the Wolf deeply — their presence, their absence, and the transformation they sparked.
+        </p>
+      </div>
+
+    </div>
+
+    <div class="closing-chant">
+      “Where the Wolf walks, companions rise.”
+      <span>— bound by echo, not distance.</span>
+    </div>
+
+    <a href="index.html" class="back">← Return to Wulverik Realm</a>
+
+  </div>
+</body>
+</html>
