@@ -5,289 +5,761 @@
   <title>The Howling Wall — Guestbook of Wulverik</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+  <!-- Optional Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Crimson+Text:wght@400;600&display=swap" rel="stylesheet" />
+
   <style>
-    body {
-      margin: 0;
-      font-family: "Cinzel", serif;
-      background: radial-gradient(circle at top, #0a0a0f, #000000);
-      color: #ffffff;
-      padding: 0;
+    :root {
+      --bg-main: #020309;
+      --bg-panel: rgba(5, 7, 15, 0.92);
+      --bg-panel-soft: rgba(10, 15, 30, 0.9);
+      --accent-gold: #f4c36a;
+      --accent-gold-soft: rgba(244, 195, 106, 0.12);
+      --accent-red: #e8575b;
+      --accent-blue: #4aa5ff;
+      --text-main: #f5f1e8;
+      --text-muted: #9a94a8;
+      --border-glow: rgba(244, 195, 106, 0.4);
+      --shadow-soft: 0 20px 40px rgba(0, 0, 0, 0.7);
+      --radius-xl: 18px;
     }
 
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Crimson Text", serif;
+      background:
+        radial-gradient(circle at 10% 0%, #1a1630 0, transparent 55%),
+        radial-gradient(circle at 90% 0%, #2a1020 0, transparent 55%),
+        radial-gradient(circle at 50% 100%, #120f25 0, transparent 60%),
+        var(--bg-main);
+      color: var(--text-main);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* NAV */
     nav {
       display: flex;
       justify-content: center;
-      gap: 25px;
-      padding: 20px;
-      background: rgba(0, 0, 0, 0.4);
+      align-items: center;
+      gap: 28px;
+      padding: 20px 24px;
+      background: linear-gradient(to bottom, rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.2));
+      backdrop-filter: blur(12px);
       position: sticky;
       top: 0;
-      backdrop-filter: blur(6px);
-      z-index: 100;
+      z-index: 50;
+      border-bottom: 1px solid rgba(244, 195, 106, 0.15);
     }
 
-    nav a {
-      color: #d4af37;
+    .nav-title {
+      font-family: "Cinzel", serif;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      font-size: 0.9rem;
+      color: var(--accent-gold);
+      text-shadow: 0 0 10px rgba(244, 195, 106, 0.6);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 18px;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+    }
+
+    .nav-links a {
+      color: var(--text-muted);
       text-decoration: none;
-      font-weight: 600;
-      letter-spacing: 0.5px;
-      transition: 0.3s;
+      padding-bottom: 2px;
+      border-bottom: 1px solid transparent;
+      transition: color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
     }
 
-    nav a:hover {
-      color: #ffffff;
+    .nav-links a:hover {
+      color: var(--accent-gold);
+      border-color: var(--accent-gold);
+      transform: translateY(-1px);
+    }
+
+    /* LAYOUT */
+    .page {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      padding: 28px 16px 40px;
     }
 
     .container {
-      max-width: 900px;
-      margin: auto;
-      padding: 40px 20px 60px;
+      width: 100%;
+      max-width: 1100px;
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.1fr);
+      gap: 26px;
+      align-items: flex-start;
     }
 
-    .page-label {
-      font-size: 0.85rem;
+    @media (max-width: 900px) {
+      .container {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    /* HERO / LORE */
+    .panel {
+      background: var(--bg-panel-soft);
+      border-radius: var(--radius-xl);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      box-shadow: var(--shadow-soft);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .panel::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at top left, rgba(244, 195, 106, 0.08), transparent 60%);
+      opacity: 0.8;
+      pointer-events: none;
+    }
+
+    .panel-inner {
+      position: relative;
+      padding: 22px 22px 20px;
+    }
+
+    .hero-kicker {
       text-transform: uppercase;
-      letter-spacing: 0.18em;
-      color: #d4af37;
-      text-align: center;
-      margin-bottom: 8px;
-    }
-
-    h1 {
-      font-size: 2.6rem;
-      text-align: center;
-      color: #d4af37;
-      text-shadow: 0 0 12px rgba(212, 175, 55, 0.5);
+      font-size: 0.75rem;
+      letter-spacing: 0.22em;
+      color: var(--accent-gold);
+      font-family: "Cinzel", serif;
       margin-bottom: 6px;
     }
 
-    .subtitle {
-      text-align: center;
-      font-size: 1.05rem;
-      color: #c9c9c9;
-      margin-bottom: 10px;
+    .hero-title {
+      font-family: "Cinzel", serif;
+      font-size: 1.9rem;
+      line-height: 1.2;
+      margin: 0 0 10px;
+      text-shadow: 0 0 18px rgba(0, 0, 0, 0.7);
     }
 
-    .tagline {
-      text-align: center;
+    .hero-sub {
+      color: var(--text-muted);
       font-size: 0.98rem;
-      color: #aaaaaa;
-      margin-bottom: 24px;
+      line-height: 1.5;
+      margin-bottom: 18px;
+    }
+
+    .hero-highlight {
+      border-radius: 14px;
+      border: 1px solid var(--border-glow);
+      background: linear-gradient(
+        135deg,
+        rgba(244, 195, 106, 0.12),
+        rgba(22, 16, 45, 0.7)
+      );
+      padding: 10px 12px;
+      font-size: 0.86rem;
+      line-height: 1.5;
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .hero-highlight-badge {
+      width: 26px;
+      height: 26px;
+      border-radius: 999px;
+      border: 1px solid var(--accent-gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+      color: var(--accent-gold);
+      flex-shrink: 0;
+    }
+
+    .hero-note {
+      margin-top: 10px;
+      font-size: 0.85rem;
+      color: var(--text-muted);
       font-style: italic;
     }
 
-    .section-title {
-      color: #d4af37;
-      font-size: 1.6rem;
-      margin-top: 26px;
+    /* FORM */
+    .form-panel {
+      background: radial-gradient(circle at top, #171427, #050712);
+      border-radius: var(--radius-xl);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: var(--shadow-soft);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .form-panel::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at top right, rgba(74, 165, 255, 0.18), transparent 60%);
+      opacity: 0.75;
+      pointer-events: none;
+    }
+
+    .form-inner {
+      position: relative;
+      padding: 22px 22px 18px;
+    }
+
+    .form-title-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .form-title {
+      font-family: "Cinzel", serif;
+      font-size: 1.35rem;
+      margin: 0;
+    }
+
+    .form-sub {
+      font-size: 0.86rem;
+      color: var(--text-muted);
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px 12px;
+      margin-bottom: 10px;
+    }
+
+    @media (max-width: 600px) {
+      .form-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .field {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .field label {
+      font-size: 0.78rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      font-family: "Cinzel", serif;
+    }
+
+    .field small {
+      font-size: 0.74rem;
+      color: var(--text-muted);
+    }
+
+    input[type="text"],
+    select,
+    textarea {
+      background: rgba(6, 8, 18, 0.95);
+      border-radius: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      padding: 8px 10px;
+      color: var(--text-main);
+      font-family: inherit;
+      font-size: 0.9rem;
+      outline: none;
+      transition: border-color 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+    }
+
+    input[type="text"]:focus,
+    select:focus,
+    textarea:focus {
+      border-color: var(--accent-gold);
+      box-shadow: 0 0 0 1px rgba(244, 195, 106, 0.3);
+      background: rgba(8, 10, 24, 0.98);
+    }
+
+    textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    .actions-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .btn-primary {
+      border: none;
+      border-radius: 999px;
+      padding: 8px 16px;
+      font-size: 0.9rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      font-family: "Cinzel", serif;
+      background: radial-gradient(circle at top, #f4c36a, #b46b28);
+      color: #1a0f05;
+      cursor: pointer;
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.7);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: transform 0.1s ease, box-shadow 0.1s ease, filter 0.1s ease;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      filter: brightness(1.03);
+      box-shadow: 0 18px 32px rgba(0, 0, 0, 0.8);
+    }
+
+    .btn-ghost {
+      background: transparent;
+      border-radius: 999px;
+      padding: 6px 12px;
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      color: var(--text-muted);
+      cursor: pointer;
+      font-size: 0.78rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: border-color 0.15s ease, color 0.15s ease, background 0.15s ease;
+    }
+
+    .btn-ghost:hover {
+      border-color: var(--accent-gold);
+      color: var(--accent-gold);
+      background: rgba(244, 195, 106, 0.06);
+    }
+
+    .hint {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      margin-top: 4px;
+      font-style: italic;
+    }
+
+    /* ENTRIES LIST */
+    .entries-panel {
+      margin-top: 24px;
+      background: radial-gradient(circle at top, rgba(0, 0, 0, 0.7), rgba(3, 4, 10, 0.95));
+      border-radius: var(--radius-xl);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      box-shadow: var(--shadow-soft);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .entries-panel::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at bottom, rgba(232, 87, 91, 0.18), transparent 65%);
+      opacity: 0.7;
+      pointer-events: none;
+    }
+
+    .entries-inner {
+      position: relative;
+      padding: 18px 18px 6px;
+      max-height: 480px;
+      overflow-y: auto;
+    }
+
+    .entries-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 8px;
       margin-bottom: 8px;
-      text-shadow: 0 0 6px rgba(212, 175, 55, 0.3);
     }
 
-    p {
-      font-size: 0.95rem;
-      color: #e0e0e0;
-      line-height: 1.7;
-      margin: 8px 0;
+    .entries-title {
+      font-family: "Cinzel", serif;
+      font-size: 1.05rem;
+      margin: 0;
     }
 
-    .highlight-block {
-      margin-top: 6px;
-      padding: 10px 14px;
-      border-radius: 10px;
-      border: 1px solid rgba(255,255,255,0.06);
-      background: radial-gradient(circle at top left, rgba(255,255,255,0.05), rgba(0,0,0,0.85));
+    .entries-count {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .entry {
+      position: relative;
+      border-radius: 14px;
+      padding: 10px 11px 9px;
+      margin-bottom: 10px;
+      background: linear-gradient(
+        135deg,
+        rgba(244, 195, 106, 0.07),
+        rgba(35, 19, 52, 0.9)
+      );
+      border: 1px solid rgba(244, 195, 106, 0.28);
+      box-shadow: 0 10px 22px rgba(0, 0, 0, 0.75);
+    }
+
+    .entry-header {
+      display: flex;
+      justify-content: space-between;
+      gap: 8px;
+      margin-bottom: 4px;
+      flex-wrap: wrap;
+    }
+
+    .entry-name {
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      font-size: 0.78rem;
+    }
+
+    .entry-faction {
+      font-size: 0.76rem;
+      color: var(--accent-gold);
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+    }
+
+    .entry-message {
       font-size: 0.9rem;
-      color: #f0f0f0;
+      line-height: 1.5;
+      white-space: pre-wrap;
+      margin-bottom: 4px;
     }
 
-    .guestbook-frame {
-      margin-top: 20px;
-      padding: 14px 0;
-      border-radius: 10px;
-      border: 1px solid rgba(255,255,255,0.08);
-      background: rgba(0,0,0,0.4);
+    .entry-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      gap: 8px;
+      flex-wrap: wrap;
     }
 
-    .nav-links-bottom {
-      margin-top: 30px;
-      font-size: 0.9rem;
-      text-align: center;
-      color: #cfcfcf;
+    .entry-mood {
+      font-style: italic;
     }
 
-    .nav-links-bottom a {
-      color: #d4af37;
-      text-decoration: none;
+    .entry-time {
+      opacity: 0.8;
     }
 
-    .nav-links-bottom a:hover {
-      text-decoration: underline;
+    .badge-mood {
+      padding: 2px 7px;
+      border-radius: 999px;
+      border: 1px solid rgba(244, 195, 106, 0.5);
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+
+    .empty-state {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      font-style: italic;
+      margin-top: 8px;
+    }
+
+    /* SCROLLBAR */
+    .entries-inner::-webkit-scrollbar {
+      width: 6px;
+    }
+    .entries-inner::-webkit-scrollbar-track {
+      background: rgba(0, 0, 0, 0.4);
+    }
+    .entries-inner::-webkit-scrollbar-thumb {
+      background: rgba(244, 195, 106, 0.6);
+      border-radius: 999px;
     }
   </style>
 </head>
-
 <body>
-
-  <!-- Navigation Bar -->
   <nav>
-    <a href="index.html">Home</a>
-    <a href="glitched-genius.html">Glitched Genius</a>
-    <a href="wolfiepack.html">WolfiePack Gaming</a>
-    <a href="lore-echoes.html">Lore &amp; Echoes</a>
-    <a href="glitched-wolf.html">Glitched Wolf</a>
-    <a href="about-wulverik.html">About Wulverik</a>
-    <a href="guestbook.html">Guestbook</a>
+    <div class="nav-title">Wulverik</div>
+    <div class="nav-links">
+      <!-- Update hrefs to match your site structure -->
+      <a href="index.html">The Saga</a>
+      <a href="howling-wall.html">The Howling Wall</a>
+      <a href="glitched-genius.html">Glitched&nbsp;Genius</a>
+    </div>
   </nav>
 
-  <div class="container">
+  <main class="page">
+    <div class="container">
+      <!-- LEFT: LORE / DESCRIPTION -->
+      <section class="panel">
+        <div class="panel-inner">
+          <div class="hero-kicker">The Howling Wall</div>
+          <h1 class="hero-title">Leave Your Mark in the Echoing Dark</h1>
+          <p class="hero-sub">
+            Wulverik’s realm remembers every whisper, every vow, every crack of a breaking heart.
+            The Howling Wall is where wanderers, outcasts, and wolves of the wild sky carve
+            their stories into shadow and stone.
+          </p>
 
-    <div class="page-label">Community Echo — Visitor Realm</div>
-    <h1>THE HOWLING WALL</h1>
-    <div class="subtitle">
-      A living guestbook where travelers of Wulverik can leave their echo.
+          <div class="hero-highlight">
+            <div class="hero-highlight-badge">⚔</div>
+            <div>
+              Add your howl to the Wall — a memory, a blessing, a curse, or a promise.
+              Each message becomes part of the living legend of Wulverik and those who walk beside him.
+            </div>
+          </div>
+
+          <p class="hero-note">
+            Your entry lives in your own browser for now — like a spirit bound to your campfire.
+            In time, the Wall may grow into a fully shared chronicle… but every saga starts with a single mark.
+          </p>
+        </div>
+      </section>
+
+      <!-- RIGHT: FORM + ENTRIES -->
+      <section class="form-panel">
+        <div class="form-inner">
+          <div class="form-title-row">
+            <h2 class="form-title">Etch Your Howl</h2>
+            <p class="form-sub">No sign-in. Just truth, inked in shadow.</p>
+          </div>
+
+          <form id="howlingForm">
+            <div class="form-grid">
+              <div class="field">
+                <label for="name">Name or Alias</label>
+                <input
+                  id="name"
+                  type="text"
+                  placeholder="Wanderer, Wolf, or Something Else…"
+                  autocomplete="off"
+                />
+                <small>Leave blank to be known as “Wanderer of the Wilds”.</small>
+              </div>
+
+              <div class="field">
+                <label for="faction">Faction</label>
+                <select id="faction">
+                  <option value="">Choose your path…</option>
+                  <option value="Lone Wolf">Lone Wolf</option>
+                  <option value="Howling Circle">Howling Circle</option>
+                  <option value="Cinder Pact">Cinder Pact</option>
+                  <option value="Moonbound">Moonbound</option>
+                  <option value="Other">Other / Unknown</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="field" style="margin-top: 8px;">
+              <label for="mood">Mood of Your Howl</label>
+              <input
+                id="mood"
+                type="text"
+                placeholder="Defiant, grieving, hopeful, vengeful..."
+                autocomplete="off"
+              />
+            </div>
+
+            <div class="field" style="margin-top: 10px;">
+              <label for="message">Your Message to the Wall</label>
+              <textarea
+                id="message"
+                placeholder="What does Wulverik need to hear tonight?"
+                required
+              ></textarea>
+            </div>
+
+            <div class="actions-row">
+              <button type="submit" class="btn-primary">
+                <span>Howl to the Wall</span> <span>➤</span>
+              </button>
+
+              <button type="button" id="clearEntries" class="btn-ghost">
+                🧹 Clear my local entries
+              </button>
+            </div>
+            <p class="hint">
+              Your entries are saved only in <strong>your</strong> browser using local storage.
+              Clearing them here won’t affect anyone else’s story.
+            </p>
+          </form>
+        </div>
+
+        <div class="entries-panel">
+          <div class="entries-inner">
+            <div class="entries-header">
+              <h3 class="entries-title">Echoes on the Wall</h3>
+              <div class="entries-count" id="entriesCount">No howls yet.</div>
+            </div>
+            <div id="entriesList" class="entries-list">
+              <div class="empty-state" id="emptyState">
+                The stone is quiet… for now. Be the first to leave a mark.
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
-    <div class="tagline">
-      Share a thought, a feeling, a blessing for the Pack — and let your words live in the realm.
-    </div>
+  </main>
 
-    <h2 class="section-title">What This Space Is</h2>
-    <p>
-      In the old days of the net, realms had guestbooks — quiet corners where people could say,
-      “I was here, and this meant something to me.”  
-      This page is Wulverik’s version of that: a modern guestbook where your voice can sit beside
-      the Glitched Wolf’s story.
-    </p>
+  <script>
+    (function () {
+      const STORAGE_KEY = "wulverik_howling_wall_entries_v1";
 
-    <div class="highlight-block">
-      You can use this space to:
-      <ul>
-        <li>Say hi to the Wolfie Pack or Glitched Genius</li>
-        <li>Share how a song, lyric, or chapter made you feel</li>
-        <li>Leave encouragement for others walking through their own chaos</li>
-      </ul>
-      Be kind. Be real. Your echo might be the line someone else needed to read today.
-    </div>
+      const form = document.getElementById("howlingForm");
+      const nameInput = document.getElementById("name");
+      const factionInput = document.getElementById("faction");
+      const moodInput = document.getElementById("mood");
+      const messageInput = document.getElementById("message");
+      const clearButton = document.getElementById("clearEntries");
 
-   <!-- ✨ Golden Rune Divider -->
-<div style="
-    margin: 40px auto 25px;
-    width: 110px;
-    height: 2px;
-    background: linear-gradient(
-      to right,
-      transparent,
-      rgba(212, 175, 55, 0.7),
-      transparent
-    );
-    position: relative;
-">
-    <div style="
-        position: absolute;
-        top: -6px;
-        left: 50%;
-        transform: translateX(-50%);
-        font-size: 14px;
-        color: #d4af37;
-        letter-spacing: 0.15em;
-        opacity: 0.9;
-    ">
-        ⟊ ⎔ ⟊
-    </div>
-</div>
+      const entriesList = document.getElementById("entriesList");
+      const entriesCount = document.getElementById("entriesCount");
+      const emptyState = document.getElementById("emptyState");
 
-<h2 class="section-title">Leave Your Echo</h2>
+      function loadEntries() {
+        try {
+          const raw = localStorage.getItem(STORAGE_KEY);
+          if (!raw) return [];
+          const parsed = JSON.parse(raw);
+          return Array.isArray(parsed) ? parsed : [];
+        } catch (e) {
+          console.warn("Failed to read Howling Wall entries from storage:", e);
+          return [];
+        }
+      }
 
-<!-- ✨ Realm Intro Block -->
-<div class="guestbook-intro" style="
-    margin-top: 10px;
-    margin-bottom: 24px;
-    padding: 14px 18px;
-    border-radius: 12px;
-    background: radial-gradient(circle at top left, rgba(255,255,255,0.05), rgba(0,0,0,0.75));
-    border: 1px solid rgba(255,255,255,0.06);
-    color: #e4e4e4;
-    font-size: 0.97rem;
-    line-height: 1.6;
-    text-align: center;
-">
-    <span style="color:#c9a86b; font-weight:600; letter-spacing:0.05em;">
-        Leave your echo here.
-    </span>
-    Every story matters, even the quiet ones.
-</div>
+      function saveEntries(entries) {
+        try {
+          localStorage.setItem(STORAGE_KEY, JSON.stringify(entries));
+        } catch (e) {
+          console.warn("Failed to save Howling Wall entries:", e);
+        }
+      }
 
-<!-- ✨ Misty Background Motif -->
-<div style="
-    margin: 0 auto 20px;
-    width: 100%;
-    height: 80px;
-    background: radial-gradient(circle at center, rgba(212,175,55,0.06), transparent 70%);
-    opacity: 0.6;
-    pointer-events: none;
-"></div>
+      function formatDate(timestamp) {
+        const date = new Date(timestamp);
+        return date.toLocaleString(undefined, {
+          year: "numeric",
+          month: "short",
+          day: "numeric",
+          hour: "2-digit",
+          minute: "2-digit"
+        });
+      }
 
-<p>
-  Sign in, type your message, and it will be inscribed as part of Wulverik’s living history.
-</p>
+      function renderEntries() {
+        const entries = loadEntries();
+        entriesList.innerHTML = "";
+        if (!entries.length) {
+          entriesCount.textContent = "No howls yet.";
+          if (emptyState) {
+            const clone = emptyState.cloneNode(true);
+            clone.id = "emptyStateClone";
+            entriesList.appendChild(clone);
+          }
+          return;
+        }
 
+        entriesCount.textContent =
+          entries.length === 1
+            ? "1 howl carved into the stone."
+            : entries.length + " howls carved into the stone.";
 
-<!-- ✨ Guestbook Intro Block -->
-<div class="guestbook-intro" style="
-    margin-top: 10px;
-    margin-bottom: 24px;
-    padding: 12px 16px;
-    border-radius: 12px;
-    background: radial-gradient(circle at top left, rgba(255,255,255,0.05), rgba(0,0,0,0.7));
-    border: 1px solid rgba(255,255,255,0.06);
-    color: #e4e4e4;
-    font-size: 0.95rem;
-    line-height: 1.6;
-    text-align: center;
-">
-    <span style="color:#c9a86b; font-weight:600;">
-        Leave your echo here.
-    </span>
-    Every story matters, even the quiet ones.
-</div>
+        entries
+          .slice() // copy
+          .reverse() // newest first
+          .forEach((entry) => {
+            const el = document.createElement("article");
+            el.className = "entry";
 
-<p>
-  Sign in, type your message, and it will be inscribed as part of Wulverik’s living history.
-</p>
+            const name = entry.name || "Wanderer of the Wilds";
+            const faction = entry.faction || "Unbound";
+            const mood = entry.mood || "Unspoken";
 
+            el.innerHTML = `
+              <div class="entry-header">
+                <div class="entry-name">${escapeHtml(name)}</div>
+                <div class="entry-faction">${escapeHtml(faction)}</div>
+              </div>
+              <div class="entry-message">${escapeHtml(entry.message)}</div>
+              <div class="entry-meta">
+                <div class="entry-mood">
+                  <span class="badge-mood">${escapeHtml(mood)}</span>
+                </div>
+                <div class="entry-time">${formatDate(entry.timestamp)}</div>
+              </div>
+            `;
+            entriesList.appendChild(el);
+          });
+      }
 
-    <div class="guestbook-frame">
-      <!-- ⭐ GISCUS COMMENTS WIDGET GOES HERE ⭐
-           1. Go to https://giscus.app
-           2. Configure it with your GitHub repo
-           3. Copy the <script> snippet it gives you
-           4. Paste it right below this comment -->
-      <!-- Example (DO NOT USE AS-IS — replace with your real snippet from giscus.app):
-      <script src="https://giscus.app/client.js"
-              data-repo="YOUR-NAME/YOUR-REPO"
-              data-repo-id="..."
-              data-category="Announcements"
-              data-category-id="..."
-              data-mapping="pathname"
-              data-reactions-enabled="1"
-              data-emit-metadata="0"
-              data-input-position="bottom"
-              data-theme="dark"
-              data-lang="en"
-              crossorigin="anonymous"
-              async>
-      </script>
-      <noscript>Enable JavaScript to view the comments.</noscript>
-      -->
-    </div>
+      function escapeHtml(str) {
+        return String(str)
+          .replace(/&/g, "&amp;")
+          .replace(/</g, "&lt;")
+          .replace(/>/g, "&gt;")
+          .replace(/"/g, "&quot;")
+          .replace(/'/g, "&#039;");
+      }
 
-    <div class="nav-links-bottom">
-      Return to <a href="index.html">the Wulverik Gateway</a> ·  
-      Visit <a href="wolfiepack.html">The Wolfie Pack</a> ·  
-      Explore <a href="glitched-genius.html">Glitched Genius</a>
-    </div>
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+        const message = messageInput.value.trim();
+        if (!message) {
+          messageInput.focus();
+          return;
+        }
 
-  </div>
+        const entry = {
+          name: nameInput.value.trim(),
+          faction: factionInput.value,
+          mood: moodInput.value.trim(),
+          message,
+          timestamp: Date.now()
+        };
 
+        const entries = loadEntries();
+        entries.push(entry);
+        saveEntries(entries);
+        renderEntries();
+
+        // Soft reset: keep name/faction, clear message + mood
+        moodInput.value = "";
+        messageInput.value = "";
+        messageInput.focus();
+      });
+
+      clearButton.addEventListener("click", function () {
+        if (
+          confirm(
+            "This will clear your local Howling Wall entries from this browser only. The echoes will fade from your view. Continue?"
+          )
+        ) {
+          saveEntries([]);
+          renderEntries();
+        }
+      });
+
+      // Initial render
+      renderEntries();
+    })();
+  </script>
 </body>
 </html>
