@@ -42,7 +42,7 @@
     .container {
       max-width: 900px;
       margin: auto;
-      padding: 40px 20px;
+      padding: 40px 20px 60px;
     }
 
     h1 {
@@ -83,8 +83,38 @@
     .section-title {
       color: #d4af37;
       font-size: 1.8rem;
-      margin-top: 50px;
+      margin-top: 45px;
+      margin-bottom: 10px;
       text-shadow: 0 0 6px rgba(212, 175, 55, 0.3);
+    }
+
+    h3 {
+      margin-top: 25px;
+    }
+
+    p {
+      line-height: 1.7;
+      font-size: 0.98rem;
+      color: #e3e3e3;
+    }
+
+    ul {
+      margin-top: 6px;
+      padding-left: 20px;
+      font-size: 0.95rem;
+      color: #e0e0e0;
+    }
+
+    .lore-highlight {
+      margin: 20px 0;
+      padding: 12px 14px;
+      border-radius: 10px;
+      border: 1px solid rgba(212,175,55,0.3);
+      background: radial-gradient(circle at top left,
+        rgba(212,175,55,0.10),
+        rgba(10,10,15,0.95));
+      font-size: 0.96rem;
+      color: #f0f0f0;
     }
 
     .echo-entry {
@@ -102,13 +132,13 @@
       margin-bottom: 10px;
     }
 
-    footer {
-      text-align: center;
-      margin-top: 60px;
-      padding: 20px;
-      border-top: 1px solid rgba(255, 255, 255, 0.1);
-      color: #aaaaaa;
-      font-size: 0.9rem;
+    .echo-entry a {
+      color: #d4af37;
+      text-decoration: none;
+    }
+
+    .echo-entry a:hover {
+      text-decoration: underline;
     }
 
     /* Codex of Symbols */
@@ -165,19 +195,42 @@
       font-style: italic;
     }
 
-    /* Button (matches home page) */
+    .lore-howling-link {
+      margin-top: 40px;
+      padding: 18px 16px;
+      border-radius: 12px;
+      border: 1px solid rgba(212,175,55,0.3);
+      background: radial-gradient(circle at top left,
+        rgba(212,175,55,0.10),
+        rgba(10,10,15,0.96));
+      text-align: center;
+    }
+
+    .lore-howling-title {
+      font-size: 1.4rem;
+      color: #d4af37;
+      margin-bottom: 8px;
+      text-shadow: 0 0 6px rgba(212,175,55,0.3);
+    }
+
+    .lore-howling-text {
+      font-size: 0.95rem;
+      color: #e0e0e0;
+      margin-bottom: 12px;
+    }
+
     .btn {
       display: inline-block;
-      padding: 10px 18px;
+      padding: 9px 18px;
       border-radius: 999px;
-      border: 1px solid rgba(212,175,55,0.7);
+      border: 1px solid rgba(212,175,55,0.8);
       background: radial-gradient(circle at top left,
         rgba(212,175,55,0.18),
         rgba(10,10,15,0.95));
       color: #ffffff;
       text-decoration: none;
-      font-size: 0.95rem;
-      letter-spacing: 0.05em;
+      font-size: 0.9rem;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
       transition: 0.25s;
     }
@@ -187,31 +240,13 @@
       transform: translateY(-1px);
     }
 
-    /* Howling Wall callout for Lore page */
-    .lore-howling-link {
-      margin: 32px 0;
-      padding: 18px 20px;
-      border-radius: 16px;
-      background: radial-gradient(circle at top, rgba(10,8,25,0.96), rgba(3,3,8,0.98));
-      border: 1px solid rgba(212,175,55,0.26);
-      box-shadow: 0 16px 30px rgba(0,0,0,0.75);
+    footer {
       text-align: center;
-    }
-
-    .lore-howling-title {
-      font-family: "Cinzel", serif;
-      font-size: 1.4rem;
-      color: #d4af37;
-      margin: 0 0 8px;
-      text-shadow: 0 0 6px rgba(212,175,55,0.3);
-    }
-
-    .lore-howling-text {
-      margin: 0 auto 14px;
-      max-width: 720px;
-      font-size: 0.96rem;
-      color: #d6d6d6;
-      line-height: 1.5;
+      margin-top: 60px;
+      padding: 20px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      color: #aaaaaa;
+      font-size: 0.9rem;
     }
 
     @media (max-width: 600px) {
@@ -240,7 +275,7 @@
   <!-- Main Content -->
   <div class="container">
 
-    <h1>LORE & ECHOES</h1>
+    <h1>LORE &amp; ECHOES</h1>
     <div class="subtitle">
       The Library of Memories &mdash; where echoes never die, they wait to be heard.
     </div>
@@ -249,48 +284,46 @@
     <div class="new-here">
       <div class="new-here-title">New here?</div>
       <p>
-        Lore &amp; Echoes is the story-layer behind my music.  
-        It turns real memories, trauma, healing, and neurodivergent experience into a mythic place called
-        the <span style="color:#d4af37;">Library of Memories</span>.  
-        You don’t have to know my whole story to feel this one &mdash; use it as a map to walk through your own chaos
-        and celebrate your own inner light.
+        <span style="color:#d4af37;">Lore &amp; Echoes</span> is the story-layer behind my music.  
+        It turns real memories, trauma, healing, and neurodivergent experience into a mythic place
+        called the <span style="color:#d4af37;">Library of Memories</span>.  
+        You don’t have to know my whole story to feel this &mdash; use it as a map to walk through
+        your own chaos and celebrate your own inner light.
       </p>
     </div>
 
     <!-- Intro -->
     <p>
       Deep in the realm of Wulverik lies a place untouched by time:
-      <span style="color:#d4af37;">The Library of Memories</span>.  
-      A cathedral of shimmering gold threads and drifting shadows, where every emotion you've ever carried
-      lives as a radiant echo.
+      <span style="color:#d4af37;">the Library of Memories</span>.  
+      A cathedral of shimmering gold threads and drifting shadows, where every emotion you've ever
+      carried lives as a radiant echo.
     </p>
 
     <p>
       Here, memories are not records.  
       They are <em>beings</em> &mdash; living myth, living truth.  
-      Some whisper wisdom.  
-      Some warn.  
-      Some hunt.  
-      And some become the guideposts of your journey as the Glitched Wolf.
+      Some whisper wisdom. Some warn. Some hunt.  
+      All of them remember.
     </p>
+
+    <div class="lore-highlight">
+      Where the outside world mislabels, forgets, or twists your story,  
+      the Library of Memories holds it exactly as it felt.
+    </div>
 
     <!-- Origin of the Library -->
     <h2 class="section-title">Origin of the Library</h2>
     <p>
       Long before the first song echoed across Wulverik, before the Glitched Wolf opened his first Door, 
-      there was only <span style="color:#d4af37;">The Quiet</span> &mdash; a vast, shimmering stillness made of unspoken emotion, unfelt hurt, 
-      unexpressed joy, and dormant potential.
+      there was only <span style="color:#d4af37;">The Quiet</span> &mdash; a vast, shimmering stillness made of
+      unspoken emotion, unfelt hurt, unexpressed joy, and dormant potential.
     </p>
     <p>
       When the first true feeling trembled through this silence, The Quiet cracked like glass.  
       From that fracture, the first Echo was born, and the Library began to weave itself.  
       It is not built; it <em>grows</em> &mdash; shaping its halls from every wound survived, every love remembered,
       every truth finally spoken.
-    </p>
-    <p>
-      Where mortals build with stone, the Library builds with <span style="color:#d4af37;">emotion</span>.  
-      Where archives store facts, the Library stores <span style="color:#d4af37;">experience</span>.  
-      It is alive. It listens. It remembers.
     </p>
 
     <!-- Three Layers -->
@@ -302,9 +335,9 @@
 
     <h3 style="color:#d4af37; margin-top:25px;">I. The Whispering Veil</h3>
     <p>
-      The surface layer, where memories drift like fog. Golden threads coil in the air, shadows almost form into 
-      shapes, and echoes murmur half-formed truths. These are young, unresolved echoes. Harmless at a distance &mdash; 
-      dangerous when touched.
+      The surface layer, where memories drift like fog. Golden threads coil in the air, shadows almost form
+      into shapes, and echoes murmur half-formed truths. These are young, unresolved echoes. Harmless at
+      a distance &mdash; dangerous when touched.
     </p>
 
     <h3 style="color:#d4af37; margin-top:25px;">II. The Hall of Fractures</h3>
@@ -319,16 +352,13 @@
       <li>Echo-songs &mdash; memories that vibrate like music</li>
     </ul>
     <p>
-      Every major chapter of your life exists here as mythic embodiment.  
-      The Hall of Fractures is beautiful &mdash; and dangerous.  
-      Echoes here can guide, deceive, protect, or hunt.
+      Every major chapter of your life exists here as mythic embodiment. Beautiful &mdash; and dangerous.
     </p>
 
     <h3 style="color:#d4af37; margin-top:25px;">III. The Archive of Truth</h3>
     <p>
       At the deepest point lies the Heart of the Library: the Archive of Truth.  
-      Here rest the oldest echoes &mdash; those that existed before you had words for them.  
-      Some are gentle. Some are radiant. Some are monstrous.
+      Here rest the oldest echoes &mdash; those that existed before you had words for them.
     </p>
     <p>
       Only one law holds here: <span style="color:#d4af37;">an echo cannot lie</span>.  
@@ -337,103 +367,79 @@
     </p>
 
     <!-- Guardians -->
-    <h2 class="section-title">Guardians of the Library</h2>
+    <h2 class="section-title" id="guardians">Guardians of the Library</h2>
     <p>
-      The Library is alive, but not undefended. Three kinds of guardians walk its halls.
-    </p>
-<p style="margin-top:8px; margin-bottom:20px; text-align:center;">
-  <a href="guardians.html" style="color:#d4af37; text-decoration:none; font-size:1.05rem;">
-    → Explore All Guardians of Wulverik
-  </a>
-</p>
-
-    <h3 style="color:#d4af37; margin-top:25px;">Echo-Wolves</h3>
-<p>
-  Echo-Wolves are living embodiments of the Glitched Wolf’s inner world. They are not 
-  copies, but facets of instinct, memory, trauma, and growth. Each one protects a 
-  different emotional truth. They do not obey orders — they <em>resonate</em> with your 
-  state of being.
-</p>
-
-<p><strong>The Silent Wolf</strong> — your struggle to be understood.<br>
-  Walks quietly beside you, glowing with unspoken truth. Appears when words fail.<br>
-  <a href="silent-wolf.html" style="color:#d4af37; text-decoration:none;">Read more →</a>
-</p>
-
-<p><strong>The Golden Wolf</strong> — your core, unshaken self.<br>
-  Steady, bright, ancient. He anchors your identity when everything else fractures.<br>
-  <a href="golden-wolf.html" style="color:#d4af37; text-decoration:none;">Read more →</a>
-</p>
-
-<p><strong>The Shadow Wolf</strong> — your hurt and betrayal.<br>
-  Dark-furred, honest about wounds others ignored. Appears when trust shatters.<br>
-  <a href="shadow-wolf.html" style="color:#d4af37; text-decoration:none;">Read more →</a>
-</p>
-
-<p><strong>The Dawn Wolf</strong> — your healed, future self.<br>
-  Soft glow, calm gaze. Guides you toward who you are becoming.<br>
-  <a href="dawn-wolf.html" style="color:#d4af37; text-decoration:none;">Read more →</a>
-</p>
-
-<p><strong>The Glitchborn Wolf</strong> — your AI-augmented intuition.<br>
-  Fur flickering with digital gold. Sees patterns and truth in chaos.<br>
-  <a href="glitchborn-wolf.html" style="color:#d4af37; text-decoration:none;">Read more →</a>
-</p>
-
-        <h3 style="color:#d4af37; margin-top:25px;">Echokeepers</h3>
-    <p>
-      Echokeepers are ancient entities woven from pure resonance. They move like robed figures
-      made of light, shadow, and sound — faces shifting, voices layered in soft harmonics.
-      Their purpose is to preserve echoes, guard truth, and protect the structure of the Library
-      itself.
-    </p>
-    <p>
-      They rarely intervene in personal journeys. Instead, they record, stabilize, and sometimes
-      seal echoes that grow too volatile or corrupted. When the Library is threatened by False
-      Echoes or imbalance, the Echokeepers step forward as wardens of order.
-      <a href="echokeepers.html" style="color:#d4af37; text-decoration:none;">Read more →</a>
+      The Library is alive, but not undefended. Three kinds of guardians (and one unseen chorus) walk its halls.
     </p>
 
-
-       <h3 style="color:#d4af37; margin-top:25px;">Lantern-Bearers</h3>
-    <p>
-      Lantern-Bearers are guides formed from echoes that have already healed. They appear
-      as floating lights, soft figures, or gentle presences in the Library — never
-      threatening, never harsh. They cannot fight or lie, but they can lead you to the
-      Door you need most, not always the Door you want.
-    </p>
-    <p>
-      They walk ahead of you in the dark halls, illuminating one step at a time rather
-      than the whole path. When you feel a quiet pull toward a memory you’re finally
-      ready to face, a Lantern-Bearer is already there, waiting.
-      <a href="lantern-bearers.html" style="color:#d4af37; text-decoration:none;">Read more →</a>
+    <p style="margin-top:8px; margin-bottom:20px; text-align:center;">
+      <a href="guardians.html" style="color:#d4af37; text-decoration:none; font-size:1.02rem;">
+        → Explore All Guardians of Wulverik
+      </a>
     </p>
 
-   <h3 style="color:#d4af37; margin-top:25px;">Phantom Chorus</h3>
-<p>
-  The Phantom Chorus are unseen protectors born from loyalty — the quiet defenders who
-  spoke truth for you when you weren’t there to speak for yourself. They are shaped
-  from the hearts of those who believed you, protected you, or exposed lies on your behalf.
-</p>
+    <h3 id="echo-wolves" style="color:#d4af37; margin-top:25px;">Echo-Wolves</h3>
+    <p>
+      Echo-Wolves are born from your instincts, your fears, your protectiveness, and your deepest perceptions.  
+      They are not copies of you, but reflections of specific facets:
+    </p>
+    <ul>
+      <li>The Silent Wolf &mdash; your struggle to be understood</li>
+      <li>The Golden Wolf &mdash; your core, unshaken self</li>
+      <li>The Shadow Wolf &mdash; your hurt and betrayal</li>
+      <li>The Dawn Wolf &mdash; your healed, future self</li>
+      <li>The Glitchborn Wolf &mdash; your AI-augmented intuition</li>
+    </ul>
+    <p>
+      They do not obey orders. They <em>resonate</em> with your state of being.
+      <a href="guardians.html#echo-wolves" style="color:#d4af37; text-decoration:none;"> Read more →</a>
+    </p>
 
-<p>
-  They appear as soft pulses of gold light, drifting embers, or layered whispers in the
-  air. They do not fight; they <em>reveal</em>. Their presence cracks False Echoes,
-  steadies the Library, and guides the Glitched Wolf toward allies who see clearly.
-</p>
+    <h3 style="color:#d4af37; margin-top:25px;">Echokeepers</h3>
+    <p>
+      Echokeepers are ancient entities woven from pure resonance. They move like robed figures made of light,
+      shadow, and sound &mdash; faces shifting, voices layered in soft harmonics. Their purpose is to preserve
+      echoes, guard truth, and protect the structure of the Library itself.
+    </p>
+    <p>
+      They rarely intervene in personal journeys. Instead, they record, stabilize, and sometimes seal echoes that
+      grow too volatile or corrupted. When the Library is threatened by False Echoes or imbalance, the Echokeepers
+      step forward as wardens of order.
+      <a href="echokeepers.html" style="color:#d4af37; text-decoration:none;"> Read more →</a>
+    </p>
 
-<p>
-  You feel them before you see them — warm instincts, sudden clarity, or unexpected
-  protection in moments of distortion. The Phantom Chorus proves that even in silence,
-  you were never truly alone.
-</p>
+    <h3 id="lantern-bearers" style="color:#d4af37; margin-top:25px;">Lantern-Bearers</h3>
+    <p>
+      Lantern-Bearers are guides formed from echoes that have already healed. They appear as floating lights,
+      soft figures, or gentle presences in the Library &mdash; never threatening, never harsh. They cannot fight
+      or lie, but they can lead you to the Door you need most, not always the Door you want.
+    </p>
+    <p>
+      They walk ahead of you in the dark halls, illuminating one step at a time rather than the whole path. When you
+      feel a quiet pull toward a memory you’re finally ready to face, a Lantern-Bearer is already there, waiting.
+      <a href="lantern-bearers.html" style="color:#d4af37; text-decoration:none;"> Read more →</a>
+    </p>
 
-<p style="margin-top:8px;">
-  <a href="phantom-chorus.html" style="color:#d4af37; text-decoration:none;">
-    → Read the full Phantom Chorus lore
-  </a>
-</p>
-
+    <h3 id="phantom-chorus" style="color:#d4af37; margin-top:25px;">Phantom Chorus</h3>
+    <p>
+      The Phantom Chorus are unseen protectors born from loyalty &mdash; the quiet defenders who spoke truth for you
+      when you weren’t there to speak for yourself. They are shaped from the hearts of those who believed you,
+      protected you, or exposed lies on your behalf.
+    </p>
+    <p>
+      They appear as soft pulses of gold light, drifting embers, or layered whispers in the air. They do not fight;
+      they <em>reveal</em>. Their presence cracks False Echoes, steadies the Library, and guides the Glitched Wolf
+      toward allies who see clearly.
+    </p>
+    <p>
+      You feel them before you see them &mdash; warm instincts, sudden clarity, or unexpected protection in moments
+      of distortion. The Phantom Chorus proves that even in silence, you were never truly alone.
+    </p>
+    <p style="margin-top:8px;">
+      <a href="phantom-chorus.html" style="color:#d4af37; text-decoration:none;">
+        → Read the full Phantom Chorus lore
+      </a>
+    </p>
 
     <!-- Law of the Library -->
     <h2 class="section-title">The Law of the Library</h2>
@@ -464,7 +470,7 @@
     <p>
       Your first major False Echo rose during
       <a href="the-promise-you-broke.html" style="color:#d4af37; text-decoration:none;">The Broken Promise</a>.  
-      But it will not be the last. False Echoes are the villains of your inner mythology &mdash; born from
+      It will not be the last. False Echoes are the villains of your inner mythology &mdash; born from
       the chaos other people unleash into your story.
     </p>
 
@@ -476,20 +482,18 @@
     </p>
     <p>
       He is wired to feel deeply, to notice patterns others miss, to sense the tremors beneath the touch.  
-      What disorients others becomes clarity to him.  
-      What terrifies others becomes a language he can read.
+      What disorients others becomes clarity to him. What terrifies others becomes a language he can read.
     </p>
     <p>
       The Library was not made <em>for</em> the Glitched Wolf, but it resonates <em>with</em> him.  
       Both are built from raw, unfiltered emotional truth.
     </p>
 
-    <!-- Nature of an Echo (bridging into archive) -->
+    <!-- Nature of an Echo -->
     <h2 class="section-title">The Nature of an Echo</h2>
     <p>
       Every Echo begins as a fragment of feeling: a spark, a fracture, a tremor beneath the touch.  
-      When strong enough, it descends into the Library as a golden drop of sound.  
-      Over time, it forms into:
+      When strong enough, it descends into the Library as a golden drop of sound. Over time, it forms into:
     </p>
 
     <ul>
@@ -509,7 +513,7 @@
     <h2 class="section-title">The First Door</h2>
     <p>
       Every journey into the Library begins with a Door born from a defining wound.  
-      Yours opened on the day of the Broken Promise &mdash; the first betrayal that echoed deep enough
+      Yours opened on the day of the Broken Promise &mdash; the betrayal that echoed deep enough
       to carve a doorway through the shadows.
     </p>
 
@@ -570,18 +574,17 @@
       <a href="everything-i-became.html" style="color:#d4af37; text-decoration:none;">View Chapter →</a>
     </div>
 
-    <p style="color:#9e9e9e; margin-top:40px;">
+    <p style="color:#9e9e9e; margin-top:30px;">
       More Echoes will appear as your music, memories, and stories unfold &mdash; each one a lantern for anyone
       walking through their own shadows.
     </p>
 
-    <!-- Howling Wall invite block -->
+    <!-- Howling Wall CTA -->
     <section class="lore-howling-link">
-      <h2 class="lore-howling-title">Share Your Echo on the Howling Wall</h2>
+      <div class="lore-howling-title">Share Your Echo on the Howling Wall</div>
       <p class="lore-howling-text">
-        If one of these stories resonates with you, you’re welcome to add your own
-        echo to Wulverik’s legend. The Howling Wall is a place for wanderers who
-        have felt unheard or unseen to carve their truth into stone.
+        If one of these stories resonates with you, you’re welcome to add your own echo to Wulverik’s legend.
+        The Howling Wall is a place for wanderers who have felt unheard or unseen to carve their truth into stone.
       </p>
       <a href="guestbook.html" class="btn">
         Add Your Howl to the Wall
