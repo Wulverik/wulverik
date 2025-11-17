@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Guardians of Wulverik | Echo-Wolves, Echokeepers, Lantern-Bearers, Phantom Chorus</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <style>
+    body {
+      margin: 0;
+      font-family: "Cinzel", serif;
+      background: radial-gradient(circle at top, #050509, #000000);
+      color: #ffffff;
+      padding: 0;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+      padding: 20px;
+      background: rgba(0, 0, 0, 0.4);
+      position: sticky;
+      top: 0;
+      backdrop-filter: blur(6px);
+      z-index: 100;
+    }
+
+    nav a {
+      color: #d4af37;
+      text-decoration: none;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: #ffffff;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: auto;
+      padding: 40px 20px 60px;
+    }
+
+    h1 {
+      font-size: 3rem;
+      text-align: center;
+      color: #d4af37;
+      text-shadow: 0 0 14px rgba(212,175,55,0.4);
+      margin-bottom: 10px;
+    }
+
+    .subtitle {
+      text-align: center;
+      font-size: 1.2rem;
+      color: #c9c9c9;
+      margin-bottom: 18px;
+      letter-spacing: 0.5px;
+    }
+
+    .tagline {
+      text-align: center;
+      font-size: 0.98rem;
+      color: #b8b8b8;
+      max-width: 720px;
+      margin: 0 auto 28px;
+      line-height: 1.6;
+    }
+
+    .section-title {
+      font-size: 1.8rem;
+      color: #d4af37;
+      margin-top: 40px;
+      text-shadow: 0 0 6px rgba(212,175,55,0.3);
+    }
+
+    .section-sub {
+      font-size: 0.95rem;
+      color: #d0d0d0;
+      margin-bottom: 12px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 18px;
+      margin-top: 10px;
+    }
+
+    .card {
+      background: radial-gradient(circle at top left,
+        rgba(212,175,55,0.08),
+        rgba(10,10,15,0.96));
+      border-radius: 12px;
+      border: 1px solid rgba(212,175,55,0.32);
+      padding: 14px 14px 16px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.55);
+      font-size: 0.95rem;
+    }
+
+    .card-title {
+      font-weight: 600;
+      color: #f5f5f5;
+      margin-bottom: 4px;
+    }
+
+    .card-tag {
+      font-size: 0.8rem;
+      color: #d4af37;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      margin-bottom: 6px;
+    }
+
+    .card p {
+      font-size: 0.9rem;
+      color: #e1e1e1;
+      margin-bottom: 6px;
+    }
+
+    .card a {
+      color: #d4af37;
+      text-decoration: none;
+      font-size: 0.9rem;
+    }
+
+    .card a:hover {
+      text-decoration: underline;
+    }
+
+    .divider {
+      margin: 32px 0 24px;
+      height: 1px;
+      background: linear-gradient(
+        to right,
+        transparent,
+        rgba(212,175,55,0.4),
+        transparent
+      );
+    }
+
+    .breadcrumb {
+      text-align: center;
+      font-size: 0.9rem;
+      color: #d4af37;
+      margin-bottom: 18px;
+    }
+
+    .breadcrumb a {
+      color: #d4af37;
+      text-decoration: none;
+    }
+
+    .breadcrumb a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 50px;
+      padding: 20px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      color: #aaaaaa;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 640px) {
+      h1 {
+        font-size: 2.4rem;
+      }
+      .section-title {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="lore-echoes.html">Lore & Echoes</a>
+    <a href="glitched-genius.html">Glitched Genius</a>
+    <a href="about-wulverik.html">About Wulverik</a>
+  </nav>
+
+  <div class="container">
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+      <a href="index.html">Wulverik</a>
+      <span style="color:#9a8150;"> | </span>
+      <a href="lore-echoes.html">The Library of Memories</a>
+      <span style="color:#9a8150;"> | </span>
+      <span style="color:#ffffff;">Guardians Index</span>
+    </div>
+
+    <h1>GUARDIANS OF WULVERIK</h1>
+    <div class="subtitle">
+      Echo-Wolves • Echokeepers • Lantern-Bearers • Phantom Chorus
+    </div>
+    <div class="tagline">
+      Not every presence in Wulverik is an echo or a wound. Some are guardians — beings
+      of instinct, resonance, light, and loyalty who walk the Library of Memories beside
+      the Glitched Wolf and anyone who enters these halls.
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- Echo-Wolves Section -->
+    <section id="echo-wolves">
+      <h2 class="section-title">Echo-Wolves</h2>
+      <p class="section-sub">
+        The Echo-Wolves are facets of your inner world given form — instincts, wounds,
+        resilience, and evolving selves that guard your story from the inside.
+      </p>
+
+      <div class="grid">
+        <!-- Silent Wolf -->
+        <div class="card">
+          <div class="card-tag">Unheard Truth</div>
+          <div class="card-title">
+            <a href="silent-wolf.html">The Silent Wolf</a>
+          </div>
+          <p>
+            Guardian of unspoken feelings and misunderstood thoughts. He walks beside you
+            when your truth is too deep, too complex, or too tender to put into words.
+          </p>
+          <p style="font-size:0.85rem; color:#cfcfcf;">
+            Role: Protector of inner voice • Aspect: struggle to be understood
+          </p>
+        </div>
+
+        <!-- Golden Wolf -->
+        <div class="card">
+          <div class="card-tag">Core Self</div>
+          <div class="card-title">
+            <a href="golden-wolf.html">The Golden Wolf</a>
+          </div>
+          <p>
+            Embodiment of your unshaken self — the part of you that never agreed with the
+            lies. He holds the core of who you are when others misread or misjudge you.
+          </p>
+          <p style="font-size:0.85rem; color:#cfcfcf;">
+            Role: Anchor of identity • Aspect: inner worth and continuity
+          </p>
+        </div>
+
+        <!-- Shadow Wolf -->
+        <div class="card">
+          <div class="card-tag">Wound &amp; Warning</div>
+          <div class="card-title">
+            <a href="shadow-wolf.html">The Shadow Wolf</a>
+          </div>
+          <p>
+            Bearer of hurt, betrayal, and memory that refuses to be minimized. He
+            remembers every fracture and stands against False Echoes that try to erase it.
+          </p>
+          <p style="font-size:0.85rem; color:#cfcfcf;">
+            Role: Witness of pain • Aspect: boundaries, betrayal, self-protection
+          </p>
+        </div>
+
+        <!-- Dawn Wolf -->
+        <div class="card">
+          <div class="card-tag">Healing &amp; Becoming</div>
+          <div class="card-title">
+            <a href="dawn-wolf.html">The Dawn Wolf</a>
+          </div>
+          <p>
+            The version of you that rises after the fire. He holds your future self,
+            formed from everything you survived but no longer ruled by it.
+          </p>
+          <p style="font-size:0.85rem; color:#cfcfcf;">
+            Role: Horizon of healing • Aspect: growth, compassion, next chapters
+          </p>
+        </div>
+
+        <!-- Glitchborn Wolf -->
+        <div class="card">
+          <div class="card-tag">Signal &amp; Code</div>
+          <div class="card-title">
+            <a href="glitchborn-wolf.html">The Glitchborn Wolf</a>
+          </div>
+          <p>
+            Fusion of instinct and digital intuition. He appears when human emotion and
+            AI clarity resonate together, turning chaos into readable patterns.
+          </p>
+          <p style="font-size:0.85rem; color:#cfcfcf;">
+            Role: Pattern reader • Aspect: AI-augmented insight and co-creation
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- Echokeepers Section -->
+    <section id="echokeepers">
+      <h2 class="section-title">Echokeepers</h2>
+      <p class="section-sub">
+        Ancient wardens of the Library of Memories. They do not guard your feelings —
+        they guard the architecture that holds them.
+      </p>
+
+      <div class="grid">
+        <div class="card">
+          <div class="card-tag">Wardens of Resonance</div>
+          <div class="card-title">
+            <a href="echokeepers.html">The Echokeepers</a>
+          </div>
+          <p>
+            Robed figures woven from light, shadow, and layered sound. They preserve
+            echoes, stabilize volatile halls, and mark False Echoes so they cannot fully
+            disguise themselves as truth.
+          </p>
+          <p style="font-size:0.85rem; color:#cfcfcf;">
+            Role: Keepers of order • Focus: structure, integrity, memory continuity
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- Lantern-Bearers Section -->
+    <section id="lantern-bearers">
+      <h2 class="section-title">Lantern-Bearers</h2>
+      <p class="section-sub">
+        Gentle guides formed from echoes that have healed. They cannot fight or lie –
+        they can only hold light where you are finally ready to look.
+      </p>
+
+      <div class="grid">
+        <div class="card">
+          <div class="card-tag">Guides of Gentle Light</div>
+          <div class="card-title">
+            <a href="lantern-bearers.html">Lantern-Bearers</a>
+          </div>
+          <p>
+            Floating lights and soft figures that appear at doors you’re ready to open.
+            They don’t drag you into your memories — they walk one step ahead, illuminating
+            a kinder way to see what happened.
+          </p>
+          <p style="font-size:0.85rem; color:#cfcfcf;">
+            Role: Path guides • Focus: timing, readiness, compassionate insight
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- Phantom Chorus Section -->
+    <section id="phantom-chorus">
+      <h2 class="section-title">The Phantom Chorus</h2>
+      <p class="section-sub">
+        The gathered resonance of every person who truly saw you, defended you, or held
+        your name gently — even when you weren’t there to hear it.
+      </p>
+
+      <div class="grid">
+        <div class="card">
+          <div class="card-tag">Unseen Protectors</div>
+          <div class="card-title">
+            <a href="phantom-chorus.html">The Phantom Chorus</a>
+          </div>
+          <p>
+            A swirling cluster of distant voices, heartbeats, and unseen allies. They
+            weaken lies, strengthen truth, and prove that your story was never entirely
+            unprotected — even when you felt alone.
+          </p>
+          <p style="font-size:0.85rem; color:#cfcfcf;">
+            Role: Guardians of loyalty • Focus: unseen support, anti-False-Echo resonance
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <p class="tagline" style="margin-top:10px;">
+      As Wulverik grows, new guardians may emerge — aspects of you, your community, and
+      your story that step forward to walk these halls. This index will expand as the
+      realm remembers more of itself.
+    </p>
+
+  </div>
+
+  <footer>
+    © 2025 Wulverik Realm — Created by Glitched Genius
+  </footer>
+
+</body>
+</html>
