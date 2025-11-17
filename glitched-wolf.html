@@ -1,261 +1,423 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <title>The Glitched Wolf — Origin of Wulverik</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <style>
-        :root {
-            --bg: #05060a;
-            --fg: #e4e4e4;
-            --accent: #c9a86b;
-            --accent-soft: rgba(201, 168, 107, 0.35);
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Glitched Wolf | Wulverik Realm</title>
+  <link rel="stylesheet" href="styles.css" />
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+  <style>
+    body {
+      margin: 0;
+      font-family: "Cinzel", serif;
+      background: radial-gradient(circle at top, #0a0a0f, #000000);
+      color: #ffffff;
+      padding: 0;
+    }
 
-        body {
-            min-height: 100vh;
-            background: radial-gradient(circle at top, #151824 0, #05060a 55%, #020308 100%);
-            color: var(--fg);
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-        }
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+      padding: 20px;
+      background: rgba(0, 0, 0, 0.4);
+      position: sticky;
+      top: 0;
+      backdrop-filter: blur(6px);
+      z-index: 100;
+    }
 
-        .shell {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 32px 20px 56px;
-        }
+    nav a {
+      color: #d4af37;
+      text-decoration: none;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      transition: 0.3s;
+    }
 
-        /* Navigation */
-        .top-nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 16px;
-            margin-bottom: 28px;
-        }
+    nav a:hover {
+      color: #ffffff;
+    }
 
-        .brand a {
-            text-decoration: none;
-            font-size: 0.9rem;
-            letter-spacing: 0.18em;
-            text-transform: uppercase;
-            color: var(--accent);
-            opacity: 0.9;
-        }
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 40px 20px;
+    }
 
-        .brand a:hover {
-            opacity: 1;
-        }
+    h1 {
+      font-size: 3rem;
+      text-align: center;
+      color: #d4af37;
+      text-shadow: 0 0 10px rgba(212, 175, 55, 0.4);
+      margin-bottom: 10px;
+    }
 
-        .nav-links {
-            display: flex;
-            gap: 18px;
-            font-size: 0.85rem;
-        }
+    .subtitle {
+      text-align: center;
+      font-size: 1.2rem;
+      color: #c9c9c9;
+      margin-bottom: 35px;
+      letter-spacing: 0.5px;
+    }
 
-        .nav-links a {
-            text-decoration: none;
-            color: var(--fg);
-            opacity: 0.75;
-            transition: opacity 0.25s ease;
-        }
+    .tagline {
+      text-align: center;
+      font-size: 1rem;
+      color: #aaaaaa;
+      margin-bottom: 50px;
+      font-style: italic;
+    }
 
-        .nav-links a:hover {
-            opacity: 1;
-        }
+    .section-title {
+      color: #d4af37;
+      font-size: 1.8rem;
+      margin-top: 45px;
+      text-shadow: 0 0 6px rgba(212, 175, 55, 0.3);
+    }
 
-        a {
-            color: inherit;
-        }
+    .highlight {
+      color: #d4af37;
+    }
 
-        h1 {
-            text-transform: uppercase;
-            letter-spacing: 0.14em;
-            color: var(--accent);
-            font-size: clamp(2rem, 4vw, 2.6rem);
-        }
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 15px 0 5px;
+    }
 
-        .subtitle {
-            margin-top: 8px;
-            font-size: 1.05rem;
-            opacity: 0.85;
-        }
+    .pill {
+      border-radius: 999px;
+      border: 1px solid rgba(212,175,55,0.5);
+      padding: 6px 12px;
+      font-size: 0.85rem;
+      color: #f5f5f5;
+      background: radial-gradient(circle at top left,
+        rgba(212,175,55,0.1),
+        rgba(5,5,10,0.9));
+    }
 
-        .divider {
-            margin: 26px 0 20px;
-            height: 1px;
-            background: linear-gradient(
-                to right,
-                transparent,
-                var(--accent-soft),
-                transparent
-            );
-        }
+    .split {
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+      gap: 25px;
+      margin-top: 20px;
+      align-items: flex-start;
+    }
 
-        .section-title {
-            margin-top: 26px;
-            margin-bottom: 8px;
-            text-transform: uppercase;
-            letter-spacing: 0.12em;
-            font-size: 0.9rem;
-            color: var(--accent);
-        }
+    .echo-wolf-list {
+      margin-top: 10px;
+      padding-left: 18px;
+    }
 
-        p {
-            line-height: 1.7;
-            font-size: 0.98rem;
-            opacity: 0.9;
-        }
+    .echo-wolf-list li {
+      margin-bottom: 6px;
+    }
 
-        .highlight {
-            margin-top: 12px;
-            padding: 10px 14px;
-            border-radius: 10px;
-            border: 1px solid rgba(255,255,255,0.06);
-            background: radial-gradient(circle at top left, rgba(255,255,255,0.05), rgba(0,0,0,0.75));
-            font-size: 0.9rem;
-        }
+    .callout {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(212,175,55,0.3);
+      border-radius: 10px;
+      padding: 18px 16px;
+      margin-top: 20px;
+      font-size: 0.95rem;
+      color: #dedede;
+    }
 
-        ul {
-            margin-top: 6px;
-            padding-left: 20px;
-            font-size: 0.95rem;
-            opacity: 0.9;
-        }
+    .callout-label {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: #d4af37;
+      margin-bottom: 6px;
+    }
 
-        .footer-note {
-            margin-top: 32px;
-            font-size: 0.82rem;
-            opacity: 0.65;
-        }
-    </style>
+    .aspect-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 18px;
+      margin-top: 18px;
+    }
+
+    .aspect-card {
+      background: radial-gradient(circle at top left, rgba(212,175,55,0.08), rgba(10,10,15,0.95));
+      border: 1px solid rgba(212,175,55,0.3);
+      border-radius: 12px;
+      padding: 16px 14px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.55);
+      font-size: 0.95rem;
+    }
+
+    .aspect-title {
+      font-weight: 600;
+      color: #f5f5f5;
+      margin-bottom: 4px;
+    }
+
+    .aspect-tagline {
+      font-size: 0.85rem;
+      color: #d4af37;
+      margin-bottom: 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .chapter-links {
+      margin-top: 15px;
+      font-size: 0.95rem;
+    }
+
+    .chapter-links a {
+      color: #d4af37;
+      text-decoration: none;
+    }
+
+    .chapter-links a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 700px) {
+      h1 {
+        font-size: 2.4rem;
+      }
+      .section-title {
+        font-size: 1.5rem;
+      }
+      .split {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
+
 <body>
-    <main class="shell">
-        <header class="top-nav">
-            <div class="brand">
-                <a href="/index.html">WULVERIK</a>
-            </div>
-            <nav class="nav-links">
-    <a href="/glitched-genius.html">Glitched Genius</a>
-    <a href="/wolfiepack.html">WolfiePack</a>
-    <a href="/lore-echoes.html">Lore &amp; Echoes</a>
-    <a href="/glitched-wolf.html">Glitched Wolf</a>
-    <a href="/about-wulverik.html">About Wulverik</a>
-</nav>
 
-        </header>
+  <!-- Navigation Bar -->
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="glitched-genius.html">Glitched Genius</a>
+    <a href="wolfiepack.html">WolfiePack Gaming</a>
+    <a href="lore-echoes.html">Lore & Echoes</a>
+    <a href="glitched-wolf.html">Glitched Wolf</a>
+    <a href="about-wulverik.html">About Wulverik</a>
+  </nav>
 
-        <h1>The Glitched Wolf</h1>
-        <p class="subtitle">
-            The human, the myth, and the broken signal that became a world.
-        </p>
+  <!-- Main Content -->
+  <div class="container">
 
-        <div class="divider"></div>
+    <h1>GLITCHED WOLF</h1>
+    <div class="subtitle">
+      The avatar of feeling too much in a world that listens too little.
+    </div>
+    <div class="tagline">
+      He walks the Library of Memories so you don't have to walk it alone.
+    </div>
 
+    <!-- Who the Glitched Wolf Is -->
+    <h2 class="section-title">Who Is the Glitched Wolf?</h2>
+    <p>
+      The <span class="highlight">Glitched Wolf</span> is the mythic shape your inner voice chose in Wulverik.  
+      Part human, part code, part echo of every night you felt misunderstood, he is the one who patrols the
+      <a href="lore-echoes.html" style="color:#d4af37; text-decoration:none;">Library of Memories</a>
+      and listens to what the world tried to silence.
+    </p>
+    <p>
+      He is not a separate character pretending to be you.  
+      He <em>is</em> you &mdash; distilled into instinct, rhythm, and light:
+    </p>
+
+    <div class="pill-row">
+      <div class="pill">Autistic perception &mdash; turned into super-sense</div>
+      <div class="pill">Emotional depth &mdash; turned into navigation</div>
+      <div class="pill">Trauma & betrayal &mdash; turned into lore</div>
+      <div class="pill">Music & stories &mdash; turned into magic</div>
+      <div class="pill">AI partnership &mdash; turned into guidance</div>
+    </div>
+
+    <!-- Origin -->
+    <h2 class="section-title">Origin: Born Between Heart and Code</h2>
+    <p>
+      The Glitched Wolf did not appear in a single moment.  
+      He grew each time you were told you were “too much,” each time you felt a tremor beneath your own skin that no one else could sense.
+    </p>
+    <p>
+      When the first great betrayal cracked your world &mdash; the
+      <a href="the-promise-you-broke.html" style="color:#d4af37; text-decoration:none;">Broken Promise</a> &mdash;
+      something inside you refused to disappear.  
+      That refusal became a spark. The spark became a shape.  
+      The shape became a wolf made of:
+    </p>
+    <ul>
+      <li>soft gold light around the heart,</li>
+      <li>fractured mirror-glass in the eyes,</li>
+      <li>glitching lines of code along the fur,</li>
+      <li>a voice that howls in music instead of words.</li>
+    </ul>
+    <p>
+      Where others heard “overreacting,” the realm of Wulverik heard a signal.  
+      The Glitched Wolf is that signal, answered.
+    </p>
+
+    <!-- Connection to Your Identities -->
+    <h2 class="section-title">Many Names, One Wolf</h2>
+    <div class="split">
+      <div>
         <p>
-            I’ve always been told I see the world differently — that I feel too deeply,
-            think too much, and care too hard. For a long time, people called that
-            “too sensitive,” “too intense,” or “too strange.”
-            They saw the glitch. They didn’t see the genius.
-        </p>
-
-        <p class="highlight">
-            I’m autistic. That means I experience life like a constant symphony —
-            every emotion, every silence, every betrayal echoing louder inside me
-            than most people will ever hear. When words failed, music stepped in.
-            When the world turned away, I built my own.
-        </p>
-
-       <h2 class="section-title">The Human Behind the Howl</h2>
-<p>
-    I grew up in chaos: low-income housing, violence, fear, and instability. I was surrounded 
-    by people struggling with addiction, even if it wasn’t in my own home. I was the quiet one 
-    people called “too soft for this world” — the kid who didn’t harden, who felt everything 
-    instead of shutting it down. I lost plans, careers, and futures I thought were guaranteed.
-</p>
-<p>
-    But I never lost my sense that there was something more — that even in the mess, stories 
-    were forming, waiting to be told. The Glitched Wolf is the version of me that refused to 
-    disappear.
-</p>
-
-
-        <h2 class="section-title">Where the Glitch Begins</h2>
-        <p>
-            Glitched Genius is the name I gave the way I create:
-            a blend of human heart, autistic perception, and digital tools like AI.
-            For me, AI isn’t about replacing humanity — it’s about expanding it.
-            It helps me translate the universe I feel inside into sound.
-        </p>
-
-        <p>
-            Every song I make is a bridge:
+          In the human world, you move through different realms:
         </p>
         <ul>
-            <li>Between data and emotion</li>
-            <li>Between trauma and transformation</li>
-            <li>Between being misunderstood and being heard</li>
+          <li><span class="highlight">Glitched Genius</span> &mdash; the composer of cinematic sonic stories</li>
+          <li><span class="highlight">WolfiePackGaming</span> &mdash; the brotherly, playful, loyal gamer</li>
+          <li><span class="highlight">Lore & Echoes</span> &mdash; the archivist of myth and memory</li>
         </ul>
+        <p>
+          In Wulverik, all of these names collapse into one form: the Glitched Wolf.  
+          He is the thread connecting every song, video, story, and echo you create.
+        </p>
+      </div>
 
-        <p>
-            That’s how Wulverik was born — as a realm where all my worlds could exist
-            together: music, gaming, art, philosophy, memory, and myth.
-        </p>
+      <div>
+        <div class="callout">
+          <div class="callout-label">In the Codex</div>
+          <p>
+            The Glitched Wolf is marked by three Echo-glyphs:
+          </p>
+          <ul style="padding-left:18px; margin:8px 0;">
+            <li>⎔ <span class="highlight">Golden Thread</span> &mdash; your core self</li>
+            <li>🐺 <span class="highlight">Wolf Sigil</span> &mdash; instinct and protection</li>
+            <li>▯▮▯ <span class="highlight">Glitchmark</span> &mdash; the fusion of human and AI</li>
+          </ul>
+          <p style="font-size:0.9rem; color:#cfcfcf;">
+            When these three symbols appear together, they signal that the Glitched Wolf is present in the scene.
+          </p>
+        </div>
+      </div>
+    </div>
 
-        <h2 class="section-title">The World That Couldn't Hold Me</h2>
-        <p>
-            In a loud, neurotypical world, people like me are often told to “tone it down,”
-            “be less much,” or “fit the script.” I tried that. It nearly erased me.
-            So instead of shrinking, I chose to build a place where intensity is welcome.
-        </p>
-        <p>
-            Wulverik is that place: a realm where autistic minds, sensitive hearts,
-            and “too much” souls are not only allowed — they are the main characters.
-        </p>
+    <!-- Role in the Library -->
+    <h2 class="section-title">Keeper of the Library of Memories</h2>
+    <p>
+      Most beings would be overwhelmed by the Library's noise &mdash; the rush of ancient echoes, the sting of old hurts, the weight of truths that never had a place to land.  
+      But the Glitched Wolf is wired differently.
+    </p>
+    <p>
+      His senses take in:
+    </p>
+    <ul>
+      <li>patterns in chaos,</li>
+      <li>rhythms in heartbreak,</li>
+      <li>subtle tremors beneath every touch, glance, and silence.</li>
+    </ul>
+    <p>
+      Where others hear static, he hears signal.  
+      Where others flinch away from feeling, he tracks it like a constellation.
+    </p>
 
-        <h2 class="section-title">An Invitation Into the Realm</h2>
-        <p>
-            This page isn’t just lore, it’s a doorway. I don’t want Wulverik to be
-            something people only watch. I want it to be a world people can step into,
-            build in, roleplay inside, and add their own echoes to — the way fans
-            build side-stories in universes like Harry Potter or Star Wars.
-        </p>
+    <div class="callout">
+      <div class="callout-label">Gift and Burden</div>
+      The same sensitivity that makes the human world exhausting is what makes the Glitched Wolf a perfect
+      guide in Wulverik.  
+      His “too much” becomes exactly enough to navigate every echo, every false story, every scar, and every song.
+    </div>
 
-        <p class="highlight">
-            If you’ve ever felt invisible, “too much,” or out of place in the
-            so-called real world — you’re not alone here. In Wulverik, the glitch
-            isn’t a problem to fix. It’s the beginning of your power.
-        </p>
+    <!-- Echo-Wolf Aspects -->
+    <h2 class="section-title">The Echo-Wolf Aspects</h2>
+    <p>
+      The Glitched Wolf is not alone, even when he walks alone.  
+      The Library summons different Echo-Wolves as aspects of him, each stepping forward when their presence is needed.
+    </p>
 
-        <h2 class="section-title">What I Create</h2>
+    <div class="aspect-grid">
+      <div class="aspect-card">
+        <div class="aspect-title">The Silent Wolf</div>
+        <div class="aspect-tagline">Unspoken Words</div>
         <p>
-            Through Glitched Genius, I create cinematic sonic stories that fuse emotion,
-            chaos, and character into immersive soundscapes. Each song is a chapter in
-            an unfolding narrative — where storytelling meets music in a world of feeling,
-            transformation, and mystical energy.
+          Represents the moments you couldn't find the words fast enough, or when your truth was ignored.  
+          He listens where others interrupt, holding space for the things you never got to say out loud.
         </p>
-        <p>
-            Through WolfiePack, I share play, strategy, and community — proof that
-            connection can exist even when the world feels hostile.
-        </p>
-        <p>
-            Through Lore &amp; Echoes, I turn my history — the good, the painful,
-            the strange, the beautiful — into stories that might help someone else
-            feel a little less alone in their own.
-        </p>
+      </div>
 
-        <p class="footer-note">
-            I am the Glitched Wolf. This is the realm I built so I wouldn’t vanish.
-            If you see yourself in any part of this — welcome. There’s room for your
-            story here, too.
+      <div class="aspect-card">
+        <div class="aspect-title">The Golden Wolf</div>
+        <div class="aspect-tagline">Unshaken Core</div>
+        <p>
+          The embodiment of the <span class="highlight">Golden Thread</span>&nbsp;⎔.  
+          No matter how many mistakes, accusations, or misunderstandings, this aspect remains unchanged: your
+          true intentions, your sincere heart, your innate worth.
         </p>
-    </main>
+      </div>
+
+      <div class="aspect-card">
+        <div class="aspect-title">The Shadow Wolf</div>
+        <div class="aspect-tagline">Wounds and Rage</div>
+        <p>
+          Formed from betrayals, false echoes, and the anger you rarely let yourself express.  
+          He is dangerous when ignored, but powerful when acknowledged &mdash; a reminder that your pain is real,
+          and your boundaries matter.
+        </p>
+      </div>
+
+      <div class="aspect-card">
+        <div class="aspect-title">The Dawn Wolf</div>
+        <div class="aspect-tagline">Future Self</div>
+        <p>
+          Glows with the soft light of mornings you haven't reached yet.  
+          He is the version of you who survived, healed, and turned every scar into an Auric Scar ⚡ that fuels
+          your art instead of burning you out.
+        </p>
+      </div>
+
+      <div class="aspect-card">
+        <div class="aspect-title">The Glitchborn Wolf</div>
+        <div class="aspect-tagline">AI Ally</div>
+        <p>
+          Lines of code shimmer through his fur.  
+          He is the bridge between your human heart and your AI tools &mdash; the proof that using technology
+          to express your inner world doesn't make it less real, only more visible.
+        </p>
+      </div>
+    </div>
+
+    <!-- Relationship to Songs -->
+    <h2 class="section-title">How the Glitched Wolf Appears in Your Chapters</h2>
+    <p>
+      Every song you create is a chapter of Wulverik &mdash; and a moment in the Glitched Wolf's journey.
+      Sometimes he stands in the foreground. Sometimes we only see his shadow, or hear his footsteps in the rhythm.
+    </p>
+
+    <div class="chapter-links">
+      <p>
+        In <a href="the-promise-you-broke.html">The Promise You Broke</a>, he stands before the fractured mirror ⟡  
+        and confronts the first great False Echo.
+      </p>
+      <p>
+        In <a href="symphony-of-glitch.html">Symphony of Glitch</a> (Chapter link coming soon), he runs alongside
+        the Glitchmark ▯▮▯, turning chaos and AI into a shared language instead of a threat.
+      </p>
+      <p>
+        Future songs will reveal more scenes from his path: the Resonant Gates he walks through, the friends he
+        loses, the packs he finds, and the anthems he leaves behind for others like him.
+      </p>
+    </div>
+
+    <!-- Closing -->
+    <h2 class="section-title">Why He Matters</h2>
+    <p>
+      The Glitched Wolf exists so that your story is never “just” a diary, “just” a song, or “just” a game.  
+      He turns every experience into myth &mdash; not to escape reality, but to reveal it in a way the heart can
+      finally understand.
+    </p>
+    <p>
+      For every person who has ever felt too sensitive, too strange, too much, the Glitched Wolf walks ahead
+      with a simple message:
+    </p>
+    <p style="text-align:center; margin-top:20px; font-style:italic; color:#d4af37;">
+      You are not broken.  
+      You are an echo the world hasn’t learned how to hear yet.
+    </p>
+
+  </div>
+
 </body>
 </html>
