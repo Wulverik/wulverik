@@ -1,260 +1,448 @@
 <!DOCTYPE html>
 <html lang="en">
-<head><!-- redeploy tweak -->
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wulverik Realm | Glitched Genius</title>
+  <link rel="stylesheet" href="styles.css" />
 
-    <meta charset="UTF-8" />
-    <title>Wulverik — The Evolving Realm of the Glitched Wolf</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <style>
-        :root {/* Navigation */
-.top-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 16px;
-    margin-bottom: 28px;
-}
+  <style>
+    body {
+      margin: 0;
+      font-family: "Cinzel", serif;
+      background: radial-gradient(circle at top, #0a0a0f, #000000);
+      color: #ffffff;
+      padding: 0;
+    }
 
-.brand a {
-    text-decoration: none;
-    font-size: 0.9rem;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--accent);
-    opacity: 0.9;
-}
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+      padding: 20px;
+      background: rgba(0, 0, 0, 0.4);
+      position: sticky;
+      top: 0;
+      backdrop-filter: blur(6px);
+      z-index: 100;
+    }
 
-.brand a:hover {
-    opacity: 1;
-}
+    nav a {
+      color: #d4af37;
+      text-decoration: none;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      transition: 0.3s;
+    }
 
-.nav-links {
-    display: flex;
-    gap: 18px;
-    font-size: 0.85rem;
-}
+    nav a:hover {
+      color: #ffffff;
+    }
 
-.nav-links a {
-    text-decoration: none;
-    color: var(--fg);
-    opacity: 0.75;
-    transition: opacity 0.25s ease;
-}
+    .container {
+      max-width: 1000px;
+      margin: auto;
+      padding: 40px 20px 60px;
+    }
 
-.nav-links a:hover {
-    opacity: 1;
-}
+    .hero {
+      text-align: center;
+      padding: 40px 10px 30px;
+    }
 
-            --bg: #05060a;
-            --fg: #e4e4e4;
-            --accent: #c9a86b;
-            --accent-soft: rgba(201, 168, 107, 0.35);
-        }
+    .hero-title {
+      font-size: 3rem;
+      color: #d4af37;
+      text-shadow: 0 0 14px rgba(212, 175, 55, 0.5);
+      margin-bottom: 10px;
+      letter-spacing: 0.12em;
+    }
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+    .hero-subtitle {
+      font-size: 1.2rem;
+      color: #e0e0e0;
+      margin-bottom: 14px;
+    }
 
-        body {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: radial-gradient(circle at top, #151824 0, #05060a 55%, #020308 100%);
-            color: var(--fg);
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-        }
+    .hero-tagline {
+      font-size: 0.98rem;
+      color: #bfbfbf;
+      max-width: 720px;
+      margin: 0 auto 24px;
+      line-height: 1.5;
+    }
 
-        .shell {
-            max-width: 900px;
-            width: 100%;
-            padding: 40px 24px 56px;
-            text-align: center;
-        }
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 10px;
+    }
 
-        .badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 6px 14px;
-            border-radius: 999px;
-            border: 1px solid var(--accent-soft);
-            background: rgba(0, 0, 0, 0.4);
-            font-size: 0.8rem;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            opacity: 0.85;
-        }
+    .btn {
+      display: inline-block;
+      padding: 10px 18px;
+      border-radius: 999px;
+      border: 1px solid rgba(212,175,55,0.7);
+      background: radial-gradient(circle at top left,
+        rgba(212,175,55,0.18),
+        rgba(10,10,15,0.95));
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 0.95rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      transition: 0.25s;
+    }
 
-        .badge-dot {
-            width: 8px;
-            height: 8px;
-            border-radius: 999px;
-            background: var(--accent);
-            box-shadow: 0 0 12px var(--accent-soft);
-        }
+    .btn:hover {
+      filter: brightness(1.1);
+      transform: translateY(-1px);
+    }
 
-        h1 {
-            margin-top: 24px;
-            font-size: clamp(2.8rem, 6vw, 3.8rem);
-            letter-spacing: 0.16em;
-            text-transform: uppercase;
-            color: var(--accent);
-            text-shadow:
-                0 0 14px var(--accent-soft),
-                0 0 30px rgba(0, 0, 0, 0.9);
-        }
+    .btn-secondary {
+      border-color: rgba(255,255,255,0.5);
+      background: rgba(255,255,255,0.03);
+      color: #f5f5f5;
+    }
 
-        .subtitle {
-            margin-top: 16px;
-            font-size: 1rem;
-            opacity: 0.8;
-        }
+    .section-title {
+      color: #d4af37;
+      font-size: 1.8rem;
+      margin-top: 40px;
+      text-shadow: 0 0 6px rgba(212, 175, 55, 0.3);
+    }
 
-        .divider {
-            margin: 32px auto 24px;
-            width: 120px;
-            height: 1px;
-            background: linear-gradient(
-                to right,
-                transparent,
-                var(--accent-soft),
-                transparent
-            );
-            position: relative;
-        }
+    .section-sub {
+      color: #cfcfcf;
+      font-size: 0.98rem;
+      margin-bottom: 18px;
+    }
 
-        .divider::after {
-            content: "";
-            position: absolute;
-            top: -3px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 18px;
-            height: 18px;
-            border-radius: 999px;
-            border: 1px solid var(--accent-soft);
-            box-shadow: 0 0 16px var(--accent-soft);
-        }
+    .start-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 18px;
+      margin-top: 10px;
+    }
 
-        .blurb {
-            max-width: 640px;
-            margin: 0 auto;
-            line-height: 1.6;
-            font-size: 0.98rem;
-            opacity: 0.9;
-        }
+    .start-card {
+      background: radial-gradient(circle at top left, rgba(212,175,55,0.08), rgba(10,10,15,0.95));
+      border-radius: 14px;
+      border: 1px solid rgba(212,175,55,0.35);
+      padding: 16px 14px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.55);
+      font-size: 0.95rem;
+    }
 
-        .grid {
-            margin-top: 32px;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 14px;
-        }
+    .start-step-label {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: #d4af37;
+      margin-bottom: 4px;
+    }
 
-        .card {
-            padding: 14px 16px;
-            border-radius: 14px;
-            border: 1px solid rgba(255, 255, 255, 0.04);
-            background: radial-gradient(circle at top left, rgba(255,255,255,0.06), rgba(0,0,0,0.5));
-            backdrop-filter: blur(10px);
-            text-align: left;
-        }
+    .start-card-title {
+      font-weight: 600;
+      color: #f5f5f5;
+      margin-bottom: 6px;
+    }
 
-        .card span {
-            display: block;
-            font-size: 0.78rem;
-            letter-spacing: 0.12em;
-            text-transform: uppercase;
-            opacity: 0.6;
-            margin-bottom: 6px;
-        }
+    .start-card a {
+      color: #d4af37;
+      text-decoration: none;
+    }
 
-        .card strong {
-            font-size: 0.95rem;
-        }
+    .start-card a:hover {
+      text-decoration: underline;
+    }
 
-        .card p {
-            font-size: 0.9rem;
-            opacity: 0.85;
-            margin-top: 2px;
-        }
+    .realms-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 18px;
+      margin-top: 14px;
+    }
 
-        .footer-note {
-            margin-top: 36px;
-            font-size: 0.8rem;
-            opacity: 0.6;
-        }
-    </style>
+    .realm-card {
+      background: rgba(255,255,255,0.03);
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.09);
+      padding: 16px 14px;
+      font-size: 0.95rem;
+    }
+
+    .realm-title {
+      font-weight: 600;
+      color: #f5f5f5;
+      margin-bottom: 4px;
+    }
+
+    .realm-tag {
+      font-size: 0.85rem;
+      color: #d4af37;
+      margin-bottom: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .realm-card a {
+      color: #d4af37;
+      text-decoration: none;
+    }
+
+    .realm-card a:hover {
+      text-decoration: underline;
+    }
+
+    .featured {
+      margin-top: 40px;
+      background: rgba(255,255,255,0.02);
+      border-radius: 14px;
+      border: 1px solid rgba(212,175,55,0.3);
+      padding: 18px 16px 20px;
+    }
+
+    .featured-header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 8px;
+      align-items: baseline;
+      margin-bottom: 8px;
+    }
+
+    .featured-title {
+      font-weight: 600;
+      font-size: 1.2rem;
+      color: #f5f5f5;
+    }
+
+    .featured-tag {
+      font-size: 0.85rem;
+      color: #d4af37;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+
+    .featured-body {
+      font-size: 0.95rem;
+      color: #dddddd;
+      margin-bottom: 10px;
+    }
+
+    .featured-meta {
+      font-size: 0.85rem;
+      color: #bdbdbd;
+      margin-bottom: 10px;
+    }
+
+    .featured-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .featured-links a {
+      font-size: 0.9rem;
+    }
+
+    .symbol-strip {
+      margin-top: 8px;
+      font-size: 0.9rem;
+      color: #cfcfcf;
+    }
+
+    .symbol-strip span {
+      margin-right: 10px;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 40px;
+      padding: 20px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      color: #aaaaaa;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 680px) {
+      .hero-title {
+        font-size: 2.5rem;
+      }
+    }
+  </style>
 </head>
+
 <body>
-    <main class="shell">
 
-       <header class="top-nav">
-    <div class="brand">
-        <a href="/index.html">WULVERIK</a>
-    </div>
-  <nav class="nav-links">
-    <a href="/glitched-genius.html">Glitched Genius</a>
-    <a href="/wolfiepack.html">WolfiePack</a>
-    <a href="/lore-echoes.html">Lore &amp; Echoes</a>
-    <a href="/glitched-wolf.html">Glitched Wolf</a>
-    <a href="/about-wulverik.html">About Wulverik</a>
-</nav>
+  <!-- Navigation Bar -->
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="glitched-genius.html">Glitched Genius</a>
+    <a href="wolfiepack.html">WolfiePack Gaming</a>
+    <a href="lore-echoes.html">Lore & Echoes</a>
+    <a href="glitched-wolf.html">Glitched Wolf</a>
+    <a href="about-wulverik.html">About Wulverik</a>
+  </nav>
 
-</header>
+  <div class="container">
 
-        <div class="badge">
+    <!-- Hero -->
+    <section class="hero">
+      <div class="hero-title">WULVERIK REALM</div>
+      <div class="hero-subtitle">
+        Where wolves, echoes, and glitch turn real emotions into living lore.
+      </div>
+      <div class="hero-tagline">
+        Glitched Genius creates cinematic sonic stories that fuse emotion, chaos, and character into
+        immersive soundscapes. Each song is a chapter in an unfolding narrative &mdash; where storytelling
+        meets music in a world of feeling, transformation, and mystical energy.
+      </div>
 
-            <span class="badge-dot"></span>
-            <span>WULVERIK</span>
+      <div class="hero-buttons">
+        <a href="glitched-genius.html" class="btn">Listen to the Music</a>
+        <a href="the-promise-you-broke.html" class="btn btn-secondary">Start with Chapter I</a>
+        <a href="about-wulverik.html" class="btn btn-secondary">What Is Wulverik?</a>
+      </div>
+    </section>
+
+    <!-- Start Here -->
+    <section>
+      <h2 class="section-title">New Here? Start Here.</h2>
+      <p class="section-sub">
+        You don’t have to know the full lore to feel at home. Follow this path, or explore freely.
+      </p>
+
+      <div class="start-grid">
+        <div class="start-card">
+          <div class="start-step-label">Step 1</div>
+          <div class="start-card-title">Listen: The Promise You Broke</div>
+          <p>
+            Begin with <a href="the-promise-you-broke.html">Chapter I</a>, a song about betrayal, false accusations,
+            and choosing self-trust when your story is twisted by others.
+          </p>
         </div>
 
-        <h1>The Evolving Realm<br />of the Glitched Wolf</h1>
+        <div class="start-card">
+          <div class="start-step-label">Step 2</div>
+          <div class="start-card-title">Meet the Glitched Wolf</div>
+          <p>
+            Visit <a href="glitched-wolf.html">Glitched Wolf</a>, the avatar of feeling “too much” in a world that
+            listens too little. He walks the Library of Memories so you don’t have to walk it alone.
+          </p>
+        </div>
 
-        <p class="subtitle">
-            A living universe where music, memory, and myth run with the wolves.
-        </p>
+        <div class="start-card">
+          <div class="start-step-label">Step 3</div>
+          <div class="start-card-title">Explore the Library</div>
+          <p>
+            Enter <a href="lore-echoes.html">Lore &amp; Echoes</a> to discover the Library of Memories, the Echoes,
+            False Echoes, and the Codex of Symbols that appear across songs and stories.
+          </p>
+        </div>
+      </div>
+    </section>
 
-        <div class="divider"></div>
+    <!-- Realms Overview -->
+    <section>
+      <h2 class="section-title">Realms of Wulverik</h2>
+      <p class="section-sub">
+        Different doors, same heart. Each realm is a facet of the same story.
+      </p>
 
-        <p class="blurb">
-            This is the heartbeat of Wulverik — a world shaped by glitch, spirit, and song.
-            Here, every track, story, and fragment of art is a trail through the dark:
-            echoes of the Glitched Wolf, wandering between worlds and turning scars into sound.
-        </p>
+      <div class="realms-grid">
+        <div class="realm-card">
+          <div class="realm-title">Glitched Genius</div>
+          <div class="realm-tag">Music • Cinematic • Emotion</div>
+          <p>
+            My main music realm. Every track is a “cinematic sonic story” woven from real experiences, autistic
+            perception, and emotional truth.
+          </p>
+          <p><a href="glitched-genius.html">Enter Glitched Genius →</a></p>
+        </div>
 
-        <section class="grid" aria-label="Realms of Wulverik">
-            <article class="card">
-                <span>Realm I</span>
-                <a href="/glitched-genius.html" style="text-decoration:none; color:inherit;">
-    <strong>Glitched Genius</strong>
-</a>
-<p>The sonic core of Wulverik — cinematic songs, lyric worlds, and emotional fire.</p>
+        <div class="realm-card">
+          <div class="realm-title">Glitched Wolf</div>
+          <div class="realm-tag">Avatar • Guide • Echo-Walker</div>
+          <p>
+            The mythic version of my inner voice. A wolf made of gold light, glitch, and scars that learned
+            how to sing instead of vanish.
+          </p>
+          <p><a href="glitched-wolf.html">Meet the Glitched Wolf →</a></p>
+        </div>
 
-            </article>
-          <article class="card">
-    <span>Realm II</span>
-    <a href="/wolfiepack.html" style="text-decoration:none; color:inherit;">
-        <strong>WolfiePack</strong>
-    </a>
-    <p>Where the pack gathers: gaming, strategy, and stories born in shared worlds.</p>
-</article>
-<article class="card">
-    <span>Realm III</span>
-    <a href="/lore-echoes.html" style="text-decoration:none; color:inherit;">
-        <strong>Lore & Echoes</strong>
-    </a>
-    <p>The codex of your journey — autism, memory, philosophy, and the myths behind the music.</p>
-</article>
+        <div class="realm-card">
+          <div class="realm-title">Lore &amp; Echoes</div>
+          <div class="realm-tag">Library • Myth • Symbols</div>
+          <p>
+            The Library of Memories, the Echo Archive, and the Codex of Symbols &mdash; the story-layer that
+            turns lived experience into myth and map.
+          </p>
+          <p><a href="lore-echoes.html">Explore the Lore →</a></p>
+        </div>
 
-        </section>
+        <div class="realm-card">
+          <div class="realm-title">WolfiePack Gaming</div>
+          <div class="realm-tag">Gaming • Pack • Brotherhood</div>
+          <p>
+            The playful side of the realm &mdash; where the pack gathers, games are shared, and the brotherly
+            chant energy lives.
+          </p>
+          <p><a href="wolfiepack.html">Join the Pack →</a></p>
+        </div>
+      </div>
+    </section>
 
-        <p class="footer-note">
-            This is only the first ember. More paths, portals, and stories will awaken as Wulverik evolves.
-        </p>
-    </main>
+    <!-- Featured Chapter -->
+    <section class="featured">
+      <div class="featured-header">
+        <div class="featured-title">Featured Chapter: The Promise You Broke</div>
+        <div class="featured-tag">Chapter I • Echo of the Broken Promise</div>
+      </div>
+
+      <div class="featured-body">
+        A cinematic chapter about betrayal, false accusations, and the moment a loyal heart is mistaken for
+        something darker. This is where the first great Echo forms in the Library of Memories, and where the
+        Glitched Wolf stands before the Fractured Mirror for the very first time.
+      </div>
+
+      <div class="featured-meta">
+        Emotional theme: betrayal, misperception, choosing self-trust over distortion.
+      </div>
+
+      <div class="symbol-strip">
+        Symbols:
+        <span>⟡ Fractured Mirror</span>
+        <span>⚡ Auric Scar</span>
+        <span>⎔ Golden Thread</span>
+      </div>
+
+      <div class="featured-links">
+        <a href="https://www.youtube.com/watch?v=Ith5K8aDN2w" class="btn" target="_blank" rel="noopener">
+          Watch on YouTube
+        </a>
+        <a href="the-promise-you-broke.html" class="btn btn-secondary">
+          Read Chapter &amp; Lyrics
+        </a>
+      </div>
+    </section>
+
+    <!-- Closing line -->
+    <section>
+      <p style="margin-top:30px; font-size:0.98rem; color:#dcdcdc; text-align:center;">
+        Wulverik is for anyone who has ever felt like a glitch in the system.  
+        Walk the realm at your own pace. Take what resonates. Leave with more light than you brought in.
+      </p>
+    </section>
+
+  </div>
+
+  <footer>
+    © 2025 Wulverik Realm — Created by Glitched Genius
+  </footer>
+
 </body>
 </html>
