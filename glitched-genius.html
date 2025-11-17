@@ -214,6 +214,75 @@
       color: #b8b8b8;
     }
 
+    /* Button style (shared with other realms) */
+    .btn {
+      display: inline-block;
+      padding: 10px 18px;
+      border-radius: 999px;
+      border: 1px solid rgba(212,175,55,0.7);
+      background: radial-gradient(circle at top left,
+        rgba(212,175,55,0.18),
+        rgba(10,10,15,0.95));
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 0.95rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      transition: 0.25s;
+    }
+
+    .btn:hover {
+      filter: brightness(1.1);
+      transform: translateY(-1px);
+    }
+
+    /* Suno Glitched Archive section */
+    .suno-archive {
+      margin-top: 40px;
+      margin-bottom: 30px;
+      padding: 20px 22px;
+      border-radius: 18px;
+      background: radial-gradient(circle at top, rgba(10,8,25,0.96), rgba(3,3,8,0.98));
+      border: 1px solid rgba(212,175,55,0.28);
+      box-shadow: 0 18px 32px rgba(0,0,0,0.75);
+    }
+
+    .suno-archive-title {
+      font-family: "Cinzel", serif;
+      font-size: 1.6rem;
+      color: #d4af37;
+      margin: 0 0 10px;
+      text-shadow: 0 0 6px rgba(212,175,55,0.3);
+      text-align: center;
+    }
+
+    .suno-archive-text {
+      font-size: 0.97rem;
+      color: #dedede;
+      line-height: 1.5;
+      max-width: 760px;
+      margin: 0 auto 10px;
+      text-align: center;
+    }
+
+    .suno-archive-actions {
+      margin: 14px 0 6px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .suno-archive-note {
+      font-size: 0.9rem;
+      color: #c7c7c7;
+      text-align: center;
+      margin: 8px 0 0;
+      font-style: italic;
+    }
+
+    .suno-archive-note span {
+      color: #d4af37;
+    }
+
     @media (max-width: 600px) {
       h1 {
         font-size: 2.4rem;
@@ -407,6 +476,35 @@
       Later, you can turn this section into direct links and embedded players 
       for each song &mdash; so listeners can move from lore, to lyrics, to sound in one place.
     </div>
+
+    <!-- 🌌 The Glitched Archive — Suno Playlist Section -->
+    <section class="suno-archive">
+      <h2 class="suno-archive-title">The Glitched Archive — Complete Collection</h2>
+      <p class="suno-archive-text">
+        This is the heart of my realm on Suno &mdash; <strong>every song I’ve released so far</strong>,  
+        including many tracks that haven’t reached YouTube yet.  
+        If you want a first look into future lyric videos, this is where they live first.
+      </p>
+
+      <p class="suno-archive-text">
+        You don’t need a Suno account to listen.  
+        Just step into the Archive, press play, and let the echoes unfold.
+      </p>
+
+      <div class="suno-archive-actions">
+        <a href="https://suno.com/playlist/2014fa7a-d0e5-4fc8-bd60-34d0c907a319"
+           class="btn"
+           target="_blank"
+           rel="noopener">
+          Open The Glitched Archive
+        </a>
+      </div>
+
+      <p class="suno-archive-note">
+        New songs are added here as they’re born in the realm,  
+        often <span>before</span> they arrive as full lyric videos on YouTube.
+      </p>
+    </section>
 
     <h2 class="section-title">Future Downloads &amp; Use</h2>
     <p>
