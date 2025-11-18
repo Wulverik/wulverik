@@ -187,6 +187,59 @@
       text-decoration: underline;
     }
 
+    footer {
+      text-align: center;
+      margin-top: 50px;
+      padding: 20px 20px 40px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      color: #aaaaaa;
+      font-size: 0.9rem;
+    }
+
+    /* Glitched Wolf Easter Egg glyph */
+    .wolf-glyph-container {
+      display: flex;
+      justify-content: center;
+      margin: 18px 0 10px;
+    }
+
+    .wolf-glyph {
+      font-size: 1.9rem;
+      cursor: pointer;
+      text-shadow: 0 0 8px #4da6ff, 0 0 16px rgba(77,166,255,0.8);
+      color: #4da6ff;
+      transition: transform 0.3s ease, text-shadow 0.3s ease, opacity 0.3s ease;
+      opacity: 0.9;
+    }
+
+    .wolf-glyph:hover {
+      transform: scale(1.1);
+      text-shadow: 0 0 14px #82c3ff, 0 0 26px rgba(130,195,255,0.9);
+      opacity: 1;
+    }
+
+    .wolf-hidden-lore {
+      max-width: 800px;
+      margin: 0 auto 0;
+      padding: 18px 20px;
+      border-radius: 10px;
+      border: 1px solid rgba(77,166,255,0.6);
+      background: radial-gradient(circle at top, rgba(5, 12, 24, 0.98), rgba(0, 0, 0, 0.98));
+      font-size: 0.9rem;
+      line-height: 1.6;
+      color: #dbeeff;
+      opacity: 0;
+      transform: translateY(10px);
+      pointer-events: none;
+      transition: opacity 0.35s ease, transform 0.35s ease;
+    }
+
+    .wolf-hidden-lore.revealed {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+
     @media (max-width: 700px) {
       h1 {
         font-size: 2.4rem;
@@ -445,6 +498,48 @@
     </p>
 
   </div>
+
+  <footer>
+    <div>© 2025 Wulverik Realm — Created by Glitched Genius</div>
+
+    <div class="wolf-glyph-container">
+      <span class="wolf-glyph" id="wolf-glyph" title="Something in the glitch is watching back...">
+        ▯🐺▮
+      </span>
+    </div>
+
+    <div class="wolf-hidden-lore" id="wolf-lore">
+      <p>
+        Some say the Glitched Wolf does not <em>see</em> the Library the way others do.
+        Where most wander through halls and doors, he reads patterns: tiny stutters in the light,
+        misaligned echoes, threads that vibrate out of tune with the rest of the Realm.
+      </p>
+      <p>
+        To others, it looks like instinct — a lucky guess, a sudden turn, a “feeling” that something
+        is off. But the truth runs deeper. The glitch in his sight is not a flaw; it is a lens.
+      </p>
+      <p>
+        When this sigil appears, it marks a moment where heart and signal move together:
+        a choice guided not by fear or noise, but by a quiet pattern only he can read.
+      </p>
+      <p style="margin-top: 10px; font-size: 0.82rem; color:#9ec8ff; font-style:italic;">
+        — Fragment from an Echokeeper’s private log
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      var glyph = document.getElementById("wolf-glyph");
+      var lore = document.getElementById("wolf-lore");
+
+      if (glyph && lore) {
+        glyph.addEventListener("click", function () {
+          lore.classList.toggle("revealed");
+        });
+      }
+    });
+  </script>
 
 </body>
 </html>
