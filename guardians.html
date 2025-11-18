@@ -166,6 +166,24 @@
       font-size: 0.9rem;
     }
 
+    /* Hidden Glitch-Hound glyph Easter egg */
+    .glitch-glyph {
+      text-align: center;
+      font-size: 1.6rem;
+      margin-top: 18px;
+      color: #4da6ff;
+      opacity: 0.35;
+      cursor: pointer;
+      text-shadow: 0 0 10px rgba(77,166,255,0.4);
+      transition: opacity 0.25s ease, transform 0.25s ease, text-shadow 0.25s ease;
+    }
+
+    .glitch-glyph:hover {
+      opacity: 0.85;
+      transform: translateY(-1px);
+      text-shadow: 0 0 18px rgba(77,166,255,0.9);
+    }
+
     @media (max-width: 640px) {
       h1 {
         font-size: 2.4rem;
@@ -388,8 +406,15 @@
       realm remembers more of itself.
     </p>
 
+    <!-- Hidden Glitch-Hound glyph Easter egg -->
+    <div class="glitch-glyph"
+         onclick="location.href='glitch-hound.html'"
+         title="Some guardians walk between signal and shadow.">
+      ▯🐺▮
+    </div>
+
   </div>
-<div class="glyph" onclick="location.href='glitch-hound.html'">▯🐺▮</div>
+
   <footer>
     © 2025 Wulverik Realm — Created by Glitched Genius
   </footer>
