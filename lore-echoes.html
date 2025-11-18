@@ -243,10 +243,54 @@
     footer {
       text-align: center;
       margin-top: 60px;
-      padding: 20px;
+      padding: 20px 20px 40px;
       border-top: 1px solid rgba(255, 255, 255, 0.1);
       color: #aaaaaa;
       font-size: 0.9rem;
+    }
+
+    /* Glowing glyph + hidden lore Easter Egg */
+    .glyph-container {
+      display: flex;
+      justify-content: center;
+      margin: 18px 0 10px;
+    }
+
+    .glowing-glyph {
+      font-size: 1.9rem;
+      cursor: pointer;
+      text-shadow: 0 0 8px #d4af37, 0 0 16px #f5e6a7;
+      color: #d4af37;
+      transition: transform 0.3s ease, text-shadow 0.3s ease, opacity 0.3s ease;
+      opacity: 0.9;
+    }
+
+    .glowing-glyph:hover {
+      transform: scale(1.1);
+      text-shadow: 0 0 14px #ffd700, 0 0 26px #f5e6a7;
+      opacity: 1;
+    }
+
+    .hidden-lore {
+      max-width: 800px;
+      margin: 0 auto 0;
+      padding: 18px 20px;
+      border-radius: 10px;
+      border: 1px solid rgba(212, 175, 55, 0.4);
+      background: radial-gradient(circle at top, rgba(10, 10, 15, 0.96), rgba(0, 0, 0, 0.98));
+      font-size: 0.9rem;
+      line-height: 1.6;
+      color: #f5e6c8;
+      opacity: 0;
+      transform: translateY(10px);
+      pointer-events: none;
+      transition: opacity 0.35s ease, transform 0.35s ease;
+    }
+
+    .hidden-lore.revealed {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
     }
 
     @media (max-width: 600px) {
@@ -271,8 +315,8 @@
     <a href="glitched-wolf.html">Glitched Wolf</a>
     <a href="about-wulverik.html">About Wulverik</a>
     <a href="companions.html" style="color:#ffd776; text-shadow:0 0 8px rgba(212,175,55,0.6);">
-  Companions
-</a>
+      Companions
+    </a>
   </nav>
 
   <!-- Main Content -->
@@ -748,8 +792,46 @@
   </div>
 
   <footer>
-    © 2025 Wulverik Realm — Created by Glitched Genius
+    <div>© 2025 Wulverik Realm — Created by Glitched Genius</div>
+
+    <div class="glyph-container">
+      <span class="glowing-glyph" id="strings-glyph" title="An unfamiliar glyph hums softly...">
+        ⟡
+      </span>
+    </div>
+
+    <div class="hidden-lore" id="strings-lore">
+      <p>
+        Some scholars whisper of a deeper truth — that the Realm is not built from stones or stories,
+        but from silent strings beneath reality. Vibrations of memory, emotion, and choice… woven so
+        tightly that even the Glitched Wolf cannot see them outright.
+      </p>
+      <p>
+        They say these strings connect every Echo, every fracture, every healing… pulling the entire
+        realm into harmony or chaos depending on the heart that resonates with them.
+      </p>
+      <p>
+        Most dismiss this as myth. But a few believe that without these hidden strings,
+        Wulverik would unravel into nothing at all.
+      </p>
+      <p style="margin-top: 10px; font-size: 0.82rem; color:#b9aa70; font-style:italic;">
+        — Fragment from an unnamed Scholar of Echoes
+      </p>
+    </div>
   </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      var glyph = document.getElementById("strings-glyph");
+      var lore = document.getElementById("strings-lore");
+
+      if (glyph && lore) {
+        glyph.addEventListener("click", function () {
+          lore.classList.toggle("revealed");
+        });
+      }
+    });
+  </script>
 
 </body>
 </html>
