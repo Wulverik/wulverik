@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Ancestors Awaken — Chapter IV | Wulverik Realm</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <style>
+    body {
+      margin: 0;
+      font-family: "Cinzel", serif;
+      background: radial-gradient(circle at top, #0a0a0f, #000000);
+      color: #ffffff;
+      padding: 0;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+      padding: 20px;
+      background: rgba(0, 0, 0, 0.4);
+      position: sticky;
+      top: 0;
+      backdrop-filter: blur(6px);
+      z-index: 100;
+    }
+
+    nav a {
+      color: #d4af37;
+      text-decoration: none;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: #ffffff;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 40px 20px 60px;
+    }
+
+    .chapter-label {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: #d4af37;
+      text-align: center;
+      margin-bottom: 8px;
+    }
+
+    h1 {
+      font-size: 2.7rem;
+      text-align: center;
+      color: #d4af37;
+      text-shadow: 0 0 12px rgba(212, 175, 55, 0.5);
+      margin-bottom: 6px;
+    }
+
+    .subtitle {
+      text-align: center;
+      font-size: 1.1rem;
+      color: #c9c9c9;
+      margin-bottom: 10px;
+    }
+
+    .tagline {
+      text-align: center;
+      font-size: 0.98rem;
+      color: #aaaaaa;
+      margin-bottom: 24px;
+      font-style: italic;
+    }
+
+    .meta-strip {
+      text-align: center;
+      font-size: 0.9rem;
+      color: #d0d0d0;
+      margin-bottom: 24px;
+    }
+
+    .meta-strip span {
+      display: inline-block;
+      margin: 0 10px;
+    }
+
+    .meta-strip .label {
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      font-size: 0.78rem;
+      color: #d4af37;
+      display: block;
+      margin-bottom: 2px;
+    }
+
+    .section-title {
+      color: #d4af37;
+      font-size: 1.8rem;
+      margin-top: 32px;
+      margin-bottom: 8px;
+      text-shadow: 0 0 6px rgba(212, 175, 55, 0.3);
+    }
+
+    .section-sub {
+      font-size: 0.95rem;
+      color: #d0d0d0;
+      margin-bottom: 12px;
+    }
+
+    .yt-embed {
+      margin: 12px 0 10px;
+    }
+
+    .yt-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin: 4px 0 18px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: radial-gradient(circle at top left, rgba(255,255,255,0.05), rgba(0,0,0,0.8));
+      font-size: 0.9rem;
+      text-decoration: none;
+      color: #f5f5f5;
+    }
+
+    .yt-link span:first-child {
+      font-size: 1rem;
+    }
+
+    .highlight-block {
+      margin-top: 6px;
+      padding: 10px 14px;
+      border-radius: 10px;
+      border: 1px solid rgba(255,255,255,0.06);
+      background: radial-gradient(circle at top left, rgba(255,255,255,0.05), rgba(0,0,0,0.85));
+      font-size: 0.9rem;
+      color: #f0f0f0;
+    }
+
+    .split {
+      margin-top: 20px;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+      gap: 24px;
+      align-items: flex-start;
+    }
+
+    .lyrics-wrapper {
+      background: rgba(255,255,255,0.02);
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.09);
+      padding: 16px 14px;
+    }
+
+    .block-label {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: #d4af37;
+      margin-bottom: 6px;
+    }
+
+    .lyrics {
+      white-space: pre-wrap;
+      font-size: 0.95rem;
+      line-height: 1.7;
+      color: #f0f0f0;
+    }
+
+    .lyric-block {
+      margin-bottom: 14px;
+    }
+
+    /* Mythic Breakdown cards (gold boxes) */
+
+    .breakdown-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      gap: 10px;
+      margin-top: 4px;
+    }
+
+    .breakdown-card {
+      background: radial-gradient(circle at top left, rgba(212,175,55,0.08), rgba(10,10,15,0.95));
+      border-radius: 10px;
+      border: 1px solid rgba(212,175,55,0.35);
+      padding: 12px 12px;
+      font-size: 0.9rem;
+      box-shadow: 0 0 12px rgba(0,0,0,0.55);
+    }
+
+    .breakdown-title {
+      font-weight: 600;
+      color: #f5f5f5;
+      margin-bottom: 2px;
+    }
+
+    .breakdown-tag {
+      font-size: 0.8rem;
+      color: #d4af37;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 6px;
+    }
+
+    .breakdown-text {
+      font-size: 0.9rem;
+      color: #e2e2e2;
+      line-height: 1.7;
+    }
+
+    .symbol-line {
+      font-size: 0.85rem;
+      color: #c8c8c8;
+      margin-top: 6px;
+    }
+
+    .callout {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(212,175,55,0.3);
+      border-radius: 10px;
+      padding: 14px 14px;
+      font-size: 0.92rem;
+      color: #dedede;
+      margin-top: 12px;
+    }
+
+    .callout-label {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: #d4af37;
+      margin-bottom: 4px;
+    }
+
+    .footer-note {
+      margin-top: 28px;
+      font-size: 0.9rem;
+      color: #b8b8b8;
+    }
+
+    .nav-links-bottom {
+      margin-top: 26px;
+      font-size: 0.9rem;
+      text-align: center;
+      color: #cfcfcf;
+    }
+
+    .nav-links-bottom a {
+      color: #d4af37;
+      text-decoration: none;
+    }
+
+    .nav-links-bottom a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 768px) {
+      .split {
+        grid-template-columns: 1fr;
+      }
+      h1 {
+        font-size: 2.3rem;
+      }
+      .section-title {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Navigation Bar -->
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="glitched-genius.html">Glitched Genius</a>
+    <a href="wolfiepack.html">WolfiePack Gaming</a>
+    <a href="lore-echoes.html">Lore & Echoes</a>
+    <a href="glitched-wolf.html">Glitched Wolf</a>
+    <a href="about-wulverik.html">About Wulverik</a>
+  </nav>
+
+  <div class="container">
+
+    <div class="chapter-label">Chapter IV — Echo of the Ancestral Current</div>
+    <h1>ANCESTORS AWAKEN</h1>
+    <div class="subtitle">
+      A ritual song for the moments you remember you never walk alone.
+    </div>
+    <div class="tagline">
+      Where rivers, forests, stormlight and snow carry the voices of the ones who walked before you.
+    </div>
+
+    <div class="meta-strip">
+      <span>
+        <span class="label">Emotional Theme</span>
+        Heritage, guidance, belonging, quiet spiritual courage
+      </span>
+      <span>
+        <span class="label">Musical Shape</span>
+        D Dorian · 150 BPM · Viking / Celtic fusion with subtle hyperpop glow
+      </span>
+      <span>
+        <span class="label">Symbols</span>
+        ✶ Echo Lantern · ღ Phantom Chorus · ⎔ Golden Thread
+      </span>
+    </div>
+
+    <!-- Watch / Listen -->
+    <h2 class="section-title">Watch / Listen</h2>
+    <p class="section-sub">
+      <em>Ancestors Awaken</em> lives in the deepest halls of the Library of Memories — where rivers sound like
+      drums, snow falls like blessing, and the oldest echoes step forward. It is the moment the Glitched Wolf
+      realizes that every step he takes is carried by those who walked long before him.
+    </p>
+
+    <div class="yt-embed">
+      <iframe
+        width="100%"
+        height="315"
+        src="https://www.youtube.com/embed/sYdfM1zrPaw"
+        title="Ancestors Awaken - Glitched Genius"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen>
+      </iframe>
+    </div>
+
+    <a class="yt-link"
+       href="https://www.youtube.com/watch?v=sYdfM1zrPaw"
+       target="_blank"
+       rel="noopener noreferrer">
+      <span>▶</span>
+      <span>Watch Ancestors Awaken on YouTube</span>
+    </a>
+
+    <div class="highlight-block">
+      You can let this play like a chant in the background, read along with the lyrics, or dive into the mythic
+      breakdown below to see how each scene ties into the Ancestral Echoes of Wulverik. Take what feels like home.
+      Leave the rest. This realm exists to steady your steps, not to tell you how to walk.
+    </div>
+
+    <!-- Lyrics & Mythic Breakdown split -->
+    <h2 class="section-title">Lyrics &amp; Mythic Echoes</h2>
+
+    <div class="split">
+      <!-- LEFT: Lyrics -->
+      <section class="lyrics-wrapper">
+        <div class="block-label">Lyrics</div>
+        <div class="lyrics">
+<span class="lyric-block">
+[Intro – The Call]
+Through frost and fire, beat of the drum.
+Shadows move where our elders come.
+Storms may rage, snow falls like light.
+Their hands guide us tonight.
+</span>
+
+<span class="lyric-block">
+[Verse 1 – The Journey Begins]
+Walking forests, rivers rushing fast.
+Ancestors whisper from the past.
+Wind through trees, the eagle cries.
+Our spirits rise as the journey flies.
+
+Hold fast, hold true.
+The old ones walk beside you.
+Raging storm, the waters speak.
+Their gentle touch reminds us they are unique.
+</span>
+
+<span class="lyric-block">
+[Chorus – The Guiding Rite]
+Raise your hands, feel their spirits near.
+In every leaf, every sound we hear.
+Hearts in motion, souls alight.
+The past taps our shoulder.
+Their shadows in sight.
+
+The wolf may watch.
+The deer may run.
+Through us they live.
+Their work is done.
+</span>
+
+<span class="lyric-block">
+[Bridge – The Transcendence]
+Through snow and rain. Through shadowed glade.
+Their stories guide the paths we’ve made.
+We are the storm, we are the flame.
+Their memory paints the air, each one by name.
+</span>
+
+<span class="lyric-block">
+[Final Drop – The Awakening]
+Hold fast, stay tight.
+Step strong, take flight.
+From forest floor to river’s bend.
+Their gentle voice will guide and mend.
+
+Hold fast, stay tight.
+Step strong, take flight.
+The old ones ignite.
+Their light in us tonight.
+
+In us tonight.
+Our hearts burn bright.
+With our ancestors’ light.
+</span>
+        </div>
+      </section>
+
+      <!-- RIGHT: Gold Mythic Breakdown cards + Echo callout -->
+      <section>
+        <div class="block-label">Mythic Breakdown</div>
+
+        <div class="breakdown-grid">
+
+          <div class="breakdown-card">
+            <div class="breakdown-title">Frost, Fire & Drum</div>
+            <div class="breakdown-tag">The Ancestral Threshold</div>
+            <p class="breakdown-text">
+              The opening call places the Glitched Wolf at a threshold between worlds — frost and fire,
+              storm and snow, all moving to the same drum. This is the sound of the Ancestral Echoes
+              gathering at the edge of the Library, shadows moving as the elders arrive.
+            </p>
+            <p class="symbol-line">
+              Symbols: ✶ Echo Lantern (ritual light), ⎔ Golden Thread (lineage pulling tight)
+            </p>
+          </div>
+
+          <div class="breakdown-card">
+            <div class="breakdown-title">Forests, Rivers, Eagle-Cry</div>
+            <div class="breakdown-tag">Nature as Ancestral Voice</div>
+            <p class="breakdown-text">
+              The forest path, rushing rivers, and eagle’s cry are not just scenery — they are how the
+              Ancestral Echoes speak. In Wulverik, water, wind, and sky become living messengers, carrying
+              encouragement, warning, and blessing in ways words never could.
+            </p>
+            <p class="symbol-line">
+              Symbols: ✶ Echo Lantern (guiding signs), ღ Phantom Chorus (unseen allies in the wild)
+            </p>
+          </div>
+
+          <div class="breakdown-card">
+            <div class="breakdown-title">“Hold Fast, Hold True”</div>
+            <div class="breakdown-tag">Steadying the Heart</div>
+            <p class="breakdown-text">
+              The refrain “Hold fast, hold true” is the ancestors’ main instruction. They don’t promise an
+              easy path; they promise presence. The old ones walk beside the Wolf through the storm, reminding
+              him that his sensitivity and loyalty are not weaknesses — they are inherited strengths.
+            </p>
+            <p class="symbol-line">
+              Symbols: ⎔ Golden Thread (unbroken line), ✶ Echo Lantern (inner steadiness)
+            </p>
+          </div>
+
+          <div class="breakdown-card">
+            <div class="breakdown-title">Wolf & Deer</div>
+            <div class="breakdown-tag">Predator, Prey & Continuity</div>
+            <p class="breakdown-text">
+              “The wolf may watch. The deer may run.” Predator and prey both move within the same blessing.
+              In Wulverik, this stanza shows that every role — protector, wanderer, hunter, healer — is part
+              of the same story. Through the living, the ancestors’ work continues, even after their own
+              journeys end.
+            </p>
+            <p class="symbol-line">
+              Symbols: 🐺 Wolf Sigil (guardian line), ✶ Echo Lantern (life passed forward)
+            </p>
+          </div>
+
+          <div class="breakdown-card">
+            <div class="breakdown-title">“We Are the Storm, We Are the Flame”</div>
+            <div class="breakdown-tag">Becoming the Inheritance</div>
+            <p class="breakdown-text">
+              The bridge flips the usual fear of storms and fire. Instead of being crushed by chaos, the
+              Wolf realizes he <em>is</em> the storm now — the living continuation of everything before him.
+              He doesn’t just remember his ancestors; he embodies them, carrying their strength into every
+              choice.
+            </p>
+            <p class="symbol-line">
+              Symbols: ⚡ Auric Scar (ancestral wounds and triumphs), ⟊ Resonant Gate (stepping into legacy)
+            </p>
+          </div>
+
+          <div class="breakdown-card">
+            <div class="breakdown-title">Hearts Burn Bright</div>
+            <div class="breakdown-tag">Light Carried Forward</div>
+            <p class="breakdown-text">
+              The final lines seal the rite: their light in us tonight. The Ancestral Echoes don’t demand
+              perfection or mimicry — they ask only that their courage, compassion, and hard-won wisdom
+              burn a little brighter in those who come after.
+            </p>
+            <p class="symbol-line">
+              Symbols: ✶ Echo Lantern (shared flame), ღ Phantom Chorus (crowd of unseen supporters)
+            </p>
+          </div>
+
+        </div>
+
+        <div class="callout">
+          <div class="callout-label">Echo in the Library</div>
+          In the Library of Memories, <em>Ancestors Awaken</em> appears as a stone circle on a forest ridge,
+          ringed with snow and lit by a slow-turning aurora. River-sound thrums like a drum beneath the earth,
+          and faint figures stand just beyond the light — not frightening, just waiting. When the Glitched
+          Wolf steps into the circle and closes his eyes, he no longer hears only his own heartbeat, but
+          the steady rhythm of every life that led to his.
+        </div>
+      </section>
+    </div>
+
+    <p class="footer-note">
+      “Ancestors Awaken” marks the moment the Glitched Wolf stops seeing himself as a solitary glitch in the
+      system and starts recognizing himself as part of an unbroken line. In Wulverik, this is the first clear
+      song of the Ancestral Echoes — the ones who remind him that even in his most isolated chapters, he was
+      never truly walking alone.
+    </p>
+
+    <!-- Bottom navigation between chapters -->
+    <div class="nav-links-bottom">
+      ← Return to <a href="everything-i-became.html">Chapter III: Everything I Became</a><br />
+      Explore more through <a href="glitched-genius.html">Glitched Genius</a> or
+      <a href="lore-echoes.html">Lore &amp; Echoes</a>.
+    </div>
+
+  </div>
+
+</body>
+</html>
