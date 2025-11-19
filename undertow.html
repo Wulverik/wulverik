@@ -3,41 +3,312 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Undertow — Deeper Currents</title>
+  <title>Undertow — Chamber of the Phantom Chorus</title>
+
   <style>
     body {
       margin: 0;
       font-family: "Cinzel", serif;
-      background: radial-gradient(circle at top, #020b12, #000000);
-      color: #e6faff;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      background: radial-gradient(circle at top, #020611, #000000);
+      color: #f5fbff;
       min-height: 100vh;
-      text-align: center;
+      display: flex;
+      flex-direction: column;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 25px;
       padding: 20px;
+      background: rgba(0, 0, 0, 0.4);
+      position: sticky;
+      top: 0;
+      backdrop-filter: blur(6px);
+      z-index: 100;
     }
+
+    nav a {
+      color: #ffd777;
+      text-decoration: none;
+      font-weight: bold;
+      letter-spacing: 1px;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #fff2bd;
+    }
+
     .chamber {
-      max-width: 700px;
+      flex: 1;
+      max-width: 900px;
+      margin: 60px auto 40px;
+      padding: 30px 24px 50px;
+      background: radial-gradient(circle at top, rgba(8, 10, 25, 0.95), rgba(0, 0, 0, 0.9));
+      border-radius: 18px;
+      border: 1px solid rgba(255, 215, 119, 0.35);
+      box-shadow: 0 0 40px rgba(255, 210, 120, 0.25);
+      text-align: center;
     }
-    a {
-      color: #7fd3ff;
+
+    h1 {
+      font-size: 2.8rem;
+      margin-bottom: 10px;
+      color: #ffe7a3;
+      text-shadow: 0 0 18px rgba(255, 214, 130, 0.7);
+    }
+
+    h2 {
+      margin-top: 35px;
+      color: #ffeec4;
+      text-shadow: 0 0 10px rgba(250, 222, 150, 0.5);
+    }
+
+    p {
+      line-height: 1.7;
+      font-size: 1.05rem;
+      margin-bottom: 14px;
+    }
+
+    .accent {
+      color: #ffe7a3;
+    }
+
+    .divider {
+      margin: 30px auto;
+      width: 70%;
+      height: 2px;
+      background: linear-gradient(to right, transparent, #ffd777, transparent);
+      box-shadow: 0 0 14px rgba(255, 215, 119, 0.7);
+    }
+
+    /* Phantom glow field */
+    .chorus-field {
+      margin: 20px auto 10px;
+      max-width: 640px;
+      padding: 24px 20px;
+      border-radius: 16px;
+      background: radial-gradient(circle at 20% 0%, rgba(255, 255, 210, 0.2), transparent 55%),
+                  radial-gradient(circle at 80% 100%, rgba(255, 208, 140, 0.18), transparent 60%),
+                  rgba(6, 6, 20, 0.9);
+      border: 1px solid rgba(255, 220, 145, 0.6);
+      box-shadow: 0 0 30px rgba(255, 220, 145, 0.4);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .chorus-field::before {
+      content: "";
+      position: absolute;
+      inset: -60%;
+      background: radial-gradient(circle at 50% 50%, rgba(255, 244, 200, 0.18), transparent 65%);
+      opacity: 0.7;
+      mix-blend-mode: screen;
+      pointer-events: none;
+      animation: slowPulse 10s infinite alternate ease-in-out;
+    }
+
+    @keyframes slowPulse {
+      0% {
+        transform: translate3d(-10px, -5px, 0) scale(1);
+        opacity: 0.4;
+      }
+      50% {
+        transform: translate3d(10px, 10px, 0) scale(1.05);
+        opacity: 0.75;
+      }
+      100% {
+        transform: translate3d(-8px, 5px, 0) scale(1.02);
+        opacity: 0.55;
+      }
+    }
+
+    .whisper-label {
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: #ffe2a0;
+      margin-bottom: 12px;
+    }
+
+    .whisper-text {
+      min-height: 3.4em;
+      font-size: 1rem;
+      font-style: italic;
+      color: #fff9e1;
+      padding: 0 10px;
+      margin-bottom: 18px;
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+
+    .whisper-text.hidden {
+      opacity: 0;
+      transform: translateY(6px);
+    }
+
+    .whisper-text.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .chorus-button {
+      padding: 9px 26px;
+      border-radius: 999px;
+      border: 1px solid #ffe7a3;
+      background: rgba(20, 12, 0, 0.8);
+      color: #fff3cc;
+      font-family: inherit;
+      font-size: 0.98rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background 0.25s, box-shadow 0.25s, transform 0.12s;
+    }
+
+    .chorus-button:hover {
+      background: rgba(255, 222, 150, 0.18);
+      box-shadow: 0 0 14px rgba(255, 215, 119, 0.7);
+      transform: translateY(-1px);
+    }
+
+    .chorus-button:active {
+      transform: translateY(1px);
+    }
+
+    .note {
+      font-size: 0.9rem;
+      color: #f3e3c0;
+      opacity: 0.9;
+      margin-top: 6px;
+    }
+
+    .links {
+      margin-top: 32px;
+      font-size: 0.98rem;
+    }
+
+    .links a {
+      color: #ffd777;
+      text-decoration: none;
+      margin: 0 8px;
+    }
+
+    .links a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 2.2rem;
+      }
+      .chamber {
+        margin: 40px 14px 30px;
+        padding: 24px 18px 36px;
+      }
     }
   </style>
 </head>
+
 <body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="lore.html">Lore</a>
+    <a href="echoes.html">Echoes</a>
+    <a href="elements.html">Elements</a>
+  </nav>
+
   <div class="chamber">
     <h1>Undertow</h1>
     <p>
-      You have passed the Mirror of Echoes.<br>
-      The surface world grows distant as deeper currents draw you inward.
+      You have passed the Mirror of Echoes. The surface quiets behind you as deeper
+      currents gather at your feet. Here, light does not vanish — it softens, folding
+      itself into layered whispers.
+    </p>
+
+    <div class="divider"></div>
+
+    <h2>The Phantom Chorus</h2>
+    <p>
+      In the dark places between doubt and memory, a quiet order keeps watch.
+      They are called the <span class="accent">Phantom Chorus</span> — unseen protectors born from loyalty,
+      the ones who spoke truth for you when you weren’t there to speak for yourself.
     </p>
     <p>
-      Here, the waters no longer reflect — they reveal.<br>
-      This chamber will soon hold secrets, glyphs, and whispers meant only for those
-      who listened closely above.
+      They are not warriors of blade or flame. They reveal, they steady, they guide.
+      They appear as drifting embers, soft pulses of gold, and voices that arrive
+      exactly when you think you are alone.
     </p>
-    <p><a href="water-trial.html">↩ Return to the Water Temple</a></p>
+    <p>
+      When lies tried to rewrite your story, they cracked the mask. When silence
+      felt like erasure, they carried your name forward. Their vows are simple:
+      <span class="accent">you were never as alone as you were made to feel.</span>
+    </p>
+
+    <div class="divider"></div>
+
+    <h2>Listen to the Echoes</h2>
+    <p>
+      In this chamber, the Phantom Chorus does not speak in commands or riddles.
+      They speak in small, steady truths. You do not need passwords or perfect words —
+      only a moment to listen.
+    </p>
+
+    <div class="chorus-field">
+      <div class="whisper-label">A soft voice in the dark says...</div>
+      <div id="whisperText" class="whisper-text hidden">
+        <!-- filled by script -->
+      </div>
+      <button id="whisperBtn" class="chorus-button">
+        Hear Another Whisper
+      </button>
+      <div class="note">
+        You may listen as many times as you like. The Chorus does not grow tired of you.
+      </div>
+    </div>
+
+    <div class="links">
+      <a href="water-trial.html">↩ Return to the Water Temple</a>
+      <a href="elements.html">⟡ Explore Other Elements</a>
+    </div>
   </div>
+
+  <script>
+    const whispers = [
+      "You were believed, even when no one told you.",
+      "What they tried to erase still lives in the people who saw you clearly.",
+      "The way you loved was not a mistake — it was proof of your strength.",
+      "You were not too much. You were surrounded by too little understanding.",
+      "Some stood up for you in rooms you will never see. That loyalty still glows here.",
+      "Your story did not end where they walked away. It widened.",
+      "The hurt was real, but so were the ones who protected your name in silence.",
+      "You are allowed to outgrow the version of you that survived them.",
+      "Even when you felt abandoned, echoes of your truth kept moving forward.",
+      "You are not a burden. You are a beacon that frightened smaller hearts."
+    ];
+
+    const whisperText = document.getElementById("whisperText");
+    const whisperBtn = document.getElementById("whisperBtn");
+
+    function showRandomWhisper() {
+      const randomIndex = Math.floor(Math.random() * whispers.length);
+      const text = whispers[randomIndex];
+
+      // animate out
+      whisperText.classList.remove("visible");
+      whisperText.classList.add("hidden");
+
+      setTimeout(() => {
+        whisperText.textContent = text;
+        whisperText.classList.remove("hidden");
+        whisperText.classList.add("visible");
+      }, 200);
+    }
+
+    whisperBtn.addEventListener("click", showRandomWhisper);
+
+    // show one on load so it doesn't feel empty
+    window.addEventListener("load", showRandomWhisper);
+  </script>
 </body>
 </html>
