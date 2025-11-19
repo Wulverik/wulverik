@@ -183,6 +183,104 @@
       margin-top: 6px;
     }
 
+    /* Tattoo mark card */
+    .mark-card {
+      margin: 35px auto 0;
+      max-width: 640px;
+      padding: 22px 18px 26px;
+      border-radius: 16px;
+      background: radial-gradient(circle at 10% 0%, rgba(255, 244, 210, 0.15), transparent 55%),
+                  radial-gradient(circle at 90% 100%, rgba(255, 210, 160, 0.18), transparent 60%),
+                  rgba(8, 6, 18, 0.95);
+      border: 1px solid rgba(255, 224, 165, 0.7);
+      box-shadow: 0 0 30px rgba(255, 214, 150, 0.35);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .mark-title {
+      font-size: 1.05rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #ffe7a3;
+    }
+
+    .mark-symbol {
+      width: 86px;
+      height: 86px;
+      border-radius: 999px;
+      border: 2px solid #ffe7a3;
+      box-shadow: 0 0 18px rgba(255, 215, 119, 0.9);
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 6px;
+    }
+
+    .mark-symbol::before,
+    .mark-symbol::after {
+      content: "";
+      position: absolute;
+      border-radius: 999px;
+    }
+
+    /* Inner ring */
+    .mark-symbol::before {
+      width: 54px;
+      height: 54px;
+      border: 1px solid rgba(255, 240, 200, 0.9);
+      box-shadow: 0 0 12px rgba(255, 240, 200, 0.7);
+    }
+
+    /* Vertical line */
+    .mark-line {
+      width: 2px;
+      height: 46px;
+      background: linear-gradient(to bottom, #fff4ce, #e2b35f);
+      box-shadow: 0 0 10px rgba(255, 225, 170, 0.8);
+    }
+
+    /* Three small embers (loyal hearts) */
+    .ember {
+      position: absolute;
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: radial-gradient(circle, #fff7d7, #e4b35d);
+      box-shadow: 0 0 8px rgba(255, 225, 170, 0.9);
+    }
+
+    .ember.top {
+      top: 12px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .ember.left {
+      bottom: 12px;
+      left: 20px;
+    }
+
+    .ember.right {
+      bottom: 12px;
+      right: 20px;
+    }
+
+    .mark-meaning {
+      font-size: 0.96rem;
+      color: #fff5dd;
+      line-height: 1.7;
+      max-width: 520px;
+    }
+
+    .mark-meaning span {
+      color: #ffe7a3;
+      font-weight: 600;
+    }
+
     .links {
       margin-top: 32px;
       font-size: 0.98rem;
@@ -205,6 +303,9 @@
       .chamber {
         margin: 40px 14px 30px;
         padding: 24px 18px 36px;
+      }
+      .mark-card {
+        padding: 20px 14px 22px;
       }
     }
   </style>
@@ -267,6 +368,27 @@
       </div>
     </div>
 
+    <!-- TATTOO LORE HOOK -->
+    <div class="mark-card">
+      <div class="mark-title">The Mark of the Quiet Vow</div>
+      <div class="mark-symbol" aria-hidden="true">
+        <div class="mark-line"></div>
+        <div class="ember top"></div>
+        <div class="ember left"></div>
+        <div class="ember right"></div>
+      </div>
+      <div class="mark-meaning">
+        Some travelers who are watched closely by the Phantom Chorus speak of a small
+        golden mark that follows them from realm to realm — inked on skin, drawn on paper,
+        or seen only in dreams. A single line through a circle, held by
+        <span>three quiet embers</span>, for the hearts that stood beside you when others turned away.
+        <br><br>
+        Those who wear this mark — in the world of Wulverik or the world beyond the screen —
+        are recognized by the Chorus as keepers of unheard stories. It is not a demand,
+        only an invitation: <span>to protect the truths of those who were almost erased.</span>
+      </div>
+    </div>
+
     <div class="links">
       <a href="water-trial.html">↩ Return to the Water Temple</a>
       <a href="elements.html">⟡ Explore Other Elements</a>
@@ -294,7 +416,6 @@
       const randomIndex = Math.floor(Math.random() * whispers.length);
       const text = whispers[randomIndex];
 
-      // animate out
       whisperText.classList.remove("visible");
       whisperText.classList.add("hidden");
 
@@ -306,8 +427,6 @@
     }
 
     whisperBtn.addEventListener("click", showRandomWhisper);
-
-    // show one on load so it doesn't feel empty
     window.addEventListener("load", showRandomWhisper);
   </script>
 </body>
