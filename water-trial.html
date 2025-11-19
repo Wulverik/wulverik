@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Temple of Water — Wulverik Realm</title>
+  <title>Temple of Water — Mirror of Echoes</title>
 
   <style>
     body {
@@ -63,10 +63,9 @@
 
     p {
       line-height: 1.6;
-      font-size: 1.15rem;
+      font-size: 1.05rem;
     }
 
-    /* Water ripple divider */
     .divider {
       margin: 40px auto;
       width: 70%;
@@ -75,28 +74,212 @@
       box-shadow: 0 0 10px #7cd4ff;
     }
 
-    /* Hidden glyph */
-    .hidden-glyph {
-      margin-top: 60px;
+    /* Water pool visual */
+    .water-pool {
+      position: relative;
+      margin: 30px auto;
+      width: 100%;
+      max-width: 600px;
+      height: 220px;
+      border-radius: 999px;
+      overflow: hidden;
+      background: radial-gradient(circle at 20% 20%, #0b3c5c, #021018 60%, #000000 100%);
+      box-shadow: 0 0 30px rgba(0, 180, 255, 0.4);
+    }
+
+    .water-pool::before {
+      content: "";
+      position: absolute;
+      inset: -50%;
+      background: radial-gradient(circle at 50% 30%, rgba(180, 240, 255, 0.35), transparent 60%);
+      opacity: 0.9;
+      mix-blend-mode: screen;
+      animation: ripple 8s infinite linear;
+      pointer-events: none;
+    }
+
+    .water-pool.still::before {
+      animation-play-state: paused;
+      opacity: 0.5;
+    }
+
+    @keyframes ripple {
+      0% {
+        transform: translate3d(-10px, -10px, 0) scale(1.05);
+      }
+      50% {
+        transform: translate3d(10px, 15px, 0) scale(1.08);
+      }
+      100% {
+        transform: translate3d(-10px, -10px, 0) scale(1.05);
+      }
+    }
+
+    .pool-overlay {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
       text-align: center;
-      font-size: 1.2rem;
+      padding: 20px;
+      z-index: 1;
+    }
+
+    .pool-overlay p {
+      margin: 0;
+    }
+
+    .ritual-button {
+      padding: 10px 26px;
+      border-radius: 999px;
+      border: 1px solid #b7efff;
+      background: rgba(0, 0, 0, 0.4);
+      color: #e6faff;
+      font-family: inherit;
+      font-size: 1rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      cursor: pointer;
+      margin-bottom: 15px;
+      transition: background 0.3s, box-shadow 0.3s, transform 0.15s;
+    }
+
+    .ritual-button:hover {
+      background: rgba(120, 220, 255, 0.15);
+      box-shadow: 0 0 12px rgba(120, 220, 255, 0.55);
+      transform: translateY(-1px);
+    }
+
+    .ritual-button:active {
+      transform: translateY(1px);
+    }
+
+    .riddle-text {
+      font-size: 0.98rem;
+      max-width: 420px;
+      opacity: 0;
+      transform: translateY(8px);
+      transition: opacity 0.4s ease, transform 0.4s ease;
+    }
+
+    .riddle-text.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .riddle-text em {
+      color: #c9f3ff;
+    }
+
+    .puzzle-step {
+      margin-top: 25px;
+      padding: 18px 16px;
+      border-radius: 10px;
+      background: rgba(0, 30, 45, 0.65);
+      border: 1px solid rgba(120, 220, 255, 0.35);
+    }
+
+    .puzzle-step p {
+      margin-top: 0;
+      margin-bottom: 12px;
+    }
+
+    .choices {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .choice-btn {
+      flex: 1 1 120px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(183, 239, 255, 0.7);
+      background: rgba(0, 0, 0, 0.4);
+      color: #e6faff;
+      font-family: inherit;
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: background 0.25s, box-shadow 0.25s, transform 0.12s;
+      white-space: nowrap;
+    }
+
+    .choice-btn:hover {
+      background: rgba(120, 220, 255, 0.18);
+      box-shadow: 0 0 12px rgba(120, 220, 255, 0.5);
+      transform: translateY(-1px);
+    }
+
+    .choice-btn:active {
+      transform: translateY(1px);
+    }
+
+    .status {
+      margin-top: 20px;
+      font-size: 0.95rem;
+      font-style: italic;
+      color: #8fdcff;
+      min-height: 1.2em;
+    }
+
+    .status.error {
+      color: #ff9aa5;
+    }
+
+    .status.success {
+      color: #b5ffbf;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    /* Hidden Undertow doorway */
+    .hidden-glyph {
+      margin-top: 50px;
+      text-align: center;
+      font-size: 1.1rem;
+      opacity: 0;
       color: #4aa7c7;
-      opacity: 0.25;
-      transition: opacity 0.4s, color 0.4s;
-      cursor: default;
+      transition: opacity 0.6s ease, color 0.6s ease, text-shadow 0.6s ease;
       user-select: none;
     }
 
-    .hidden-glyph:hover {
-      opacity: 1;
-      color: #9ee8ff;
-      text-shadow: 0 0 12px #00c8ff;
-    }
-
-    /* Hidden link behind glyph */
     .hidden-glyph a {
       color: inherit;
       text-decoration: none;
+    }
+
+    .hidden-glyph.unlocked {
+      opacity: 1;
+      color: #9ee8ff;
+      text-shadow: 0 0 18px #00c8ff;
+      cursor: pointer;
+    }
+
+    .hidden-glyph.unlocked:hover {
+      text-shadow: 0 0 25px #5fe4ff;
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 2.3rem;
+      }
+
+      .water-pool {
+        height: 200px;
+      }
+
+      .choices {
+        flex-direction: column;
+      }
+
+      .choice-btn {
+        flex: 1 1 auto;
+      }
     }
   </style>
 </head>
@@ -116,36 +299,132 @@
       The Water Temple hums with quiet resonance, its walls carved from smooth stone
       shaped by centuries of currents. Mist curls along the floor, glowing with soft
       aether light. Travelers enter here seeking clarity, patience, and truth.
+      This temple was carved not by force, but by <strong>patience</strong>.
+    </p>
+
+    <p>
+      Before you lies a still pool — a mirror of memory. It reflects not only your form,
+      but the stories you carry and the echoes that shaped you.
     </p>
 
     <div class="divider"></div>
 
-    <h2>𓆝 The Water Trial</h2>
-    <p>
-      Before you lies a still pool — a mirror of memory. To proceed, you must solve
-      the riddle hidden within its reflection. The water reveals only to those who
-      move slowly, breathe deeply, and let emotion settle like silt.
-    </p>
-
-    <p><em>“When the mind ripples, the answer hides. When the heart stills, the path appears.”</em></p>
+    <h2>𓆝 The Mirror of Echoes — Water Trial</h2>
 
     <p>
-      This is where your puzzle, glyph sequence, or interactive trial will go.  
-      Want me to build the first official **Water Trial puzzle**?  
-      I can create:
-      <br>
-      — a reflection riddle  
-      — a water-glyph decoding puzzle  
-      — a sound-based hidden message  
-      — or a multi-step “calm the waters” logic puzzle
+      To pass this trial, you do not need strength or perfect words. You need only
+      the courage to let things grow quiet — and to remember what the waters have
+      already shown you.
     </p>
 
-    <div class="divider"></div>
+    <!-- WATER POOL + RIDDLE -->
+    <div class="water-pool" id="waterPool">
+      <div class="pool-overlay">
+        <button id="stillWatersBtn" class="ritual-button">
+          Still the Waters
+        </button>
 
-    <!-- Hidden glyph doorway -->
-    <div class="hidden-glyph">
-      <a href="water-secret.html">~ 𓂀 Beneath still waters, deeper paths flow 𓂀 ~</a>
+        <div id="riddleText" class="riddle-text" aria-hidden="true">
+          <p><em>
+            “I show you nothing new.<br>
+            Yet you fear me when you’re unsure,<br>
+            and trust me when you are brave.<br>
+            I hold no shape of my own,<br>
+            but take the form of whatever meets me.<br>
+            What am I?”
+          </em></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- STEP 1: REFLECTION RIDDLE -->
+    <div id="step1" class="puzzle-step hidden">
+      <p><strong>Step One — Name what the pool is asking you to see.</strong></p>
+      <div class="choices">
+        <button class="choice-btn" data-step="1" data-correct="false">A Shadow</button>
+        <button class="choice-btn" data-step="1" data-correct="true">A Reflection</button>
+        <button class="choice-btn" data-step="1" data-correct="false">A Dream</button>
+      </div>
+    </div>
+
+    <!-- STEP 2: MEMORY QUESTION -->
+    <div id="step2" class="puzzle-step hidden">
+      <p><strong>Step Two — Remember what shaped this temple.</strong></p>
+      <p>
+        The waters remember how these walls were formed. Not by violence, not by haste.
+        Which of these quietly carved the Temple of Water?
+      </p>
+      <div class="choices">
+        <button class="choice-btn" data-step="2" data-correct="false">Anger</button>
+        <button class="choice-btn" data-step="2" data-correct="false">Force</button>
+        <button class="choice-btn" data-step="2" data-correct="true">Patience</button>
+      </div>
+    </div>
+
+    <!-- STATUS TEXT FOR FEEDBACK / ACCESSIBILITY -->
+    <div id="puzzleStatus" class="status" aria-live="polite"></div>
+
+    <!-- HIDDEN DOORWAY TO UNDERTOW -->
+    <div id="undertowDoor" class="hidden-glyph">
+      <a href="undertow.html">~ 𓂀 The undertow stirs — deeper currents await you 𓂀 ~</a>
     </div>
   </div>
+
+  <script>
+    const waterPool = document.getElementById("waterPool");
+    const stillBtn = document.getElementById("stillWatersBtn");
+    const riddleText = document.getElementById("riddleText");
+    const step1 = document.getElementById("step1");
+    const step2 = document.getElementById("step2");
+    const statusEl = document.getElementById("puzzleStatus");
+    const undertowDoor = document.getElementById("undertowDoor");
+
+    let step1Solved = false;
+    let step2Solved = false;
+
+    stillBtn.addEventListener("click", () => {
+      waterPool.classList.add("still");
+      stillBtn.style.display = "none";
+      riddleText.classList.add("visible");
+      riddleText.setAttribute("aria-hidden", "false");
+      step1.classList.remove("hidden");
+      statusEl.textContent = "The waters calm. A riddle appears.";
+      statusEl.classList.remove("error", "success");
+    });
+
+    document.querySelectorAll(".choice-btn").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const step = btn.getAttribute("data-step");
+        const isCorrect = btn.getAttribute("data-correct") === "true";
+
+        if (!isCorrect) {
+          statusEl.textContent = "The water ripples uncertainly, as if asking you to look again.";
+          statusEl.classList.add("error");
+          statusEl.classList.remove("success");
+          return;
+        }
+
+        // Correct answer
+        statusEl.classList.remove("error");
+        statusEl.classList.add("success");
+
+        if (step === "1" && !step1Solved) {
+          step1Solved = true;
+          statusEl.textContent = "The reflection steadies. The pool remembers more than your face.";
+          step2.classList.remove("hidden");
+        } else if (step === "2" && !step2Solved) {
+          step2Solved = true;
+          statusEl.textContent = "The temple accepts your memory. A deeper current pulls gently at your feet.";
+          unlockUndertowDoor();
+        }
+      });
+    });
+
+    function unlockUndertowDoor() {
+      undertowDoor.classList.add("unlocked");
+      // ensure it's visible
+      undertowDoor.style.opacity = "1";
+    }
+  </script>
 </body>
 </html>
