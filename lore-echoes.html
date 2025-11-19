@@ -293,6 +293,19 @@
       pointer-events: auto;
     }
 
+    /* Subtle Elements link hint in Codex text */
+    .elements-link {
+      color: #d0d0d0;
+      text-decoration: none;
+      border-bottom: 1px dotted rgba(212,175,55,0.0);
+      transition: color 0.3s ease, border-bottom-color 0.3s ease;
+    }
+
+    .elements-link:hover {
+      color: #ffd776;
+      border-bottom-color: rgba(212,175,55,0.8);
+    }
+
     @media (max-width: 600px) {
       h1 {
         font-size: 2.4rem;
@@ -663,6 +676,9 @@
       Each sign is an <em>Echo-glyph</em> &mdash; a mark that appears in visions, songs, and stories, hinting at
       the deeper current beneath the scene.  
       These are the symbols that thread your music, your lore, and your own lived story into one realm.
+      Some say these signs are only the surface &mdash; that
+      <a href="elements.html" class="elements-link">five older currents</a>
+      move beneath them, for those who learn to feel the pull.
     </p>
 
     <div class="codex-grid">
