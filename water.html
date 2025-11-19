@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tideborne Sanctum — Temple of Water | Wulverik Realm</title>
+  <link rel="stylesheet" href="styles.css" />
+
+  <style>
+    body {
+      margin: 0;
+      font-family: "Cinzel", serif;
+      background: radial-gradient(circle at top, #020712, #000000);
+      color: #ffffff;
+      padding: 0;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+      padding: 20px;
+      background: rgba(0, 0, 0, 0.4);
+      position: sticky;
+      top: 0;
+      backdrop-filter: blur(6px);
+      z-index: 100;
+    }
+
+    nav a {
+      color: #d4af37;
+      text-decoration: none;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: #ffffff;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 40px 20px 60px;
+    }
+
+    h1 {
+      font-size: 2.7rem;
+      text-align: center;
+      color: #7fd5ff;
+      text-shadow:
+        0 0 12px rgba(127, 213, 255, 0.6),
+        0 0 24px rgba(8, 34, 64, 0.9);
+      margin-bottom: 6px;
+    }
+
+    .subtitle {
+      text-align: center;
+      font-size: 1.1rem;
+      color: #cfeeff;
+      margin-bottom: 24px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .tagline {
+      text-align: center;
+      font-size: 0.98rem;
+      color: #d0e5f3;
+      max-width: 720px;
+      margin: 0 auto 28px;
+      line-height: 1.6;
+    }
+
+    .water-shell {
+      background: radial-gradient(circle at top, rgba(3, 24, 42, 0.95), rgba(0, 0, 0, 0.98));
+      border-radius: 18px;
+      border: 1px solid rgba(127, 213, 255, 0.45);
+      box-shadow:
+        0 0 25px rgba(0, 0, 0, 0.85),
+        0 0 26px rgba(74, 189, 255, 0.35);
+      padding: 22px 20px 26px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .section-title {
+      color: #7fd5ff;
+      font-size: 1.6rem;
+      margin-top: 28px;
+      margin-bottom: 8px;
+      text-shadow: 0 0 8px rgba(127, 213, 255, 0.6);
+    }
+
+    h3 {
+      margin-top: 22px;
+      color: #a7e4ff;
+    }
+
+    p {
+      line-height: 1.7;
+      font-size: 0.98rem;
+      color: #e3f4ff;
+    }
+
+    .highlight {
+      margin: 16px 0;
+      padding: 12px 14px;
+      border-radius: 10px;
+      border: 1px solid rgba(127, 213, 255, 0.45);
+      background: radial-gradient(circle at top left,
+        rgba(80, 180, 255, 0.1),
+        rgba(1, 10, 22, 0.98));
+      font-size: 0.95rem;
+      color: #e7f7ff;
+    }
+
+    .two-column {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      gap: 18px;
+      margin-top: 10px;
+      align-items: start;
+    }
+
+    .pill-label {
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(127, 213, 255, 0.65);
+      font-size: 0.75rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #cfeeff;
+      margin-bottom: 8px;
+    }
+
+    .ritual-box {
+      margin-top: 18px;
+      padding: 14px 16px;
+      border-radius: 12px;
+      border: 1px dashed rgba(145, 221, 255, 0.6);
+      background: radial-gradient(circle at top,
+        rgba(8, 44, 73, 0.95),
+        rgba(0, 0, 0, 0.98));
+      font-size: 0.95rem;
+    }
+
+    .ritual-steps {
+      margin-top: 8px;
+      padding-left: 20px;
+      font-size: 0.94rem;
+      color: #d8f1ff;
+    }
+
+    .ritual-steps li {
+      margin-bottom: 4px;
+    }
+
+    .meta-row {
+      margin-top: 18px;
+      font-size: 0.9rem;
+      color: #9fd6ff;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .meta-row span {
+      opacity: 0.85;
+    }
+
+    .return-link {
+      margin-top: 30px;
+      text-align: center;
+    }
+
+    .return-link a {
+      color: #7fd5ff;
+      text-decoration: none;
+      font-size: 0.95rem;
+    }
+
+    .return-link a:hover {
+      text-decoration: underline;
+    }
+
+    /* Soft “water motion” overlay */
+    .water-shell::before {
+      content: "";
+      position: absolute;
+      inset: -40%;
+      background: radial-gradient(circle at 10% 0%, rgba(122, 212, 255, 0.09), transparent 60%),
+                  radial-gradient(circle at 90% 100%, rgba(61, 164, 210, 0.12), transparent 55%);
+      mix-blend-mode: screen;
+      opacity: 0.8;
+      pointer-events: none;
+    }
+
+    /* Hidden door link styling */
+    .hidden-door-hint {
+      color: #cfeeff;
+      text-decoration: none;
+      border-bottom: 1px dotted rgba(127, 213, 255, 0.04);
+      transition: color 0.3s ease, border-bottom-color 0.3s ease;
+      cursor: pointer;
+    }
+
+    .hidden-door-hint:hover {
+      color: #ffffff;
+      border-bottom-color: rgba(160, 230, 255, 0.85);
+    }
+
+    /* Tiny glyph hint block near the bottom (subtle) */
+    .tide-glyph {
+      margin-top: 26px;
+      text-align: center;
+      font-size: 1.6rem;
+      letter-spacing: 0.4em;
+      color: #4fbbe8;
+      opacity: 0.6;
+      text-shadow: 0 0 12px rgba(79, 187, 232, 0.6);
+      cursor: default;
+      user-select: none;
+    }
+
+    .tide-glyph span {
+      display: inline-block;
+      transform: translateY(0);
+      transition: transform 0.4s ease, opacity 0.4s ease;
+    }
+
+    .tide-glyph span:hover {
+      transform: translateY(-3px);
+      opacity: 1;
+    }
+
+    @media (max-width: 700px) {
+      h1 {
+        font-size: 2.2rem;
+      }
+      .two-column {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Navigation Bar -->
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="glitched-genius.html">Glitched Genius</a>
+    <a href="wolfiepack.html">WolfiePack Gaming</a>
+    <a href="lore-echoes.html">Lore & Echoes</a>
+    <a href="glitched-wolf.html">Glitched Wolf</a><a href="glitch-hound.html" style="color:#4da6ff; text-shadow:0 0 8px rgba(77,166,255,0.8);">
+  Glitch-Hound
+</a>
+    <a href="about-wulverik.html">About Wulverik</a>
+    <a href="companions.html" style="color:#ffd776; text-shadow:0 0 8px rgba(212,175,55,0.6);">
+      Companions
+    </a>
+  </nav>
+
+  <div class="container">
+
+    <h1>Tideborne Sanctum</h1>
+    <div class="subtitle">Temple of Water</div>
+    <p class="tagline">
+      Where reflection becomes ritual, and the currents of memory gather in one quiet cove at the edge of Wulverik.
+    </p>
+
+    <div class="water-shell">
+
+      <div class="pill-label">Element of Water • Reflection • Emotional Truth</div>
+
+      <h2 class="section-title">At the Edge of the Luminescent Tides</h2>
+      <p>
+        The Tideborne Sanctum rests where the glowing surf meets a crescent of black stone, carved into the cliff
+        as if the sea itself hollowed it out over centuries. The walls shimmer like wet obsidian, holding echoes of
+        every wave that has ever touched this shore.
+      </p>
+      <p>
+        The entrance is framed by two pillars of stone-veined glass. Water flows silently down their faces without
+        ever running dry, vanishing into the floor without a sound. Pools of soft blue light gather along the path,
+        pulsing in slow rhythm with a heartbeat you can’t quite locate.
+      </p>
+
+      <div class="highlight">
+        This is not a place for noise.  
+        The Sanctum listens. It watches. It waits for the moment you are ready to see yourself clearly.
+      </div>
+
+      <div class="two-column">
+
+        <!-- Left: Description & Guardian -->
+        <div>
+          <h3>The Tidecaller’s Presence</h3>
+          <p>
+            The guardian of this temple, known only as <span style="color:#9fd6ff;">the Tidecaller</span>, rarely
+            appears directly. You glimpse it in reflections along the water’s skin— a lupine silhouette tracing the
+            horizon, eyes like twin tidal moons.
+          </p>
+          <p>
+            Sometimes the reflection moves when you do not. Sometimes it lags behind.  
+            Sometimes, when you look away, you feel something walk beside you without leaving a footprint.
+          </p>
+
+          <p>
+            The Tidecaller does not speak. It <em>pulls</em>.  
+            Gently. Relentlessly. Like the tide that returns, no matter how many castles are built to deny it.
+          </p>
+
+          <h3>The Mirror Pool</h3>
+          <p>
+            At the heart of the Sanctum lies the Mirror Pool — a wide, perfectly still surface of dark water ringed
+            with soft blue fireflies. It does not show your face. It shows the one emotion you have refused to name.
+          </p>
+          <p>
+            For some, it is grief. For others, rage. For others still, a tenderness they have tried to bury beneath
+            armor and sarcasm. The pool reflects <em>only</em> what you are not yet ready to admit… until you are.
+          </p>
+        </div>
+
+        <!-- Right: Ritual -->
+        <div>
+          <div class="ritual-box">
+            <strong>Ritual of the Unnamed Current</strong>
+            <ul class="ritual-steps">
+              <li>Stand at the edge of the Mirror Pool.</li>
+              <li>Let the Sanctum fall silent inside you — no justifications, no rehearsed lines.</li>
+              <li>Watch as the water begins to move on its own, forming a shape, a memory, or a color.</li>
+              <li>When you recognize the feeling, speak its name aloud.</li>
+              <li>Only then does the water soften, and the reflection become clear.</li>
+            </ul>
+            <p style="margin-top:8px;">
+              Those who cannot name what they feel may still leave the Sanctum safely…  
+              but the water will remember, and call them back in time.
+            </p>
+          </div>
+
+          <div class="meta-row">
+            <span><strong>Associated Echoes:</strong> Symphony of Glitch, The Broken Promise</span>
+            <span><strong>Emotional themes:</strong> honesty, vulnerability, self-recognition</span>
+          </div>
+        </div>
+
+      </div>
+
+      <h2 class="section-title">Rooms Within the Sanctum</h2>
+      <p>
+        Beyond the Mirror Pool, narrow walkways lead to smaller chambers carved into the stone. Some hold quiet
+        alcoves where Echoes of past tides can be heard as soft murmurs. Others house suspended droplets of water
+        that never fall, each containing a memory sealed at the moment it almost overflowed.
+      </p>
+
+      <p>
+        One passage leads to a chamber where the ceiling is nothing but water held above your head — a vast,
+        suspended ocean that never descends. Lightning flickers far within it, revealing silhouettes of wolves,
+        travelers, and moments you recognize but can’t quite place.
+      </p>
+
+      <div class="highlight">
+        Scholars say the Sanctum does not create new Echoes.  
+        It simply gathers the ones already forming inside you, and gives them a place to speak.
+      </div>
+
+      <h3>The Tide-Locked Chamber</h3>
+      <p>
+        Few speak of the <a href="water-trial.html" class="hidden-door-hint">tide-locked chamber</a>, a sealed
+        space said to exist somewhere behind the Sanctum’s rear wall. Some claim its door only appears in the stone
+        when the tide is at its lowest. Others insist there is no door at all — only a choice.
+      </p>
+      <p>
+        Whatever the truth, rumors say this chamber is where travelers face the moment their feelings were first
+        denied: by others, or by themselves. No songs echo from inside it. Only the sound of breathing, and the
+        slow drip of water counting each second of courage.
+      </p>
+
+      <p class="meta-row" style="margin-top:16px;">
+        <span><strong>Whispered Warning:</strong> The door does not open for curiosity alone. It opens for those
+        who are finally tired of numbing what the water has always known.</span>
+      </p>
+
+      <div class="tide-glyph" title="Something in the pattern feels almost like a rhythm…">
+        <span>~</span><span> ~</span><span> ~</span>
+      </div>
+
+      <div class="return-link">
+        <a href="elements.html">← Return to the Elements of Wulverik</a>
+      </div>
+
+    </div>
+  </div>
+
+</body>
+</html>
