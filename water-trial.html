@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Temple of Water — Wulverik Realm</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: "Cinzel", serif;
+      background: radial-gradient(circle at top, #03161f, #000000);
+      color: #e6faff;
+      padding: 0;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+      padding: 20px;
+      background: rgba(0, 0, 0, 0.4);
+      position: sticky;
+      top: 0;
+      backdrop-filter: blur(6px);
+      z-index: 100;
+    }
+
+    nav a {
+      color: #7fd3ff;
+      text-decoration: none;
+      font-weight: bold;
+      letter-spacing: 1px;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #b0ecff;
+    }
+
+    .temple-container {
+      max-width: 900px;
+      margin: 70px auto;
+      padding: 30px;
+      background: rgba(0, 40, 60, 0.45);
+      border: 1px solid rgba(100, 180, 255, 0.3);
+      border-radius: 15px;
+      box-shadow: 0 0 25px rgba(0, 140, 255, 0.3);
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 3rem;
+      color: #a3e8ff;
+      text-shadow: 0 0 15px #003f5c;
+    }
+
+    h2 {
+      margin-top: 40px;
+      color: #b7efff;
+      text-shadow: 0 0 8px #002a3a;
+    }
+
+    p {
+      line-height: 1.6;
+      font-size: 1.15rem;
+    }
+
+    /* Water ripple divider */
+    .divider {
+      margin: 40px auto;
+      width: 70%;
+      height: 2px;
+      background: linear-gradient(to right, transparent, #7cd4ff, transparent);
+      box-shadow: 0 0 10px #7cd4ff;
+    }
+
+    /* Hidden glyph */
+    .hidden-glyph {
+      margin-top: 60px;
+      text-align: center;
+      font-size: 1.2rem;
+      color: #4aa7c7;
+      opacity: 0.25;
+      transition: opacity 0.4s, color 0.4s;
+      cursor: default;
+      user-select: none;
+    }
+
+    .hidden-glyph:hover {
+      opacity: 1;
+      color: #9ee8ff;
+      text-shadow: 0 0 12px #00c8ff;
+    }
+
+    /* Hidden link behind glyph */
+    .hidden-glyph a {
+      color: inherit;
+      text-decoration: none;
+    }
+  </style>
+</head>
+
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="lore.html">Lore</a>
+    <a href="echoes.html">Echoes</a>
+    <a href="elements.html">Elements</a>
+  </nav>
+
+  <div class="temple-container">
+    <h1>Temple of Water</h1>
+
+    <p>
+      The Water Temple hums with quiet resonance, its walls carved from smooth stone
+      shaped by centuries of currents. Mist curls along the floor, glowing with soft
+      aether light. Travelers enter here seeking clarity, patience, and truth.
+    </p>
+
+    <div class="divider"></div>
+
+    <h2>𓆝 The Water Trial</h2>
+    <p>
+      Before you lies a still pool — a mirror of memory. To proceed, you must solve
+      the riddle hidden within its reflection. The water reveals only to those who
+      move slowly, breathe deeply, and let emotion settle like silt.
+    </p>
+
+    <p><em>“When the mind ripples, the answer hides. When the heart stills, the path appears.”</em></p>
+
+    <p>
+      This is where your puzzle, glyph sequence, or interactive trial will go.  
+      Want me to build the first official **Water Trial puzzle**?  
+      I can create:
+      <br>
+      — a reflection riddle  
+      — a water-glyph decoding puzzle  
+      — a sound-based hidden message  
+      — or a multi-step “calm the waters” logic puzzle
+    </p>
+
+    <div class="divider"></div>
+
+    <!-- Hidden glyph doorway -->
+    <div class="hidden-glyph">
+      <a href="water-secret.html">~ 𓂀 Beneath still waters, deeper paths flow 𓂀 ~</a>
+    </div>
+  </div>
+</body>
+</html>
