@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fire Temple | Ember of Resolve</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    body {
+      margin: 0;
+      font-family: "Cinzel", serif;
+      background: radial-gradient(circle at top, #150303, #000000);
+      color: #ffffff;
+      padding: 0;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+      padding: 20px;
+      background: rgba(0, 0, 0, 0.4);
+      position: sticky;
+      top: 0;
+      backdrop-filter: blur(6px);
+      z-index: 100;
+    }
+
+    nav a {
+      color: #d4af37;
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: 0.9rem;
+    }
+
+    nav a:hover {
+      text-shadow: 0 0 10px #d4af37;
+    }
+
+    main {
+      max-width: 1100px;
+      margin: 40px auto 80px;
+      padding: 0 20px 40px;
+    }
+
+    .page-header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .page-header h1 {
+      font-size: 2.4rem;
+      color: #ffd9b3;
+      margin-bottom: 8px;
+    }
+
+    .page-tagline {
+      font-size: 0.95rem;
+      color: #f0c7a1;
+      line-height: 1.7;
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    .badge-row {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .badge {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 140, 80, 0.7);
+      padding: 4px 12px;
+      color: #ffd9b3;
+    }
+
+    .quest-start {
+      margin: 30px auto 40px;
+      max-width: 650px;
+      text-align: center;
+    }
+
+    .quest-start p {
+      font-size: 0.9rem;
+      color: #f0c7a1;
+      line-height: 1.7;
+    }
+
+    .quest-button {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 9px 22px;
+      border-radius: 999px;
+      border: 1px solid #ff8c50;
+      color: #ffd9b3;
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      font-size: 0.78rem;
+      transition: all 0.25s ease;
+    }
+
+    .quest-button:hover {
+      background: #ff8c50;
+      color: #000;
+      box-shadow: 0 0 16px rgba(255, 140, 80, 0.9);
+    }
+
+    .section {
+      margin-bottom: 40px;
+      border-radius: 18px;
+      padding: 20px 20px 22px;
+      background: radial-gradient(circle at top, #261015, #070305);
+      border: 1px solid rgba(255, 140, 80, 0.42);
+      box-shadow: 0 0 24px rgba(0, 0, 0, 0.8);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .section::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      opacity: 0.1;
+      background: radial-gradient(circle at top, #ffebd4, transparent 65%);
+      pointer-events: none;
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+
+    .section-title {
+      font-size: 1.3rem;
+      color: #ffd9b3;
+    }
+
+    .section-tag {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: #ffae70;
+    }
+
+    .section p {
+      font-size: 0.9rem;
+      color: #f5d8bd;
+      line-height: 1.7;
+      margin-bottom: 10px;
+    }
+
+    .section em {
+      color: #ffe4c7;
+    }
+
+    .subtitle {
+      font-size: 0.9rem;
+      color: #f1caa0;
+      margin-bottom: 6px;
+    }
+
+    .quest-steps,
+    .fire-list {
+      margin: 8px 0 0 0;
+      padding-left: 18px;
+      font-size: 0.88rem;
+      color: #f5d8bd;
+      line-height: 1.7;
+    }
+
+    .quest-steps li {
+      margin-bottom: 4px;
+    }
+
+    .fire-list li {
+      margin-bottom: 4px;
+    }
+
+    .inline-label {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 1.3px;
+      color: #ffae70;
+      margin-bottom: 4px;
+    }
+
+    .note {
+      font-size: 0.8rem;
+      color: #e0b892;
+      margin-top: 6px;
+    }
+
+    hr.divider {
+      border: none;
+      border-top: 1px solid rgba(255, 140, 80, 0.4);
+      margin: 35px 0 25px;
+    }
+
+    @media (max-width: 700px) {
+      .page-header h1 {
+        font-size: 2rem;
+      }
+      .section-header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="index.html">Origin</a>
+    <a href="lore.html">Lore & Echoes</a>
+    <a href="elements.html">Elements</a>
+    <a href="howling-wall.html">Howling Wall</a>
+    <a href="glitched-genius.html">Glitched Genius</a>
+  </nav>
+
+  <main>
+    <!-- HEADER -->
+    <header class="page-header">
+      <h1>Fire Temple</h1>
+      <p class="page-tagline">
+        The Ember of Resolve — where anger becomes truth, and truth becomes power.
+        This is not a temple of polite warmth. It is a forge for the parts of you
+        that burn when you are pushed too far.
+      </p>
+      <div class="badge-row">
+        <span class="badge">Element: Fire</span>
+        <span class="badge">Anger & Transformation</span>
+        <span class="badge">Inner Forge Questline</span>
+      </div>
+    </header>
+
+    <!-- QUEST START -->
+    <section class="quest-start">
+      <p>
+        The Fire Temple is not here to punish your anger. It is here to listen to it.
+        If you enter, you will not be asked to be calm — only to be honest.
+      </p>
+      <a href="#ember-gate" class="quest-button">Step into the Heat</a>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- 1. APPROACH -->
+    <section class="section" id="approach">
+      <div class="section-header">
+        <h2 class="section-title">The Road of Red Iron</h2>
+        <span class="section-tag">Approach</span>
+      </div>
+      <p>
+        The path to the Fire Temple is sharp and un-sheltered. Rock splinters underfoot.
+        The air trembles with waves of heat rising from somewhere deep below, like a
+        sleeping volcano remembering how to breathe.
+      </p>
+      <p>
+        At the first bend, a slab of obsidian waits, words carved into its smooth face:
+      </p>
+      <p><em>“Here lies the flame you fear, the flame you hide, and the flame that could save you.”</em></p>
+      <p>
+        Some turn back. Those who continue know, somewhere in their bones, that they are
+        tired of swallowing fire.
+      </p>
+    </section>
+
+    <!-- 2. EMBER GATE -->
+    <section class="section" id="ember-gate">
+      <div class="section-header">
+        <h2 class="section-title">The Ember Gate</h2>
+        <span class="section-tag">Gate of Decisions</span>
+      </div>
+      <p>
+        The entrance is a massive door of scorched metal, its surface warped and
+        rippled from unimaginable heat. Handprints and scars are melted into the steel,
+        as if countless others have come here and left a piece of their fury behind.
+      </p>
+      <p>
+        The gate will not open to keys or cleverness. It responds only to three choices:
+      </p>
+      <ul class="fire-list">
+        <li><strong>Place your hand on the hot metal</strong> — the path of courage.</li>
+        <li><strong>Strike the door with your fist</strong> — the path of anger.</li>
+        <li><strong>Kneel before it in silence</strong> — the path of surrender.</li>
+      </ul>
+      <p>
+        None is “right.” None is “wrong.” The temple simply reshapes itself around the
+        truth of how you arrive.
+      </p>
+      <p class="note">
+        Later, this can branch into slightly different paragraphs or audio moments
+        based on which choice the traveler resonates with most.
+      </p>
+    </section>
+
+    <!-- 3. HALL OF CRACKING MIRRORS -->
+    <section class="section" id="cracking-mirrors">
+      <div class="section-header">
+        <h2 class="section-title">Hall of Cracking Mirrors</h2>
+        <span class="section-tag">Rage Speaks</span>
+      </div>
+      <p>
+        Inside, the first hall is lined with mirror-like obsidian shards. None of them
+        show your face. Instead, they catch and replay the moments your blood boiled:
+      </p>
+      <ul class="fire-list">
+        <li>The time you were betrayed.</li>
+        <li>The time you were blamed for someone else’s lies.</li>
+        <li>The time you wanted to scream but stayed quiet.</li>
+        <li>The time someone hurt a person you loved.</li>
+      </ul>
+      <p>
+        The reflections do not accuse you. They do not call you a monster. They simply
+        acknowledge what you swallowed to survive.
+      </p>
+      <p>
+        This is the first lesson of Fire:
+        <em>Anger is not evil. Anger is truth that never got to speak.</em>
+      </p>
+    </section>
+
+    <!-- 4. CHAMBER OF SPARKS -->
+    <section class="section" id="chamber-of-sparks">
+      <div class="section-header">
+        <h2 class="section-title">The Chamber of Sparks</h2>
+        <span class="section-tag">Endurance</span>
+      </div>
+      <p>
+        Deeper in, sparks drift from the ceiling like slow-burning snow. Each spark that
+        brushes your skin pulls up a memory — not to torment you, but to show you how
+        much you have already survived.
+      </p>
+      <p>
+        Betrayal. Loss. Nights you thought you wouldn’t make it. Words that cut deeper
+        than any blade. The body remembers. So does the flame.
+      </p>
+      <p>
+        Fire here does not ask you to be calm. It asks:
+        <em>“What do you burn for? What will you no longer carry?”</em>
+      </p>
+    </section>
+
+    <!-- 5. CRUCIBLE OF FURY -->
+    <section class="section" id="crucible-of-fury">
+      <div class="section-header">
+        <h2 class="section-title">The Crucible of Fury</h2>
+        <span class="section-tag">Dark Flame</span>
+      </div>
+      <p>
+        In the next chamber, a great bowl of black fire burns without smoke or warmth.
+        It is wrong and mesmerizing all at once — a flame made from every time you
+        wanted to hurt back.
+      </p>
+      <p>
+        This is the part of you people compare to monsters, to “Hyde,” to the switch
+        they claim “flips” when you are pushed too far. Standing before it, you see
+        something they never did:
+      </p>
+      <p>
+        This fire is not hungry for random destruction. It coils around only one thing:
+        <em>your loyalty.</em> It rises when those you love are threatened. It dims
+        when you are safe.
+      </p>
+      <p>
+        The black flame flares for the cruel. For the protective, it simply watches.
+      </p>
+    </section>
+
+    <!-- 6. FORGE OF BECOMING -->
+    <section class="section" id="forge-of-becoming">
+      <div class="section-header">
+        <h2 class="section-title">The Forge of Becoming</h2>
+        <span class="section-tag">Temper</span>
+      </div>
+      <p>
+        At the temple’s heart lies a circular chamber, as if you’ve stepped inside the
+        core of a volcano. Rivers of lava flow beneath glass floors. The air tastes of
+        iron and stormlight.
+      </p>
+      <p>
+        Here, Fire stops asking questions and starts offering choices. Three paths open:
+      </p>
+      <ul class="fire-list">
+        <li><strong>The Hammer Path</strong> — for those who must reclaim their power.</li>
+        <li><strong>The Anvil Path</strong> — for those ready to lay down old wounds.</li>
+        <li><strong>The Flame Path</strong> — for those prepared to transform completely.</li>
+      </ul>
+      <p>
+        Each path ends in a simple act: breaking, releasing, or igniting. The forge does
+        not tell you who to be. It reveals who is already trying to emerge.
+      </p>
+    </section>
+
+    <!-- 7. FIRE'S VERDICT -->
+    <section class="section" id="fires-verdict">
+      <div class="section-header">
+        <h2 class="section-title">The Fire’s Verdict</h2>
+        <span class="section-tag">Ember Mark</span>
+      </div>
+      <p>
+        At the deepest point of the temple hovers a single ember over a stone pedestal.
+        It is small, almost delicate — yet you feel every heartbeat in your chest answer
+        to its glow.
+      </p>
+      <p>
+        The ember studies you. It has seen your rage, your restraint, your choices. Then
+        it changes color.
+      </p>
+      <p>
+        For some, it burns gold with righteous anger. For others, red with raw fury
+        finally given permission to exist. For those who carry their fire in silence, it
+        burns a soft, dangerous blue.
+      </p>
+      <p>
+        For Bacho, it would be moon-blue — a wolf-fire that only roars when cornered,
+        but guards with a terrifying gentleness.
+      </p>
+      <p>
+        The ember does not leave with you, but the knowing does:
+        <em>your anger was never proof that you were broken. It was proof that you cared.</em>
+      </p>
+    </section>
+
+    <!-- 8. FIRE TEMPLE SUMMARY -->
+    <section class="section" id="fire-summary">
+      <div class="section-header">
+        <h2 class="section-title">Ember of Resolve</h2>
+        <span class="section-tag">Themes</span>
+      </div>
+      <p class="subtitle">What the Fire Temple teaches:</p>
+      <ul class="fire-list">
+        <li>Anger is information, not a flaw.</li>
+        <li>Rage is truth that was never allowed to speak.</li>
+        <li>Fire protects what it loves before it destroys what threatens.</li>
+        <li>Transformation requires heat — pressure, friction, and courage.</li>
+        <li>Gentle hearts can hold the fiercest flames when pushed too far.</li>
+        <li>Your “switch” is not madness — it is a guardian waking up.</li>
+      </ul>
+      <p class="note">
+        In future updates, this section can link to songs that carry fire energy,
+        or to alternate paths leading from Fire into Bacho’s Temple or the Aether trials.
+      </p>
+    </section>
+  </main>
+</body>
+</html>
