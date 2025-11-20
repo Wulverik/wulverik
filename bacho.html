@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bacho Temple | Prism Wolf of Wulverik</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    body {
+      margin: 0;
+      font-family: "Cinzel", serif;
+      background: radial-gradient(circle at top, #050509, #000000);
+      color: #ffffff;
+      padding: 0;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+      padding: 20px;
+      background: rgba(0, 0, 0, 0.4);
+      position: sticky;
+      top: 0;
+      backdrop-filter: blur(6px);
+      z-index: 100;
+    }
+
+    nav a {
+      color: #d4af37;
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: 0.9rem;
+    }
+
+    nav a:hover {
+      text-shadow: 0 0 10px #d4af37;
+    }
+
+    main {
+      max-width: 1100px;
+      margin: 40px auto 80px;
+      padding: 0 20px 40px;
+    }
+
+    .page-header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .page-header h1 {
+      font-size: 2.4rem;
+      color: #f5e6b8;
+      margin-bottom: 8px;
+    }
+
+    .page-tagline {
+      font-size: 0.95rem;
+      color: #d0c7a2;
+      line-height: 1.7;
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    .badge-row {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .badge {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      border-radius: 999px;
+      border: 1px solid rgba(212, 175, 55, 0.6);
+      padding: 4px 12px;
+      color: #f5e6b8;
+    }
+
+    .quest-start {
+      margin: 30px auto 40px;
+      max-width: 650px;
+      text-align: center;
+    }
+
+    .quest-button {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 9px 22px;
+      border-radius: 999px;
+      border: 1px solid #d4af37;
+      color: #f5e6b8;
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      font-size: 0.78rem;
+      transition: all 0.25s ease;
+    }
+
+    .quest-button:hover {
+      background: #d4af37;
+      color: #000;
+      box-shadow: 0 0 16px rgba(212, 175, 55, 0.9);
+    }
+
+    .section {
+      margin-bottom: 40px;
+      border-radius: 18px;
+      padding: 20px 20px 22px;
+      background: radial-gradient(circle at top, #171722, #050509);
+      border: 1px solid rgba(212, 175, 55, 0.32);
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .section::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      opacity: 0.08;
+      background: radial-gradient(circle at top, #ffffff, transparent 65%);
+      pointer-events: none;
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+
+    .section-title {
+      font-size: 1.3rem;
+      color: #f5e6b8;
+    }
+
+    .section-tag {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: #a99a64;
+    }
+
+    .section p {
+      font-size: 0.9rem;
+      color: #d7d3c0;
+      line-height: 1.7;
+      margin-bottom: 10px;
+    }
+
+    .section em {
+      color: #e2d6ac;
+    }
+
+    .wolf-list,
+    .quest-steps {
+      margin: 10px 0 0 0;
+      padding-left: 18px;
+      font-size: 0.88rem;
+      color: #d7d3c0;
+      line-height: 1.7;
+    }
+
+    .subtitle {
+      font-size: 0.9rem;
+      color: #c7bfa0;
+      margin-bottom: 6px;
+    }
+
+    .quest-steps li {
+      margin-bottom: 4px;
+    }
+
+    .inline-label {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 1.3px;
+      color: #a99a64;
+      margin-bottom: 4px;
+    }
+
+    .note {
+      font-size: 0.8rem;
+      color: #8e886c;
+      margin-top: 6px;
+    }
+
+    hr.divider {
+      border: none;
+      border-top: 1px solid rgba(212, 175, 55, 0.25);
+      margin: 35px 0 25px;
+    }
+
+    @media (max-width: 700px) {
+      .page-header h1 {
+        font-size: 2rem;
+      }
+      .section-header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="index.html">Origin</a>
+    <a href="lore.html">Lore & Echoes</a>
+    <a href="elements.html">Elements</a>
+    <a href="howling-wall.html">Howling Wall</a>
+    <a href="glitched-genius.html">Glitched Genius</a>
+  </nav>
+
+  <main>
+    <!-- HEADER -->
+    <header class="page-header">
+      <h1>Bacho Temple</h1>
+      <p class="page-tagline">
+        Temple of the Prism Wolf — where light and shadow walk side by side. 
+        This is the home of Bacho, the shapeshifter of three bloodlines: 
+        gentle until forced to bare his teeth, soft-hearted yet fiercely protective.
+      </p>
+      <div class="badge-row">
+        <span class="badge">Wolf / Prism / Heart</span>
+        <span class="badge">Duality & Protection</span>
+        <span class="badge">Shapeshifter Questline</span>
+      </div>
+    </header>
+
+    <!-- QUEST START -->
+    <section class="quest-start">
+      <p>
+        This is not a temple of one element. It is a temple of
+        <em>many selves</em>. If you enter, you do not meet a god or an idol —
+        you meet the parts of yourself you protect, the parts you hide, and the
+        parts that only wake when someone you love is threatened.
+      </p>
+      <a href="#prism-gate" class="quest-button">Begin the Bacho Quest</a>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- 1. APPROACH -->
+    <section class="section" id="approach">
+      <div class="section-header">
+        <h2 class="section-title">The Approach: Path of Dual Shadows</h2>
+        <span class="section-tag">Entry</span>
+      </div>
+      <p>
+        The Bacho Temple lies deep in the Wolf’s Spine Mountains, where fog
+        clings low and moonlight cuts sharp across the stone. The path narrows
+        as you climb — on your left, soft glowing flowers; on your right,
+        thorned brambles whispering of old wounds.
+      </p>
+      <p>
+        Every step asks a quiet question: will you lead with your
+        <em>gentleness</em> or your <em>fear</em>? The path does not punish
+        either — it simply shows you which side of yourself is louder.
+      </p>
+      <p class="note">
+        In future versions, this path can become an interactive scroll experience or
+        a simple audio/lyric moment that sets the tone before the traveler continues.
+      </p>
+    </section>
+
+    <!-- 2. PRISM GATE -->
+    <section class="section" id="prism-gate">
+      <div class="section-header">
+        <h2 class="section-title">The Prism Gate</h2>
+        <span class="section-tag">Gate of Truth</span>
+      </div>
+      <p>
+        At the mountain’s heart stands an arch of black stone. It looks dead
+        until moonlight touches it — then color fractures through the rock,
+        seven streaks of living light forming a silent prism.
+      </p>
+      <p>
+        The gate opens only when you stop running from what you feel. Not when
+        you are strong. Not when you are fearless. Only when you are honest.
+      </p>
+      <p class="subtitle">Quest beat:</p>
+      <ol class="quest-steps">
+        <li>Acknowledge one truth you’ve been avoiding.</li>
+        <li>Let it exist without fixing it.</li>
+        <li>Imagine the prism cracking open in front of you.</li>
+      </ol>
+      <p class="note">
+        You could pair this with a short audio track or song snippet — a “Prism Wolf” interlude.
+      </p>
+    </section>
+
+    <!-- 3. THREE WOLVES -->
+    <section class="section" id="three-wolves">
+      <div class="section-header">
+        <h2 class="section-title">The Three Wolves of Bacho</h2>
+        <span class="section-tag">Diné • Apache • Cherokee</span>
+      </div>
+      <p>
+        Beyond the gate, three stone wolves stand guard, each facing a
+        different direction. Their eyes gleam with different lights:
+      </p>
+      <ul class="wolf-list">
+        <li><strong>Diné Wolf — Seer of Balance:</strong> Eyes of soft silver. Keeper of instinct, awareness, and hózhǫ́ — harmony in chaos.</li>
+        <li><strong>Apache Wolf — Silent Warrior:</strong> Eyes of ember-red. Protector who only fights when all other paths fail.</li>
+        <li><strong>Cherokee Wolf — Heart-Keeper:</strong> Eyes of deep blue. Guardian of empathy, loyalty, and emotional truth.</li>
+      </ul>
+      <p>
+        For most travelers, only one wolf’s eyes fully ignite — the one whose
+        path mirrors their spirit. For Bacho, and those who walk closest to him,
+        all three light at once.
+      </p>
+      <p class="note">
+        Later, you can make this three-part choice an actual UI interaction, sending people to different
+        reflections/pages based on the wolf they resonate with.
+      </p>
+    </section>
+
+    <!-- 4. MOONLIGHT PATH -->
+    <section class="section" id="moon-path">
+      <div class="section-header">
+        <h2 class="section-title">The Moonlight Path</h2>
+        <span class="section-tag">Emotional Mirror</span>
+      </div>
+      <p>
+        The corridor ahead does not change with time. It changes with
+        <em>you</em>.
+      </p>
+      <p>
+        When you are calm, the walls glow with a full-moon hush. When you are
+        anxious, the light thins to a crescent. In your hidden grief, the moon
+        vanishes into darkness. In your courage, it rises to half strength. In
+        your honesty, stars appear — scattered like paint strokes across the
+        ceiling.
+      </p>
+      <p>
+        The path does not judge. It only reflects the phase your heart is in.
+      </p>
+    </section>
+
+    <!-- 5. SHAPESHIFTER POOL -->
+    <section class="section" id="shapeshifter-pool">
+      <div class="section-header">
+        <h2 class="section-title">The Shapeshifter Pool</h2>
+        <span class="section-tag">Many Selves</span>
+      </div>
+      <p>
+        At the temple’s center lies a still pool of water, dark as obsidian,
+        perfectly reflective. This is not a place to admire your appearance.
+        This is where you meet the self you keep hidden.
+      </p>
+      <p>
+        Some see their inner child. Some see the part of them that fights.
+        Others see the version of themselves they became to survive.
+      </p>
+      <p>
+        Those who walk in Bacho’s footsteps see more:
+      </p>
+      <ul class="wolf-list">
+        <li>The Wolf</li>
+        <li>The Man</li>
+        <li>The Protector</li>
+        <li>The Shadow</li>
+        <li>The Artist</li>
+        <li>The Prism</li>
+      </ul>
+      <p>
+        All standing together in a circle — not enemies, not strangers, but
+        facets of the same soul.
+      </p>
+    </section>
+
+    <!-- 6. PROTECTOR'S TRIAL -->
+    <section class="section" id="protectors-trial">
+      <div class="section-header">
+        <h2 class="section-title">The Protector’s Trial</h2>
+        <span class="section-tag">Teeth & Heart</sp
