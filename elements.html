@@ -3,177 +3,253 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Elements of Wulverik</title>
+  <title>Elements of Wulverik | Temples of the Realm</title>
   <link rel="stylesheet" href="styles.css" />
-
   <style>
     body {
       margin: 0;
       font-family: "Cinzel", serif;
       background: radial-gradient(circle at top, #0a0a0f, #000000);
       color: #ffffff;
+      padding: 0;
     }
 
-    .container {
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+      padding: 20px;
+      background: rgba(0, 0, 0, 0.4);
+      position: sticky;
+      top: 0;
+      backdrop-filter: blur(6px);
+      z-index: 100;
+    }
+
+    nav a {
+      color: #d4af37;
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: 0.9rem;
+    }
+
+    nav a:hover {
+      text-shadow: 0 0 10px #d4af37;
+    }
+
+    main {
       max-width: 1000px;
-      padding: 40px 20px 60px;
-      margin: auto;
+      margin: 40px auto 80px;
+      padding: 0 20px;
     }
 
-    .page-title {
+    h1 {
       text-align: center;
-      color: #d4af37;
-      font-size: 2.8rem;
-      text-shadow: 0 0 14px rgba(212,175,55,0.5);
+      font-size: 2.3rem;
       margin-bottom: 10px;
-      letter-spacing: 0.1em;
+      color: #f5e6b8;
     }
 
-    .page-subtitle {
+    .subtitle {
       text-align: center;
-      color: #e0e0e0;
-      font-size: 1.1rem;
-      max-width: 780px;
+      font-size: 0.95rem;
+      max-width: 650px;
       margin: 0 auto 40px;
-      line-height: 1.5;
+      color: #d0c7a2;
+      line-height: 1.7;
     }
 
-    .element-card {
-      background: radial-gradient(circle at top left,
-        rgba(212,175,55,0.08),
-        rgba(10,10,15,0.95));
-      border: 1px solid rgba(212,175,55,0.35);
+    .temple-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 25px;
+      margin-top: 30px;
+    }
+
+    .temple-card {
       border-radius: 14px;
-      padding: 24px;
-      margin-bottom: 26px;
-      box-shadow: 0 0 15px rgba(0,0,0,0.55);
+      padding: 18px 18px 20px;
+      background: radial-gradient(circle at top, #1b1b24, #050509);
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
+      border: 1px solid rgba(212, 175, 55, 0.35);
+      position: relative;
+      overflow: hidden;
     }
 
-    .element-title {
-      color: #ffd776;
-      font-size: 1.8rem;
+    .temple-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      opacity: 0.08;
+      background: radial-gradient(circle at top, #ffffff, transparent 60%);
+      pointer-events: none;
+    }
+
+    .temple-label {
+      font-size: 0.75rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #a99a64;
+      margin-bottom: 6px;
+    }
+
+    .temple-title {
+      font-size: 1.2rem;
       margin-bottom: 8px;
-      text-shadow: 0 0 10px rgba(212,175,55,0.6);
+      color: #f5e6b8;
     }
 
-    .element-icon {
-      font-size: 2rem;
-      margin-right: 10px;
-      vertical-align: middle;
-    }
-
-    .element-section {
-      margin-top: 14px;
-      margin-bottom: 8px;
-      font-size: 1.1rem;
-      color: #d4af37;
-    }
-
-    .element-text {
-      color: #dcdcdc;
-      line-height: 1.45;
-      font-size: 1rem;
+    .temple-desc {
+      font-size: 0.9rem;
+      color: #d7d3c0;
+      line-height: 1.6;
       margin-bottom: 14px;
+    }
+
+    .temple-meta {
+      font-size: 0.78rem;
+      color: #9c9680;
+      font-style: italic;
+      margin-bottom: 14px;
+    }
+
+    .temple-link {
+      display: inline-block;
+      padding: 7px 16px;
+      border-radius: 999px;
+      border: 1px solid #d4af37;
+      color: #f5e6b8;
+      font-size: 0.8rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: all 0.25s ease;
+      position: relative;
+      z-index: 1;
+    }
+
+    .temple-link:hover {
+      background: #d4af37;
+      color: #000;
+      box-shadow: 0 0 14px rgba(212, 175, 55, 0.8);
+    }
+
+    .note {
+      margin-top: 30px;
+      font-size: 0.8rem;
+      color: #8e886c;
+      text-align: center;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 1.8rem;
+      }
+      .subtitle {
+        font-size: 0.9rem;
+      }
     }
   </style>
 </head>
-
 <body>
+  <nav>
+    <a href="index.html">Origin</a>
+    <a href="lore.html">Lore & Echoes</a>
+    <a href="elements.html">Elements</a>
+    <a href="howling-wall.html">Howling Wall</a>
+    <a href="glitched-genius.html">Glitched Genius</a>
+  </nav>
 
-  <div class="container">
-
-    <h1 class="page-title">The Elements of Wulverik</h1>
-    <p class="page-subtitle">
-      Five ancient forces shape the Realm, each guiding travelers through transformation, memory, truth, strength, and destiny.
-      These elements live within every story, every chamber, and every Echo that forms along your path.
+  <main>
+    <h1>The Elemental Temples</h1>
+    <p class="subtitle">
+      Four primal elements — and one prism spirit — shape the Wulverik Realm.
+      Each temple is a living reflection of the traveler who enters it. Choose
+      your path, or walk them all, and let the realm show you who you are.
     </p>
 
-    <!-- WATER -->
-    <div class="element-card">
-      <h2 class="element-title"><span class="element-icon">🌊</span>Water — The Tide of Memory</h2>
+    <div class="temple-grid">
+      <!-- Water Temple -->
+      <article class="temple-card">
+        <div class="temple-label">Water Temple</div>
+        <div class="temple-title">The Tide of Memory</div>
+        <p class="temple-desc">
+          A temple of tides, reflection, and emotional currents. Here, travelers
+          face the echoes beneath the surface — grief, hope, and the promises
+          they made to themselves.
+        </p>
+        <p class="temple-meta">
+          Element: Water • Themes: healing, reflection, memory
+        </p>
+        <a class="temple-link" href="water.html">Enter Water Temple</a>
+      </article>
 
-      <div class="element-section">Homeland:</div>
-      <p class="element-text">The Luminescent Tides, a glowing shoreline where water reflects the traveler's emotional state.</p>
+      <!-- Fire Temple -->
+      <article class="temple-card">
+        <div class="temple-label">Fire Temple</div>
+        <div class="temple-title">The Ember of Resolve</div>
+        <p class="temple-desc">
+          Forged in heat and pressure, the Fire Temple tests willpower and
+          anger, asking one question: will you burn everything around you, or
+          become the flame that guides others in the dark?
+        </p>
+        <p class="temple-meta">
+          Element: Fire • Themes: courage, anger, transformation
+        </p>
+        <a class="temple-link" href="fire.html">Enter Fire Temple</a>
+      </article>
 
-      <div class="element-section">Guardian:</div>
-      <p class="element-text">The Tidecaller — a wolf of fluid silver-blue light, calm and ancient.</p>
+      <!-- Earth Temple -->
+      <article class="temple-card">
+        <div class="temple-label">Earth Temple</div>
+        <div class="temple-title">The Root of Stillness</div>
+        <p class="temple-desc">
+          A place of stone, roots, and steady heartbeat. Here, travelers learn
+          what truly anchors them — and what they must finally release.
+        </p>
+        <p class="temple-meta">
+          Element: Earth • Themes: grounding, stability, release
+        </p>
+        <a class="temple-link" href="earth.html">Enter Earth Temple</a>
+      </article>
 
-      <div class="element-section">Blessing:</div>
-      <p class="element-text">Clarity of the Deep — false echoes weaken in your presence.</p>
+      <!-- Air Temple -->
+      <article class="temple-card">
+        <div class="temple-label">Air Temple</div>
+        <div class="temple-title">The Breath Between Worlds</div>
+        <p class="temple-desc">
+          High above the clouds, whispers ride the wind. The Air Temple is for
+          voices unsaid, thoughts unspoken, and truths waiting to be carried
+          farther than fear.
+        </p>
+        <p class="temple-meta">
+          Element: Air • Themes: voice, perspective, freedom
+        </p>
+        <a class="temple-link" href="air.html">Enter Air Temple</a>
+      </article>
 
-      <div class="element-section">Trial:</div>
-      <p class="element-text">The Stillwater Test — face the moment you’ve avoided, gently revealed by mirrored waters.</p>
+      <!-- Bacho Temple -->
+      <article class="temple-card">
+        <div class="temple-label">Bacho Temple</div>
+        <div class="temple-title">Temple of the Prism Wolf</div>
+        <p class="temple-desc">
+          Not bound to a single element, the Bacho Temple belongs to the
+          shapeshifter — the Wolf-Son who walks in light, shadow, and everything
+          between. Here, travelers meet their own duality and learn to honor it.
+        </p>
+        <p class="temple-meta">
+          Aspect: Wolf / Prism / Heart • Themes: duality, protection, identity
+        </p>
+        <a class="temple-link" href="bacho.html">Enter Bacho Temple</a>
+      </article>
     </div>
 
-    <!-- FIRE -->
-    <div class="element-card">
-      <h2 class="element-title"><span class="element-icon">🔥</span>Fire — The Ember of Will</h2>
-
-      <div class="element-section">Homeland:</div>
-      <p class="element-text">The Emberforge Sanctuary, a cavern of molten gold runes and warm volcanic glow.</p>
-
-      <div class="element-section">Guardian:</div>
-      <p class="element-text">The Emberbound — a wolf carved from magma, ember, and smoke.</p>
-
-      <div class="element-section">Blessing:</div>
-      <p class="element-text">Inner Flame — your will cannot be extinguished, even in despair.</p>
-
-      <div class="element-section">Trial:</div>
-      <p class="element-text">The Flamewalk — cross floating embers that warm instead of burn.</p>
-    </div>
-
-    <!-- AIR -->
-    <div class="element-card">
-      <h2 class="element-title"><span class="element-icon">🌬️</span>Air — The Breath of Truth</h2>
-
-      <div class="element-section">Homeland:</div>
-      <p class="element-text">The Whisperwind Expanse, cliffs suspended in drifting sky currents.</p>
-
-      <div class="element-section">Guardian:</div>
-      <p class="element-text">The Skyhowler — a translucent wolf shaped by wind and stardust.</p>
-
-      <div class="element-section">Blessing:</div>
-      <p class="element-text">Wind-Sight — see your life from above, free from distortion.</p>
-
-      <div class="element-section">Trial:</div>
-      <p class="element-text">Leap of the Gale — trust the invisible bridges the sky creates beneath your feet.</p>
-    </div>
-
-    <!-- EARTH -->
-    <div class="element-card">
-      <h2 class="element-title"><span class="element-icon">🌱</span>Earth — The Root of Strength</h2>
-
-      <div class="element-section">Homeland:</div>
-      <p class="element-text">The Verdant Hollow, a glowing underground forest of warm emerald roots.</p>
-
-      <div class="element-section">Guardian:</div>
-      <p class="element-text">The Rootkeeper — a wolf of bark, moss, and humming green light.</p>
-
-      <div class="element-section">Blessing:</div>
-      <p class="element-text">Stoneheart Calm — storms cannot unsteady you.</p>
-
-      <div class="element-section">Trial:</div>
-      <p class="element-text">The Path of Burdens — a stone you carry cracks open to reveal it was empty all along.</p>
-    </div>
-
-    <!-- AETHER -->
-    <div class="element-card">
-      <h2 class="element-title"><span class="element-icon">🌌</span>Aether — The Fifth Element</h2>
-
-      <div class="element-section">Homeland:</div>
-      <p class="element-text">The Astral Crossing — a floating bridge between worlds, tied to traveler destiny.</p>
-
-      <div class="element-section">Guardian:</div>
-      <p class="element-text">The Aetherwolf — a shimmering glitch-wolf of golden thread and starlight.</p>
-
-      <div class="element-section">Blessing:</div>
-      <p class="element-text">Sight of the Hidden Thread — see how events and emotions are connected.</p>
-
-      <div class="element-section">Trial:</div>
-      <p class="element-text">The Fifth Chamber — witness who you could become, unburdened and fully whole.</p>
-    </div>
-
-  </div>
-
+    <p class="note">
+      Some temples may still be awakening. As the Wulverik Realm grows, each
+      path will deepen with new lore, trials, and secrets to discover.
+    </p>
+  </main>
 </body>
 </html>
