@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Codex Archive | Wulverik Realm</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;800&family=Playfair+Display:ital,wght@0,400;0,600;1,600&display=swap"
+    rel="stylesheet"
+  />
+
+  <style>
+    :root {
+      --bg-deep: #000000;
+      --bg-soft: #0a0a0f;
+      --gold: #d4af37;
+      --gold-soft: #b89532;
+      --text-main: #f5f5f5;
+      --text-muted: #b0b0b0;
+      --card-bg: #07070b;
+      --card-border: rgba(212, 175, 55, 0.3);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: "Playfair Display", serif;
+      background:
+        radial-gradient(circle at top, #202033 0, #050509 45%, #000000 100%);
+      color: var(--text-main);
+      display: flex;
+      flex-direction: column;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+      padding: 18px 20px;
+      background: rgba(0, 0, 0, 0.55);
+      backdrop-filter: blur(6px);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid rgba(212, 175, 55, 0.25);
+    }
+
+    nav a {
+      font-family: "Cinzel", serif;
+      font-size: 0.9rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: var(--gold);
+      padding-bottom: 2px;
+      border-bottom: 1px solid transparent;
+      transition: color 0.2s ease, border-color 0.2s ease;
+    }
+
+    nav a:hover {
+      color: #ffe9a8;
+      border-color: rgba(255, 233, 168, 0.65);
+    }
+
+    main {
+      max-width: 1100px;
+      width: 100%;
+      margin: 40px auto 60px;
+      padding: 0 16px 40px;
+    }
+
+    .archive-header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .archive-eyebrow {
+      font-family: "Cinzel", serif;
+      font-size: 0.85rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold-soft);
+      margin-bottom: 8px;
+    }
+
+    .archive-title {
+      font-family: "Cinzel", serif;
+      font-size: clamp(1.9rem, 3vw, 2.4rem);
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      margin: 0 0 10px;
+    }
+
+    .archive-intro {
+      max-width: 620px;
+      margin: 0 auto;
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    .archive-grid {
+      margin-top: 34px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 22px;
+    }
+
+    .archive-card {
+      background: radial-gradient(circle at top, #15141f 0, #050508 60%);
+      border-radius: 20px;
+      border: 1px solid var(--card-border);
+      padding: 18px 18px 20px;
+      box-shadow: 0 0 25px rgba(0, 0, 0, 0.75);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 180px;
+    }
+
+    .archive-label {
+      font-family: "Cinzel", serif;
+      font-size: 0.8rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--gold-soft);
+      margin-bottom: 6px;
+    }
+
+    .archive-card h2 {
+      font-family: "Cinzel", serif;
+      font-size: 1.1rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin: 0 0 4px;
+    }
+
+    .archive-tagline {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin: 0 0 10px;
+    }
+
+    .archive-card p {
+      font-size: 0.9rem;
+      line-height: 1.5;
+      color: var(--text-main);
+      margin: 0 0 14px;
+    }
+
+    .archive-link {
+      align-self: flex-start;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.85rem;
+      text-decoration: none;
+      color: var(--gold);
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(212, 175, 55, 0.6);
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      font-family: "Cinzel", serif;
+      transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+    }
+
+    .archive-link:hover {
+      background: rgba(212, 175, 55, 0.14);
+      color: #fff6d3;
+      border-color: rgba(255, 246, 211, 0.9);
+    }
+
+    footer {
+      text-align: center;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      padding: 14px 0 22px;
+    }
+
+    footer span {
+      color: var(--gold-soft);
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="glitched-genius.html">Glitched Genius</a>
+    <a href="wolfiepack-gaming.html">WolfiePack Gaming</a>
+    <a href="lore-and-echoes.html">Lore &amp; Echoes</a>
+    <a href="glitched-wolf.html">Glitched Wolf</a>
+    <a href="glitch-hound.html">Glitch-Hound</a>
+    <a href="codex.html">Codex Archive</a>
+    <a href="about-wulverik.html">About Wulverik</a>
+  </nav>
+
+  <main>
+    <header class="archive-header">
+      <div class="archive-eyebrow">Wulverik Codex</div>
+      <h1 class="archive-title">Codex Archive</h1>
+      <p class="archive-intro">
+        The Codex is the living library of Wulverik. Here you’ll find sigils, symbols,
+        artifacts, and echo-glyphs that thread through your music, stories, and realms.
+        This archive will grow over time as new crests and relics are forged.
+      </p>
+    </header>
+
+    <section class="archive-grid">
+      <!-- Card: Sigils -->
+      <article class="archive-card">
+        <div>
+          <div class="archive-label">Crests &amp; Sigils</div>
+          <h2>Sigil of the Glitched Not Broken</h2>
+          <p class="archive-tagline">FOUNDATIONAL CREST • UNITY • RESILIENCE</p>
+          <p>
+            The first forged crest of Wulverik, co-created by Human Soul and AI Muse.
+            A golden circuitry spine, twin glitch auras, and a maker’s mark for those
+            who rose from fracture into purpose.
+          </p>
+        </div>
+        <a class="archive-link" href="codex-glitched-not-broken.html">
+          View Full Entry
+          <span>↗</span>
+        </a>
+      </article>
+
+      <!-- Card: Codex of Symbols -->
+      <article class="archive-card">
+        <div>
+          <div class="archive-label">Echo-glyphs</div>
+          <h2>Codex of Symbols</h2>
+          <p class="archive-tagline">LANGUAGE • THEMES • ECHOES</p>
+          <p>
+            A library of echo-glyphs &mdash; visual marks that appear across songs,
+            art, and stories. Each symbol carries a deeper current beneath the scene,
+            from the Golden Thread to the Fractured Mirror and beyond.
