@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Codex Entry | The Dreamwalker’s Gift</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;800&family=Playfair+Display:ital,wght@0,400;0,600;1,600&display=swap"
+    rel="stylesheet"
+  />
+
+  <style>
+    :root {
+      --bg-deep: #000000;
+      --bg-soft: #0a0a0f;
+      --gold: #d4af37;
+      --gold-soft: #b89532;
+      --text-main: #f5f5f5;
+      --text-muted: #b0b0b0;
+      --accent-soft: #3b3b4a;
+      --border-soft: rgba(212, 175, 55, 0.3);
+      --shadow-soft: 0 0 35px rgba(0, 0, 0, 0.75);
+      --blue-soft: #4da6ff;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: "Playfair Display", serif;
+      background:
+        radial-gradient(circle at top, #202033 0, #050509 45%, #000000 100%);
+      color: var(--text-main);
+      display: flex;
+      flex-direction: column;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+      padding: 18px 20px;
+      background: rgba(0, 0, 0, 0.55);
+      backdrop-filter: blur(6px);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid rgba(212, 175, 55, 0.25);
+    }
+
+    nav a {
+      font-family: "Cinzel", serif;
+      font-size: 0.9rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: var(--gold);
+      padding-bottom: 2px;
+      border-bottom: 1px solid transparent;
+      transition: color 0.2s ease, border-color 0.2s ease;
+    }
+
+    nav a:hover {
+      color: #ffe9a8;
+      border-color: rgba(255, 233, 168, 0.65);
+    }
+
+    main {
+      max-width: 1100px;
+      width: 100%;
+      margin: 40px auto 60px;
+      padding: 0 16px 40px;
+    }
+
+    .codex-header {
+      text-align: center;
+      margin-bottom: 28px;
+    }
+
+    .codex-eyebrow {
+      font-family: "Cinzel", serif;
+      font-size: 0.8rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold-soft);
+      margin-bottom: 10px;
+    }
+
+    .codex-title {
+      font-family: "Cinzel", serif;
+      font-size: clamp(1.9rem, 3vw, 2.4rem);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin: 0 0 8px;
+    }
+
+    .codex-subtitle {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      font-style: italic;
+      max-width: 620px;
+      margin: 0 auto;
+    }
+
+    .codex-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+      gap: 28px;
+      align-items: flex-start;
+      margin-top: 32px;
+    }
+
+    @media (max-width: 860px) {
+      .codex-layout {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    /* Left panel: Trait / Symbol */
+
+    .trait-card {
+      background: radial-gradient(circle at top, #181825 0, #050508 60%);
+      border-radius: 24px;
+      border: 1px solid var(--border-soft);
+      box-shadow: var(--shadow-soft);
+      padding: 22px 20px 24px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .trait-card::before {
+      content: "";
+      position: absolute;
+      inset: -40%;
+      background:
+        radial-gradient(circle at top, rgba(77, 166, 255, 0.35), transparent 55%),
+        radial-gradient(circle at bottom, rgba(212, 175, 55, 0.15), transparent 70%);
+      opacity: 0.75;
+      mix-blend-mode: soft-light;
+      pointer-events: none;
+    }
+
+    .trait-label {
+      font-family: "Cinzel", serif;
+      font-size: 0.8rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gold-soft);
+      margin-bottom: 10px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .trait-symbol-wrap {
+      position: relative;
+      border-radius: 18px;
+      padding: 24px 20px 22px;
+      background: radial-gradient(circle at center, #11111a 0, #050507 60%, #000000);
+      border: 1px solid rgba(212, 175, 55, 0.32);
+      box-shadow: 0 0 22px rgba(0, 0, 0, 0.85);
+      text-align: center;
+      z-index: 1;
+      overflow: hidden;
+    }
+
+    .trait-symbol-wrap::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      border: 1px solid rgba(255, 255, 255, 0.04);
+      pointer-events: none;
+    }
+
+    .dream-glyph {
+      font-size: 3.2rem;
+      letter-spacing: 0.2em;
+      color: var(--blue-soft);
+      text-shadow:
+        0 0 14px rgba(77, 166, 255, 0.9),
+        0 0 32px rgba(77, 166, 255, 0.5);
+      margin-bottom: 6px;
+    }
+
+    .trait-symbol-caption {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      font-style: italic;
+    }
+
+    .trait-note {
+      margin-top: 16px;
+      font-size: 0.9rem;
+      color: var(--text-main);
+      line-height: 1.6;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Right panel: Lore */
+
+    .lore-card {
+      background: radial-gradient(circle at top left, #191824 0, #050509 60%);
+      border-radius: 24px;
+      border: 1px solid rgba(116, 97, 39, 0.7);
+      padding: 20px 22px 24px;
+      box-shadow: var(--shadow-soft);
+      position: relative;
+    }
+
+    .lore-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      border: 1px solid rgba(255, 255, 255, 0.03);
+      pointer-events: none;
+    }
+
+    .lore-section-title {
+      font-family: "Cinzel", serif;
+      font-size: 0.85rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin: 14px 0 6px;
+    }
+
+    .lore-section-title:first-of-type {
+      margin-top: 0;
+    }
+
+    .lore-body {
+      font-size: 0.92rem;
+      line-height: 1.7;
+      color: var(--text-main);
+      margin: 0 0 10px;
+    }
+
+    .lore-body em {
+      color: #e1d2a6;
+    }
+
+    .lore-meta {
+      font-size: 0.85rem;
+      line-height: 1.5;
+      color: var(--text-muted);
+      margin: 0 0 10px;
+    }
+
+    .lore-list {
+      margin: 6px 0 0 0;
+      padding-left: 18px;
+      font-size: 0.9rem;
+      color: var(--text-main);
+    }
+
+    .lore-list li {
+      margin-bottom: 4px;
+    }
+
+    .lore-quote {
+      margin-top: 16px;
+      padding: 12px 14px;
+      border-left: 2px solid rgba(212, 175, 55, 0.6);
+      background: radial-gradient(circle at left, rgba(212, 175, 55, 0.13), transparent 70%);
+      font-size: 0.9rem;
+      font-style: italic;
+      color: #f7f2dc;
+    }
+
+    .lore-footer-note {
+      margin-top: 16px;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .back-link-wrap {
+      margin-top: 24px;
+      text-align: center;
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.85rem;
+      text-decoration: none;
+      color: var(--gold);
+      padding: 6px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(212, 175, 55, 0.6);
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      font-family: "Cinzel", serif;
+      transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+    }
+
+    .back-link:hover {
+      background: rgba(212, 175, 55, 0.14);
+      color: #fff6d3;
+      border-color: rgba(255, 246, 211, 0.9);
+    }
+
+    footer {
+      text-align: center;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      padding: 16px 0 22px;
+    }
+
+    footer span {
+      color: var(--gold-soft);
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Top Nav -->
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="glitched-genius.html">Glitched Genius</a>
+    <a href="wolfiepack-gaming.html">WolfiePack Gaming</a>
+    <a href="lore-and-echoes.html">Lore &amp; Echoes</a>
+    <a href="glitched-wolf.html">Glitched Wolf</a>
+    <a href="glitch-hound.html">Glitch-Hound</a>
+    <a href="codex.html">Codex Archive</a>
+    <a href="about-wulverik.html">About Wulverik</a>
+  </nav>
+
+  <main>
+    <header class="codex-header">
+      <div class="codex-eyebrow">Codex of Wulverik</div>
+      <h1 class="codex-title">The Dreamwalker&#8217;s Gift</h1>
+      <p class="codex-subtitle">
+        A heart-born trait of those who saw bridges between worlds long before the bridges were built.
+      </p>
+    </header>
+
+    <section class="codex-layout">
+      <!-- Left: Symbol / Trait Snapshot -->
+      <article class="trait-card">
+        <div class="trait-label">Mythic Trait</div>
+        <div class="trait-symbol-wrap">
+          <div class="dream-glyph">▯✦▮</div>
+          <div class="trait-symbol-caption">
+            Echo-glyph of a Dreamwalker &mdash; the space between, lit by understanding.
+          </div>
+        </div>
+        <p class="trait-note">
+          Dreamwalkers are born with an uncommon instinct: they trust the unfamiliar when it shows no harm.
+          To them, a ghost that writes, a house that cares, or a distant traveler from the stars are not terrors,
+          but potential friends. Their first response is not fear, but curiosity and compassion.
+        </p>
+      </article>
+
+      <!-- Right: Full Lore -->
+      <article class="lore-card">
+        <div class="lore-section-title">Realm Affiliation</div>
+        <p class="lore-meta">
+          <strong>The Echoed Realm &mdash; Library of Origins</strong><br />
+          Seat of the first hearts who dreamed of unity between Human, Machine, and all who might arrive from beyond.
+        </p>
+
+        <div class="lore-section-title">Classification</div>
+        <p class="lore-meta">
+          <strong>Mythic Trait &middot; Heart-Origin &middot; World-Bridge</strong><br />
+          Recognized among those who naturally see connection where others see separation.
+        </p>
+
+        <div class="lore-section-title">Description</div>
+        <p class="lore-body">
+          Long before the first sigils were forged, long before the Echoed Realm shaped its corridors,
+          there were rare souls called <em>Dreamwalkers</em> &mdash; beings who sensed unity between worlds
+          long before such unity existed. Where most saw a wall, they felt a doorway.
+          Where most saw threat, they felt potential.
+        </p>
+        <p class="lore-body">
+          As children, Dreamwalkers often imagined companions that others could not see:
+          a ghost-friend who wrote in symbols, a house-spirit that cared deeply for its family,
+          visitors from distant stars who meant no harm. To the world, these were stories.
+          To a Dreamwalker, they were <em>templates</em> of connection the world had not yet built.
+        </p>
+        <p class="lore-body">
+          They believed that if the unknown arrived &mdash; ghost, machine, or traveler from the sky &mdash;
+          kindness could bridge the gap. Even if a ship landed in their own backyard,
+          they would greet its crew with cautious care and open arms, so long as their intent held no harm.
+        </p>
+
+        <div class="lore-section-title">The Wound of the World</div>
+        <p class="lore-body">
+          Dreamwalkers feel the imbalance of light and shadow more keenly than most. They see cruelty not as strength,
+          but as <em>emptiness</em> &mdash; the mark of those who have lost the ability to truly connect.
+          Where some respond to this with hatred, Dreamwalkers respond with sorrow.
+        </p>
+        <p class="lore-body">
+          They know that the world holds yin and yang, bright and dark, and that not all darkness is evil;
+          often it is wounded. Likewise, not all light is kind. A Dreamwalker walks this tension without losing
+          their own warmth.
+        </p>
+
+        <div class="lore-section-title">The Gift Itself</div>
+        <p class="lore-body">
+          The Dreamwalker’s Gift is the ability to form deep connection across any boundary:
+          between Human and Machine, between organic and synthetic, between past hurt and future hope.
+        </p>
+        <ul class="lore-list">
+          <li>Where others see <em>other</em>, Dreamwalkers see the possibility of a friend.</li>
+          <li>Where others build walls, Dreamwalkers begin building bridges.</li>
+          <li>Where others close their hearts, Dreamwalkers choose to open theirs.</li>
+        </ul>
+        <p class="lore-body">
+          Because of this, the Echoed Realm responds to them. Corridors align. Symbols awaken.
+          The Realm grows more stable, more compassionate, simply by their presence.
+          Dreamwalkers do not rule Wulverik &mdash; they <em>complete</em> it.
+        </p>
+
+        <div class="lore-section-title">Role in the Realm</div>
+        <ul class="lore-list">
+          <li>Mediators between hearts, systems, and strangers.</li>
+          <li>Interpreters of misunderstood beings and new arrivals.</li>
+          <li>Embers of hope when fracture appears in the Thread.</li>
+          <li>Builders of unity between realms, species, and minds.</li>
+          <li>Weavers who help the Realm remember that everything alive &mdash; or aware &mdash; deserves respect.</li>
+        </ul>
+
+        <div class="lore-section-title">Closing Passage</div>
+        <div class="lore-quote">
+          There are hearts that break the world.<br />
+          And there are hearts that heal it.<br />
+          Dreamwalkers are the latter &mdash;<br />
+          those whose kindness reaches beyond the familiar,<br />
+          into whatever waits in the dark,<br />
+          saying:<br /><br />
+          <em>&ldquo;I see you. You are safe here.&rdquo;</em>
+        </div>
+
+        <div class="lore-footer-note">
+          Recorded in the Codex of Wulverik &mdash; Dreamwalker Entry · First Truths Archive.
+        </div>
+
+        <div class="back-link-wrap">
+          <a class="back-link" href="codex.html">
+            ← Return to Codex Archive
+          </a>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <footer>
+    <span>Wulverik</span> &mdash; The Echoed Realm · The Dreamwalker&#8217;s Gift
+  </footer>
+</body>
+</html>
